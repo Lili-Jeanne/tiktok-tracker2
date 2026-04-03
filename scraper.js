@@ -147,24 +147,44 @@ async function callMistral(prompt, temperature = 0.3) {
 async function generateTrends() {
   const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 
-  const prompt = `Tu es un expert des tendances TikTok chez les collégiens français (11-15 ans). Nous sommes le ${today}.
+  const prompt = `Tu es un analyste spécialisé dans les micro-tendances TikTok chez les collégiens français (11-15 ans, classes de 6e à 3e). Nous sommes le ${today}.
 
-Ton rôle : Identifier les 15 meilleurs hashtags TikTok actifs EN CE MOMENT, populaires sur TikTok France, reconnus par les collégiens français.
+CONTEXTE :
+Les micro-tendances que tu dois trouver sont des hashtags TikTok nés ou devenus viraux en France ces 1 à 4 derniers mois. Ce sont des mots-clés précis, reconnaissables immédiatement par un collégien français à la récréation. Ils viennent de sons TikTok, de mèmes francophones, de séries/jeux populaires chez les ados, ou d'expressions inventées sur internet.
 
-Règles strictes :
-- Chaque élément "hashtag" doit être un seul mot, sans espace, sans #, sans accent, tout en minuscules
-- Exemples valides : "skibidi", "sigma", "brainrot", "rizz", "glowtok", "miaw", "fanum"
-- Exemples invalides : "le son", "la phrase", "c'est pas moi", "oh non oh non"
-- Le champ "explication" est une phrase courte EN FRANÇAIS expliquée pour des PARENTS (pas des ados), qui décrit ce que cette tendance représente dans la culture ado actuelle
-- Le champ "categorie" doit être l'une de ces valeurs exactes : "Argot internet / Brainrot", "Gaming", "Danse / Emote", "Vie scolaire", "Contenu viral", "Musique", "Anime / Manga", "Tendance ados"
-- Le champ "fiabilite" est un entier de 0 à 100 indiquant à quel point cette tendance est active et populaire maintenant en France
-- Le champ "vues" est une estimation formatée comme "50M+" ou "200M+"
+EXEMPLES du type de hashtags attendus (à titre indicatif, ne pas les copier) :
+- "skibidi" (brainrot, animation absurde virale)
+- "sigma" (argot internet, homme solitaire dominateur)
+- "rizz" (charisme avec les filles/garçons, term virale)
+- "pookie" (surnom affectueux devenu running gag)
+- "looksmax" (obsession de s'améliorer physiquement)
+- "fanum" (tax = voler la nourriture de quelqu'un)
+- "mewing" (exercice de mâchoire popularisé par des vidéos)
+- "brainrot" (contenu absurde qui "pourrit le cerveau")
+- "glowtok" (transformation beauté/style)
+- "slay" (faire quelque chose parfaitement)
+Ne copies surtout pas ces exemples là sauf si tu les trouves en dehors de ces exemples.
 
-Réponds UNIQUEMENT avec un tableau JSON valide, sans texte avant ni après, sans markdown :
+RÈGLES STRICTES DE SÉLECTION :
+✅ La tendance doit être active sur TikTok FRANCE ces 1 à 4 derniers mois
+✅ Elle doit être utilisée/comprise par les collégiens français (11-15 ans) sans explication
+✅ Le hashtag doit être UN SEUL MOT, en minuscules, sans espace, sans # et sans accents
+✅ L'explication doit être rédigée pour des PARENTS qui ne connaissent pas TikTok : simple, neutre, sans jargon
+✅ La catégorie doit être exactement l'une de : "Argot internet / Brainrot", "Gaming", "Danse / Emote", "Vie scolaire", "Contenu viral", "Musique", "Anime / Manga", "Tendance ados"
+✅ "fiabilite" = score de 0 à 100 indiquant à quel point cette trend est ACTIVE EN CE MOMENT en France
+✅ "vues" = estimation du nombre total de vues TikTok associées, format "50M+" ou "2Md+"
+
+❌ Exclure les hashtags génériques (#fyp, #viral, #pourtoi, #tiktok, #trending, #france)
+❌ Exclure les tendances de plus de 6 mois ou déjà passées de mode
+❌ Exclure les trends strictement anglophones non adoptées en France
+❌ Exclure les tendances réservées aux adultes (18+)
+❌ Le hashtag ne doit pas contenir d'espaces, de tirets, d'apostrophes ou de caractères spéciaux
+
+Réponds UNIQUEMENT avec un tableau JSON valide de 15 éléments, sans texte avant ni après, sans bloc markdown :
 [
   {
     "hashtag": "skibidi",
-    "explication": "Expression comique issue d'un dessin animé internet très populaire chez les ados, utilisée pour faire des blagues absurdes.",
+    "explication": "Personnage absurde issu d'une animation virale sur internet, repris dans d'innombrables mèmes. Les collégiens l'utilisent pour qualifier quelque chose de bizarre ou de drôle.",
     "categorie": "Argot internet / Brainrot",
     "fiabilite": 95,
     "vues": "500M+"
@@ -273,12 +293,12 @@ async function run() {
     // ── 1. GÉNÉRATION DES TENDANCES PAR L'IA (JSON) ───────────
     console.log('\n🤖 ÉTAPE 1 — Génération des tendances par Mistral AI...');
     let finalTrends = await generateTrends();
-    
+
     if (finalTrends.length === 0) {
-       console.log('⚠️ Aucune tendance n\'a été récupérée. Arrêt.');
-       process.exit(1);
+      console.log('⚠️ Aucune tendance n\'a été récupérée. Arrêt.');
+      process.exit(1);
     }
-    
+
     // Limitation aux 20 meilleurs
     if (finalTrends.length > MAX_FINAL_TRENDS) {
       finalTrends = finalTrends.slice(0, MAX_FINAL_TRENDS);
