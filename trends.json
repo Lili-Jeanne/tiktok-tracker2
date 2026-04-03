@@ -1,0 +1,387 @@
+{
+  "lastUpdate": "2026-04-03T14:35:45.240Z",
+  "totalCandidates": 426,
+  "totalAfterAIFilter": 22,
+  "sources": [
+    "tiktokhashtags.com",
+    "Mistral AI (filtre + explications)",
+    "Google Trends FR 90 jours",
+    "TikTok (vidéo exemple)"
+  ],
+  "trends": [
+    {
+      "tag": "anime",
+      "views": 1500000000000,
+      "posts": 123900000,
+      "viewsFmt": "1.5 T",
+      "postsFmt": "123.9 M",
+      "trendScore": 71,
+      "isRising": false,
+      "aiConfidence": 95,
+      "explanation": "Tendance où les collégiens partagent des edits, des réactions ou des memes sur leurs animés préférés (Demon Slayer, Jujutsu Kaisen, etc.).",
+      "category": "Anime / Manga",
+      "exampleVideo": {
+        "author": "@theanimemen",
+        "videoId": "7448762972291222826",
+        "videoUrl": "https://www.tiktok.com/@theanimemen/video/7448762972291222826",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7448762972291222826"
+      }
+    },
+    {
+      "tag": "edit",
+      "views": 1200000000000,
+      "posts": 115500000,
+      "viewsFmt": "1.2 T",
+      "postsFmt": "115.5 M",
+      "trendScore": 30,
+      "isRising": false,
+      "aiConfidence": 95,
+      "explanation": "Mème où les ados montent des vidéos courtes avec des musiques tendance, des effets visuels et des transitions stylisées.",
+      "category": "Tendance ados",
+      "exampleVideo": {
+        "author": "@buschx",
+        "videoId": "7623869526266137859",
+        "videoUrl": "https://www.tiktok.com/@buschx/video/7623869526266137859",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7623869526266137859"
+      }
+    },
+    {
+      "tag": "meme",
+      "views": 1200000000000,
+      "posts": 50600000,
+      "viewsFmt": "1.2 T",
+      "postsFmt": "50.6 M",
+      "trendScore": 87,
+      "isRising": false,
+      "aiConfidence": 90,
+      "explanation": "Tendance où les collégiens partagent des blagues visuelles ou des situations humoristiques liées à leur quotidien (école, parents, etc.).",
+      "category": "Tendance ados",
+      "exampleVideo": {
+        "author": "@meme_of_the_day11",
+        "videoId": "7589639849292877077",
+        "videoUrl": "https://www.tiktok.com/@meme_of_the_day11/video/7589639849292877077",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7589639849292877077"
+      }
+    },
+    {
+      "tag": "capcut",
+      "views": 5000000000000,
+      "posts": 975900000,
+      "viewsFmt": "5.0 T",
+      "postsFmt": "975.9 M",
+      "trendScore": 80,
+      "isRising": false,
+      "aiConfidence": 90,
+      "explanation": "Mème où les collégiens utilisent l'appli CapCut pour monter des vidéos avec des effets tendance (transitions, musiques, etc.).",
+      "category": "Argot internet / Brainrot",
+      "exampleVideo": {
+        "author": "@hasee_20048",
+        "videoId": "7624527885629394196",
+        "videoUrl": "https://www.tiktok.com/@hasee_20048/video/7624527885629394196",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624527885629394196"
+      }
+    },
+    {
+      "tag": "gaming",
+      "views": 516900000000,
+      "posts": 36000000,
+      "viewsFmt": "516.9 Md",
+      "postsFmt": "36.0 M",
+      "trendScore": 68,
+      "isRising": false,
+      "aiConfidence": 90,
+      "explanation": "Tendance où les collégiens postent des clips de jeux (Fortnite, Roblox, GTA RP), des réactions ou des tutos.",
+      "category": "Gaming",
+      "exampleVideo": {
+        "author": "@maccagames",
+        "videoId": "7623971356824063245",
+        "videoUrl": "https://www.tiktok.com/@maccagames/video/7623971356824063245",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7623971356824063245"
+      }
+    },
+    {
+      "tag": "fortnite",
+      "views": 428100000000,
+      "posts": 53500000,
+      "viewsFmt": "428.1 Md",
+      "postsFmt": "53.5 M",
+      "trendScore": 61,
+      "isRising": false,
+      "aiConfidence": 90,
+      "explanation": "Tendance où les collégiens partagent des clips de gameplay, des skins ou des défis liés à Fortnite.",
+      "category": "Gaming",
+      "exampleVideo": {
+        "author": "@bushszn",
+        "videoId": "7624254134782299423",
+        "videoUrl": "https://www.tiktok.com/@bushszn/video/7624254134782299423",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624254134782299423"
+      }
+    },
+    {
+      "tag": "dance",
+      "views": 702500000000,
+      "posts": 88300000,
+      "viewsFmt": "702.5 Md",
+      "postsFmt": "88.3 M",
+      "trendScore": 60,
+      "isRising": false,
+      "aiConfidence": 85,
+      "explanation": "Tendance où les collégiens reproduisent des chorégraphies virales ou créent leurs propres pas de danse.",
+      "category": "Danse / Emote",
+      "exampleVideo": {
+        "author": "@chanelcoleman_",
+        "videoId": "7624315207224921358",
+        "videoUrl": "https://www.tiktok.com/@chanelcoleman_/video/7624315207224921358",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624315207224921358"
+      }
+    },
+    {
+      "tag": "roblox",
+      "views": 476100000000,
+      "posts": 63100000,
+      "viewsFmt": "476.1 Md",
+      "postsFmt": "63.1 M",
+      "trendScore": 54,
+      "isRising": false,
+      "aiConfidence": 85,
+      "explanation": "Tendance où les collégiens partagent des gameplay, des créations ou des memes liés à Roblox.",
+      "category": "Gaming",
+      "exampleVideo": {
+        "author": "@ohwetty",
+        "videoId": "7624425179124387103",
+        "videoUrl": "https://www.tiktok.com/@ohwetty/video/7624425179124387103",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624425179124387103"
+      }
+    },
+    {
+      "tag": "parati",
+      "views": 7700000000000,
+      "posts": 760000000,
+      "viewsFmt": "7.7 T",
+      "postsFmt": "760.0 M",
+      "trendScore": 7,
+      "isRising": false,
+      "aiConfidence": 85,
+      "explanation": "Tendance où les ados partagent des vidéos 'pour toi', souvent des edits ou des défis personnalisés.",
+      "category": "Tendance ados",
+      "exampleVideo": {
+        "author": "@anac0ntreras",
+        "videoId": "7163063270574722310",
+        "videoUrl": "https://www.tiktok.com/@anac0ntreras/video/7163063270574722310",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7163063270574722310"
+      }
+    },
+    {
+      "tag": "relatable",
+      "views": 525700000000,
+      "posts": 19700000,
+      "viewsFmt": "525.7 Md",
+      "postsFmt": "19.7 M",
+      "trendScore": 5,
+      "isRising": false,
+      "aiConfidence": 85,
+      "explanation": "Mème où les ados partagent des situations du quotidien (école, amitié, famille) qui font rire ou réfléchir.",
+      "category": "Tendance ados",
+      "exampleVideo": {
+        "author": "@userdm.059",
+        "videoId": "7617906158933708046",
+        "videoUrl": "https://www.tiktok.com/@userdm.059/video/7617906158933708046",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7617906158933708046"
+      }
+    },
+    {
+      "tag": "kpop",
+      "views": 451800000000,
+      "posts": 53100000,
+      "viewsFmt": "451.8 Md",
+      "postsFmt": "53.1 M",
+      "trendScore": 64,
+      "isRising": false,
+      "aiConfidence": 80,
+      "explanation": "Tendance où les ados postent des edits, des covers ou des réactions aux clips de leurs groupes préférés (BTS, Blackpink, etc.).",
+      "category": "Tendance ados",
+      "exampleVideo": {
+        "author": "@twice_tiktok_official",
+        "videoId": "7074872423664913666",
+        "videoUrl": "https://www.tiktok.com/@twice_tiktok_official/video/7074872423664913666",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7074872423664913666"
+      }
+    },
+    {
+      "tag": "pourtoi",
+      "views": 1400000000000,
+      "posts": 156700000,
+      "viewsFmt": "1.4 T",
+      "postsFmt": "156.7 M",
+      "trendScore": 9,
+      "isRising": false,
+      "aiConfidence": 80,
+      "explanation": "Variante française de 'foryou', utilisée pour booster la visibilité des vidéos sur la page d'accueil.",
+      "category": "Tendance ados",
+      "exampleVideo": {
+        "author": "@ayindodalouba",
+        "videoId": "7624495688721829122",
+        "videoUrl": "https://www.tiktok.com/@ayindodalouba/video/7624495688721829122",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624495688721829122"
+      }
+    },
+    {
+      "tag": "prank",
+      "views": 498800000000,
+      "posts": 6600000,
+      "viewsFmt": "498.8 Md",
+      "postsFmt": "6.6 M",
+      "trendScore": 37,
+      "isRising": false,
+      "aiConfidence": 75,
+      "explanation": "Tendance où les ados filment des farces (souvent innocentes) sur leurs amis ou leur famille.",
+      "category": "Tendance ados",
+      "exampleVideo": {
+        "author": "@scare.prank.usa.93",
+        "videoId": "7614161927270386975",
+        "videoUrl": "https://www.tiktok.com/@scare.prank.usa.93/video/7614161927270386975",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7614161927270386975"
+      }
+    },
+    {
+      "tag": "omg",
+      "views": 226000000000,
+      "posts": 10700000,
+      "viewsFmt": "226.0 Md",
+      "postsFmt": "10.7 M",
+      "trendScore": 37,
+      "isRising": false,
+      "aiConfidence": 75,
+      "explanation": "Tendance où les collégiens réagissent avec exagération à des situations surprenantes ou drôles.",
+      "category": "Tendance ados",
+      "exampleVideo": null
+    },
+    {
+      "tag": "foryoupage",
+      "views": 18000000000000,
+      "posts": 1500000000,
+      "viewsFmt": "18.0 T",
+      "postsFmt": "1.5 Md",
+      "trendScore": null,
+      "isRising": null,
+      "aiConfidence": 75,
+      "explanation": "Ce hashtag est utilisé par les collégiens pour espérer que leurs vidéos apparaissent sur la page 'Pour toi' de TikTok.",
+      "category": "Contenu viral",
+      "exampleVideo": {
+        "author": "@usher",
+        "videoId": "6779814916271377670",
+        "videoUrl": "https://www.tiktok.com/@usher/video/6779814916271377670",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/6779814916271377670"
+      }
+    },
+    {
+      "tag": "pubgmobile",
+      "views": 327300000000,
+      "posts": 56600000,
+      "viewsFmt": "327.3 Md",
+      "postsFmt": "56.6 M",
+      "trendScore": null,
+      "isRising": null,
+      "aiConfidence": 75,
+      "explanation": "Tendance où les ados partagent des clips de gameplay ou des moments drôles sur PUBG Mobile.",
+      "category": "Gaming",
+      "exampleVideo": {
+        "author": "@pubgmobile",
+        "videoId": "7023567207120817455",
+        "videoUrl": "https://www.tiktok.com/@pubgmobile/video/7023567207120817455",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7023567207120817455"
+      }
+    },
+    {
+      "tag": "pubg",
+      "views": 245300000000,
+      "posts": 47500000,
+      "viewsFmt": "245.3 Md",
+      "postsFmt": "47.5 M",
+      "trendScore": 43,
+      "isRising": false,
+      "aiConfidence": 70,
+      "explanation": "Variante de 'pubgmobile', utilisée pour les clips de jeu ou les moments épiques.",
+      "category": "Gaming",
+      "exampleVideo": {
+        "author": "@1starcaptain",
+        "videoId": "7624164545061195030",
+        "videoUrl": "https://www.tiktok.com/@1starcaptain/video/7624164545061195030",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624164545061195030"
+      }
+    },
+    {
+      "tag": "football",
+      "views": 1100000000000,
+      "posts": 43800000,
+      "viewsFmt": "1.1 T",
+      "postsFmt": "43.8 M",
+      "trendScore": 35,
+      "isRising": false,
+      "aiConfidence": 70,
+      "explanation": "Tendance où les ados postent des tricks, des réactions aux matchs ou des edits de leurs joueurs préférés (Mbappé, Messi, etc.).",
+      "category": "Tendance ados",
+      "exampleVideo": {
+        "author": "@overtimeszn",
+        "videoId": "7623928090263080206",
+        "videoUrl": "https://www.tiktok.com/@overtimeszn/video/7623928090263080206",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7623928090263080206"
+      }
+    },
+    {
+      "tag": "fashion",
+      "views": 336300000000,
+      "posts": 35400000,
+      "viewsFmt": "336.3 Md",
+      "postsFmt": "35.4 M",
+      "trendScore": 27,
+      "isRising": false,
+      "aiConfidence": 70,
+      "explanation": "Tendance où les collégiens montrent leurs tenues, des hauls ou des conseils style (souvent liés à Shein ou Vinted).",
+      "category": "Tendance ados",
+      "exampleVideo": {
+        "author": "@georgearmstrong333",
+        "videoId": "7624092708784672022",
+        "videoUrl": "https://www.tiktok.com/@georgearmstrong333/video/7624092708784672022",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624092708784672022"
+      }
+    },
+    {
+      "tag": "fypdongggggggg",
+      "views": 686400000000,
+      "posts": 113700000,
+      "viewsFmt": "686.4 Md",
+      "postsFmt": "113.7 M",
+      "trendScore": null,
+      "isRising": null,
+      "aiConfidence": 70,
+      "explanation": "Variante humoristique et exagérée de 'fyp', souvent utilisée pour des vidéos absurdes ou des défis.",
+      "category": "Contenu viral",
+      "exampleVideo": {
+        "author": "@pryncss3",
+        "videoId": "7624506860795596053",
+        "videoUrl": "https://www.tiktok.com/@pryncss3/video/7624506860795596053",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624506860795596053"
+      }
+    }
+  ]
+}
