@@ -89,23 +89,27 @@ function getCategory(tag) {
   return 'Tendance ados';
 }
 
-// ─── GEMINI : appel générique avec retry ─────────────────────
+// ─── MISTRAL : appel générique avec retry ─────────────────────
 
-async function callGemini(prompt, temperature = 0.3) {
-  let apiKey = process.env.GEMINI_API_KEY;
+async function callMistral(prompt, temperature = 0.3) {
+  let apiKey = process.env.MISTRAL_API_KEY;
   if (apiKey) apiKey = apiKey.replace(/^["']|["']$/g, '').trim();
-  if (!apiKey) throw new Error('GEMINI_API_KEY manquante');
+  if (!apiKey) throw new Error('MISTRAL_API_KEY manquante');
 
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+        'https://api.mistral.ai/v1/chat/completions',
         {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`
+          },
           body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: { temperature },
+            model: 'mistral-large-latest',
+            messages: [{ role: 'user', content: prompt }],
+            temperature: temperature
           }),
         }
       );
@@ -115,7 +119,7 @@ async function callGemini(prompt, temperature = 0.3) {
         let errMsg = `HTTP ${res.status}`;
         try {
           const errJson = JSON.parse(errText);
-          if (errJson.error && errJson.error.message) errMsg += ` - ${errJson.error.message}`;
+          if (errJson.message) errMsg += ` - ${errJson.message}`;
         } catch (_) {
           errMsg += ` - ${errText.slice(0, 100)}`;
         }
@@ -123,20 +127,19 @@ async function callGemini(prompt, temperature = 0.3) {
       }
 
       const data = await res.json();
-      if (data.error) throw new Error(data.error.message);
 
-      const text = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
-      if (!text) throw new Error('Réponse Gemini vide');
+      const text = data?.choices?.[0]?.message?.content ?? '';
+      if (!text) throw new Error('Réponse Mistral vide');
 
       // Nettoie les éventuels blocs markdown ```json … ```
       return text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
 
     } catch (e) {
-      console.warn(`   ⚠️  Gemini tentative ${attempt}/3 : ${e.message}`);
+      console.warn(`   ⚠️  Mistral tentative ${attempt}/3 : ${e.message}`);
       if (attempt < 3) await sleep(1500 * attempt);
     }
   }
-  throw new Error('Gemini indisponible après 3 tentatives');
+  throw new Error('Mistral indisponible après 3 tentatives');
 }
 
 // ─── ÉTAPE 0 : Génération des seeds par Gemini ───────────────
@@ -155,7 +158,7 @@ Réponds UNIQUEMENT avec un tableau JSON valide de chaînes, sans texte avant ni
 ["terme1","terme2",...]`;
 
   try {
-    const raw = await callGemini(prompt, 0.45);
+    const raw = await callMistral(prompt, 0.45);
 
     // Extraction robuste : cherche le premier [ ... ] dans la réponse
     const match = raw.match(/\[[\s\S]*?\]/);
@@ -168,7 +171,7 @@ Réponds UNIQUEMENT avec un tableau JSON valide de chaînes, sans texte avant ni
       .map(k => String(k).toLowerCase().replace(/^#/, '').trim())
       .filter(k => k.length > 1 && k.length < 40 && /^[a-z0-9_àâéèêëîïôùûüç-]+$/i.test(k));
 
-    console.log(`   🤖 Gemini → ${cleaned.length} seeds : ${cleaned.slice(0, 8).join(', ')}…`);
+    console.log(`   🤖 Mistral → ${cleaned.length} seeds : ${cleaned.slice(0, 8).join(', ')}…`);
     return cleaned;
 
   } catch (e) {
@@ -228,8 +231,8 @@ async function scrapeHashtagPage(page, keyword) {
 
 async function classifyWithAI(candidates) {
   // Fallback si pas de clé
-  if (!process.env.GEMINI_API_KEY) {
-    console.warn('   ⚠️  Pas de clé Gemini → classification ignorée');
+  if (!process.env.MISTRAL_API_KEY) {
+    console.warn('   ⚠️  Pas de clé Mistral → classification ignorée');
     return Object.fromEntries(
       candidates.map(c => [c.tag, { isCollegeTrend: true, confidence: 50, explanation: null }])
     );
@@ -250,7 +253,7 @@ Réponds UNIQUEMENT avec un tableau JSON valide, sans markdown, sans texte autou
 Hashtags à analyser : [${tagList}]`;
 
   try {
-    const raw = await callGemini(prompt, 0.2);
+    const raw = await callMistral(prompt, 0.2);
 
     // Extraction robuste du tableau JSON
     const match = raw.match(/\[[\s\S]*\]/);
@@ -269,11 +272,11 @@ Hashtags à analyser : [${tagList}]`;
       };
     }
 
-    console.log(`   ✅ Gemini a classifié ${Object.keys(map).length} hashtags`);
+    console.log(`   ✅ Mistral a classifié ${Object.keys(map).length} hashtags`);
     return map;
 
   } catch (e) {
-    console.warn(`   ⚠️  Gemini classification échouée (${e.message}) → tous gardés`);
+    console.warn(`   ⚠️  Mistral classification échouée (${e.message}) → tous gardés`);
     return Object.fromEntries(
       candidates.map(c => [c.tag, { isCollegeTrend: true, confidence: 50, explanation: null }])
     );
@@ -423,7 +426,7 @@ async function run() {
       .sort((a, b) => (b.views || 0) - (a.views || 0))
       .slice(0, MAX_POOL_FOR_AI);
 
-    console.log(`\n🤖 ÉTAPE 2 — Classification Gemini (${poolForAI.length} candidats)...`);
+    console.log(`\n🤖 ÉTAPE 2 — Classification Mistral (${poolForAI.length} candidats)...`);
     const aiResults = await classifyWithAI(poolForAI);
 
     // Affichage du résultat de classification
@@ -493,7 +496,7 @@ async function run() {
       totalAfterAIFilter: aiFiltered.length,
       sources: [
         'tiktokhashtags.com',
-        'Gemini 1.5 Flash (filtre + explications)',
+        'Mistral AI (filtre + explications)',
         'Google Trends FR 90 jours',
         'TikTok (vidéo exemple)',
       ],
