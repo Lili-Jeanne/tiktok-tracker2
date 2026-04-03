@@ -1,0 +1,23 @@
+[
+  {
+    "tagStr": "#SkibidiToilet",
+    "tag": "skibiditoilet",
+    "explanation": "Explication (Usage : blagues)",
+    "viewsRaw": "150M+",
+    "confidence": 80
+  },
+  {
+    "tagStr": "Oh non, oh non, oh non non non",
+    "tag": "ohnonohnonohnonnonnon",
+    "explanation": " (Usage : Running gag en cours, blagues entre amis)",
+    "viewsRaw": "120M+ (combiné son + vidéos)",
+    "confidence": 100
+  },
+  {
+    "tagStr": "C’est pas moi, c’est mon cerveau",
+    "tag": "cestpasmoicestmoncerveau",
+    "explanation": " (Usage : Expression courante en classe)",
+    "viewsRaw": "30M+",
+    "confidence": 60
+  }
+]
