@@ -547,7 +547,7 @@
 
     <script>
         // URL du JSON généré par le scraper (branche main)
-        const JSON_URL = 'https://raw.githubusercontent.com/Lili-Jeanne/tiktok-tracker/main/trends.json';
+        const JSON_URL = 'https://raw.githubusercontent.com/Lili-Jeanne/tiktok-tracker2/main/trends.json';
 
         // ── Formatage des nombres ──────────────────────────────────
         function fmt(n) {
@@ -644,8 +644,8 @@
 
       <div class="bar-wrap">
         <div class="bar-label">
-          <span>Popularité Google Trends</span>
-          <span>${unknown ? 'N/A' : score + '/100'}</span>
+          <span>Fiabilité de la tendance (IA)</span>
+          <span>${unknown ? 'N/A' : score + '%'}</span>
         </div>
         <div class="bar-bg">
           <div class="bar-fill" style="width:${score}%"></div>
@@ -661,16 +661,12 @@
 
       <div class="stats">
         <div class="stat">
-          <div class="stat-val">${fmt(item.views)}</div>
+          <div class="stat-val">${item.viewsFmt || 'N/A'}</div>
           <div class="stat-key">Vues totales</div>
         </div>
         <div class="stat">
-          <div class="stat-val">${fmt(item.posts)}</div>
-          <div class="stat-key">Vidéos postées</div>
-        </div>
-        <div class="stat">
-          <div class="stat-val">${unknown ? '—' : score}</div>
-          <div class="stat-key">Score 30j</div>
+          <div class="stat-val">${unknown ? '—' : score + '%'}</div>
+          <div class="stat-key">Fiabilité</div>
         </div>
       </div>
 

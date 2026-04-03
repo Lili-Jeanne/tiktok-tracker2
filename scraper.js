@@ -205,14 +205,37 @@ Vérifies que ce sont des trends françaises et à la mode en France
     const blocks = raw.split(/\n(?=\d+\.\s+)/);
     
     for (const block of blocks) {
-      const matchTag = block.match(/(?:^|\n)\d+\.\s*#?([^\s\-:]+)(?:[\s\-:]+)(.*)/);
-      if (!matchTag) continue;
+      const lines = block.split('\n').filter(l => l.trim().length > 0);
+      if (lines.length === 0) continue;
+
+      let titleLine = lines[0].replace(/^\d+\.\s*/, '').trim();
+      titleLine = titleLine.replace(/\*\*/g, ''); // enlever le gras
+
+      let tagRaw = titleLine;
+      let explanation = "";
       
-      const tag = matchTag[1].toLowerCase().replace(/[^a-z0-9_]/g, '');
-      const explanation = matchTag[2].trim();
+      const parts = titleLine.match(/^(.*?)\s*(?:[-:—])\s*(.*)$/);
+      if (parts) {
+         tagRaw = parts[1];
+         explanation = parts[2].trim();
+      }
+
+      // Si le mot clé est entre guillemets, on prend le contenu
+      const quoteMatch = tagRaw.match(/['"«](.*?)['"»]/);
+      let tagStr = quoteMatch ? quoteMatch[1] : tagRaw;
+      
+      // Nettoyage des préfixes inutiles
+      tagStr = tagStr.replace(/^(le|la|les|un|une|des|hashtag|phrase|son|défi|trend)\s+/i, '').trim();
+      
+      // Transformation en format hashtag (minuscules, sans accents, sans espaces)
+      const tag = tagStr.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]/g, '');
+
+      if (!tag || tag.length < 2) continue;
       
       const viewsMatch = block.match(/- Vues estimées\s*:\s*(.*)/i);
-      const viewsRaw = viewsMatch ? viewsMatch[1].trim() : '';
+      const viewsRaw = viewsMatch ? viewsMatch[1].replace(/\*\*/g, '').trim() : '';
       
       const originMatch = block.match(/- Origine\s*:\s*(.*)/i);
       const origin = originMatch ? originMatch[1].trim() : '';
