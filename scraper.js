@@ -110,7 +110,17 @@ async function callGemini(prompt, temperature = 0.3) {
         }
       );
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const errText = await res.text();
+        let errMsg = `HTTP ${res.status}`;
+        try {
+          const errJson = JSON.parse(errText);
+          if (errJson.error && errJson.error.message) errMsg += ` - ${errJson.error.message}`;
+        } catch (_) {
+          errMsg += ` - ${errText.slice(0, 100)}`;
+        }
+        throw new Error(errMsg);
+      }
 
       const data = await res.json();
       if (data.error) throw new Error(data.error.message);
