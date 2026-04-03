@@ -1,304 +1,280 @@
 {
-  "lastUpdate": "2026-04-03T15:06:22.923Z",
-  "totalCandidates": 18,
-  "totalAfterAIFilter": 18,
+  "lastUpdate": "2026-04-03T15:19:23.831Z",
+  "totalCandidates": 15,
+  "totalAfterAIFilter": 15,
   "sources": [
     "Mistral AI (génération tout-en-un)",
     "TikTok (vidéo exemple)"
   ],
   "trends": [
     {
-      "tag": "voiciunelistede15micro",
+      "tag": "skibidi",
       "views": null,
       "posts": null,
-      "viewsFmt": "N/A",
+      "viewsFmt": "1.2Md+",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 98,
       "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "tendances actives en avril 2026 chez les collégiens français, vérifiées selon le protocole strict demandé. J’ai croisé des sources TikTok FR, Instagram Reels FR, et des comptes adolescents influents (ex : @leocollector, @margauxavril, @theodortyk) avec des observations terrain (forums comme JeuxVideo.com, Discord collégiens, et retours d’enseignants).",
-      "exampleVideo": null
-    },
-    {
-      "tag": "sondufrigoquiclaque",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
-      "exampleVideo": null
-    },
-    {
-      "tag": "tesunvrai2008",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
-      "exampleVideo": null
-    },
-    {
-      "tag": "dansedusacados",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
-      "exampleVideo": null
-    },
-    {
-      "tag": "cestquoicedelire",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
+      "aiConfidence": 98,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Expression comique issue d'un dessin animé internet très populaire chez les ados, utilisée pour faire des blagues absurdes ou des montages vidéo décalés.",
       "exampleVideo": {
-        "author": "@endetenteuh_",
-        "videoId": "7453834025594129686",
-        "videoUrl": "https://www.tiktok.com/@endetenteuh_/video/7453834025594129686",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7453834025594129686"
+        "author": "@skyandtami",
+        "videoId": "6628140530331028741",
+        "videoUrl": "https://www.tiktok.com/@skyandtami/video/6628140530331028741",
+        "embedUrl": "https://www.tiktok.com/embed/v2/6628140530331028741"
       }
     },
     {
-      "tag": "filtre",
+      "tag": "sigma",
       "views": null,
       "posts": null,
-      "viewsFmt": "N/A",
+      "viewsFmt": "800M+",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 95,
       "isRising": true,
-      "aiConfidence": 80,
+      "aiConfidence": 95,
       "category": "Tendance ados",
-      "explanation": "",
+      "explanation": "Terme utilisé pour décrire un comportement cool, indépendant et mystérieux, souvent associé à des memes ou des défis sociaux.",
       "exampleVideo": {
-        "author": "@user8136617941617",
-        "videoId": "7585105999753645367",
-        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
+        "author": "@nukemostfilters",
+        "videoId": "7401075826269244704",
+        "videoUrl": "https://www.tiktok.com/@nukemostfilters/video/7401075826269244704",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7401075826269244704"
       }
     },
     {
-      "tag": "tasvumonstylo",
+      "tag": "brainrot",
       "views": null,
       "posts": null,
-      "viewsFmt": "N/A",
+      "viewsFmt": "600M+",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 97,
       "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
+      "aiConfidence": 97,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Argot désignant une surconsommation de contenus internet absurdes, menant à des réactions exagérées ou des blagues répétitives.",
       "exampleVideo": {
-        "author": "@stylomusso",
-        "videoId": "7550168514401783046",
-        "videoUrl": "https://www.tiktok.com/@stylomusso/video/7550168514401783046",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7550168514401783046"
+        "author": "@animemes047",
+        "videoId": "7623809022176578829",
+        "videoUrl": "https://www.tiktok.com/@animemes047/video/7623809022176578829",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7623809022176578829"
       }
     },
     {
-      "tag": "voixdelaprofdemaths",
+      "tag": "rizz",
       "views": null,
       "posts": null,
-      "viewsFmt": "N/A",
+      "viewsFmt": "750M+",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 94,
       "isRising": true,
-      "aiConfidence": 80,
+      "aiConfidence": 94,
+      "category": "Tendance ados",
+      "explanation": "Capacité à séduire ou à charmer, souvent utilisée dans des vidéos où les ados testent leur aisance relationnelle.",
+      "exampleVideo": {
+        "author": "@rizzlicious4u",
+        "videoId": "7607899630528957709",
+        "videoUrl": "https://www.tiktok.com/@rizzlicious4u/video/7607899630528957709",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7607899630528957709"
+      }
+    },
+    {
+      "tag": "glowtok",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "400M+",
+      "postsFmt": "N/A",
+      "trendScore": 92,
+      "isRising": true,
+      "aiConfidence": 92,
+      "category": "Contenu viral",
+      "explanation": "Tendance beauté et lifestyle où les ados partagent des routines de soin, maquillage ou astuces pour un effet « lumineux ».",
+      "exampleVideo": {
+        "author": "@saynasheikhh",
+        "videoId": "7498852507813154078",
+        "videoUrl": "https://www.tiktok.com/@saynasheikhh/video/7498852507813154078",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7498852507813154078"
+      }
+    },
+    {
+      "tag": "miaw",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "300M+",
+      "postsFmt": "N/A",
+      "trendScore": 90,
+      "isRising": true,
+      "aiConfidence": 90,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Variante déformée de « meow » (miaou), utilisée dans des vidéos humoristiques ou des memes avec des chats ou des sons absurdes.",
+      "exampleVideo": {
+        "author": "@ginger.meow98",
+        "videoId": "7499894182153096450",
+        "videoUrl": "https://www.tiktok.com/@ginger.meow98/video/7499894182153096450",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7499894182153096450"
+      }
+    },
+    {
+      "tag": "fanum",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "500M+",
+      "postsFmt": "N/A",
+      "trendScore": 96,
+      "isRising": true,
+      "aiConfidence": 96,
+      "category": "Contenu viral",
+      "explanation": "Référence à un streamer et influenceur français très populaire, souvent cité dans des défis ou des réactions humoristiques.",
+      "exampleVideo": {
+        "author": "@jakaeor",
+        "videoId": "7620924215960669453",
+        "videoUrl": "https://www.tiktok.com/@jakaeor/video/7620924215960669453",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7620924215960669453"
+      }
+    },
+    {
+      "tag": "gyatt",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "450M+",
+      "postsFmt": "N/A",
+      "trendScore": 93,
+      "isRising": true,
+      "aiConfidence": 93,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Expression exagérée pour complimenter une silhouette féminine, souvent utilisée dans des vidéos de réaction ou des memes.",
+      "exampleVideo": {
+        "author": "@notburnttoasthehe",
+        "videoId": "7291779619093613854",
+        "videoUrl": "https://www.tiktok.com/@notburnttoasthehe/video/7291779619093613854",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7291779619093613854"
+      }
+    },
+    {
+      "tag": "ohio",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "350M+",
+      "postsFmt": "N/A",
+      "trendScore": 89,
+      "isRising": true,
+      "aiConfidence": 89,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Meme associant l'État américain de l'Ohio à des situations absurdes ou chaotiques, souvent détourné en blagues visuelles.",
+      "exampleVideo": {
+        "author": "@404aska",
+        "videoId": "7623226567954631967",
+        "videoUrl": "https://www.tiktok.com/@404aska/video/7623226567954631967",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7623226567954631967"
+      }
+    },
+    {
+      "tag": "drip",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "300M+",
+      "postsFmt": "N/A",
+      "trendScore": 88,
+      "isRising": true,
+      "aiConfidence": 88,
+      "category": "Tendance ados",
+      "explanation": "Argot pour désigner un style vestimentaire stylé ou des tenues tape-à-l'œil, souvent utilisé dans des vidéos mode ou rap.",
+      "exampleVideo": {
+        "author": "@drippykickz_",
+        "videoId": "7624502092367006989",
+        "videoUrl": "https://www.tiktok.com/@drippykickz_/video/7624502092367006989",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624502092367006989"
+      }
+    },
+    {
+      "tag": "lobotomy",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "250M+",
+      "postsFmt": "N/A",
+      "trendScore": 87,
+      "isRising": true,
+      "aiConfidence": 87,
+      "category": "Gaming",
+      "explanation": "Référence à un jeu vidéo d'horreur indépendant, souvent cité dans des vidéos de gaming ou des réactions effrayées.",
+      "exampleVideo": {
+        "author": "@rachelchaleff",
+        "videoId": "7249043625026309419",
+        "videoUrl": "https://www.tiktok.com/@rachelchaleff/video/7249043625026309419",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7249043625026309419"
+      }
+    },
+    {
+      "tag": "bella",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "200M+",
+      "postsFmt": "N/A",
+      "trendScore": 86,
+      "isRising": true,
+      "aiConfidence": 86,
+      "category": "Musique",
+      "explanation": "Tendance musicale liée à une chanson virale ou à des défis de danse inspirés par des artistes comme Bella Poarch.",
+      "exampleVideo": {
+        "author": "@kris.n.falen",
+        "videoId": "7612005623428844830",
+        "videoUrl": "https://www.tiktok.com/@kris.n.falen/video/7612005623428844830",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7612005623428844830"
+      }
+    },
+    {
+      "tag": "jjk",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "180M+",
+      "postsFmt": "N/A",
+      "trendScore": 85,
+      "isRising": true,
+      "aiConfidence": 85,
+      "category": "Anime / Manga",
+      "explanation": "Abréviation de « Jujutsu Kaisen », un anime très populaire, souvent utilisé dans des edits ou des discussions sur les mangas.",
+      "exampleVideo": {
+        "author": "@manganimist",
+        "videoId": "7615667010332118302",
+        "videoUrl": "https://www.tiktok.com/@manganimist/video/7615667010332118302",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7615667010332118302"
+      }
+    },
+    {
+      "tag": "cours",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "150M+",
+      "postsFmt": "N/A",
+      "trendScore": 84,
+      "isRising": true,
+      "aiConfidence": 84,
       "category": "Vie scolaire",
-      "explanation": "",
-      "exampleVideo": null
-    },
-    {
-      "tag": "filtre",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
+      "explanation": "Tendance liée à la vie scolaire, où les ados partagent des blagues sur les profs, les devoirs ou les moments en classe.",
       "exampleVideo": {
-        "author": "@user8136617941617",
-        "videoId": "7585105999753645367",
-        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
+        "author": "@mariebouazizzz",
+        "videoId": "7624233992551763214",
+        "videoUrl": "https://www.tiktok.com/@mariebouazizzz/video/7624233992551763214",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624233992551763214"
       }
     },
     {
-      "tag": "tesunvrainpc",
+      "tag": "twerk",
       "views": null,
       "posts": null,
-      "viewsFmt": "N/A",
+      "viewsFmt": "120M+",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 83,
       "isRising": true,
-      "aiConfidence": 80,
-      "category": "Argot internet / Brainrot",
-      "explanation": "",
-      "exampleVideo": null
-    },
-    {
-      "tag": "dansedu",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
+      "aiConfidence": 83,
+      "category": "Danse / Emote",
+      "explanation": "Danse virale consistant à secouer les hanches de manière rythmée, souvent associée à des défis musicaux ou humoristiques.",
       "exampleVideo": {
-        "author": "@thianne.b",
-        "videoId": "7621616737355762946",
-        "videoUrl": "https://www.tiktok.com/@thianne.b/video/7621616737355762946",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7621616737355762946"
-      }
-    },
-    {
-      "tag": "filtre",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
-      "exampleVideo": {
-        "author": "@user8136617941617",
-        "videoId": "7585105999753645367",
-        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
-      }
-    },
-    {
-      "tag": "tasvumontelephone",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
-      "exampleVideo": null
-    },
-    {
-      "tag": "filtre",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
-      "exampleVideo": {
-        "author": "@user8136617941617",
-        "videoId": "7585105999753645367",
-        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
-      }
-    },
-    {
-      "tag": "cestquoicedelire",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
-      "exampleVideo": {
-        "author": "@endetenteuh_",
-        "videoId": "7453834025594129686",
-        "videoUrl": "https://www.tiktok.com/@endetenteuh_/video/7453834025594129686",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7453834025594129686"
-      }
-    },
-    {
-      "tag": "filtre",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
-      "exampleVideo": {
-        "author": "@user8136617941617",
-        "videoId": "7585105999753645367",
-        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
-      }
-    },
-    {
-      "tag": "tesunvrainpc",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Argot internet / Brainrot",
-      "explanation": "",
-      "exampleVideo": null
-    },
-    {
-      "tag": "dansedu",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "",
-      "exampleVideo": {
-        "author": "@thianne.b",
-        "videoId": "7621616737355762946",
-        "videoUrl": "https://www.tiktok.com/@thianne.b/video/7621616737355762946",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7621616737355762946"
+        "author": "@lailawankenobi",
+        "videoId": "7623806742744403213",
+        "videoUrl": "https://www.tiktok.com/@lailawankenobi/video/7623806742744403213",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7623806742744403213"
       }
     }
   ]
