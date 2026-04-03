@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TikTok Trends Collégiens — Pour les Parents</title>
+    <meta name="description"
+        content="Les tendances TikTok actuelles chez les collégiens (11-15 ans), expliquées pour les parents. Mis à jour automatiquement toutes les 6h." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ── RESET ─────────────────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ── VARIABLES ──────────────────────────────────────────── */
+        :root {
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --surface2: #1c1c28;
+            --border: rgba(255, 255, 255, 0.08);
+            --red: #ff0050;
+            --teal: #00f2ea;
+            --purple: #7c3aed;
+            --text: #f0f0f8;
+            --muted: #8888aa;
+            --green: #22c55e;
+            --yellow: #facc15;
+        }
+
+        /* ── BASE ───────────────────────────────────────────────── */
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Glow background décoratif */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -25vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 550px;
+            background: radial-gradient(ellipse,
+                    rgba(255, 0, 80, .15) 0%,
+                    rgba(0, 242, 234, .08) 55%,
+                    transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── HEADER ─────────────────────────────────────────────── */
+        header {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 3rem 1.5rem 2rem;
+        }
+
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--red);
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .4;
+                transform: scale(1.5);
+            }
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 25%, var(--teal) 65%, var(--red) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            margin-top: .85rem;
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 500px;
+            margin-inline: auto;
+            line-height: 1.65;
+        }
+
+        .meta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            margin-top: 1.5rem;
+            font-size: .8rem;
+            color: var(--muted);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: .4rem 1.1rem;
+        }
+
+        /* ── FILTRES ────────────────────────────────────────────── */
+        .filters {
+            display: flex;
+            gap: .5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 1.5rem 1rem 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .filter-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            border-radius: 999px;
+            padding: .45rem 1.1rem;
+            font-family: inherit;
+            font-size: .82rem;
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        .filter-btn.active {
+            background: rgba(0, 242, 234, .1);
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        /* ── GRILLE ─────────────────────────────────────────────── */
+        #grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.3rem;
+            max-width: 1200px;
+            margin: 2rem auto 5rem;
+            padding: 0 1.2rem;
+        }
+
+        /* ── CARD ───────────────────────────────────────────────── */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform .25s, box-shadow .25s;
+            animation: fadeUp .4s ease both;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 56px rgba(0, 0, 0, .55);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── CARD HEADER ────────────────────────────────────────── */
+        .card-head {
+            padding: 1.2rem 1.3rem .85rem;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .hashtag {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .hashtag em {
+            font-style: normal;
+            color: var(--red);
+        }
+
+        .badges {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: .3rem;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            border-radius: 999px;
+            padding: .28rem .75rem;
+            white-space: nowrap;
+        }
+
+        .badge-rising {
+            background: rgba(34, 197, 94, .15);
+            color: var(--green);
+            border: 1px solid rgba(34, 197, 94, .3);
+        }
+
+        .badge-stable {
+            background: rgba(250, 204, 21, .12);
+            color: var(--yellow);
+            border: 1px solid rgba(250, 204, 21, .3);
+        }
+
+        .badge-unknown {
+            background: rgba(136, 136, 170, .1);
+            color: var(--muted);
+            border: 1px solid var(--border);
+        }
+
+        .badge-ai-high {
+            background: rgba(34, 197, 94, .15);
+            color: var(--green);
+            border: 1px solid rgba(34, 197, 94, .3);
+        }
+
+        .badge-ai-mid {
+            background: rgba(250, 204, 21, .12);
+            color: var(--yellow);
+            border: 1px solid rgba(250, 204, 21, .3);
+        }
+
+        .badge-ai-low {
+            background: rgba(136, 136, 170, .1);
+            color: var(--muted);
+            border: 1px solid var(--border);
+        }
+
+        /* ── BARRE DE POPULARITÉ ────────────────────────────────── */
+        .bar-wrap {
+            padding: 0 1.3rem .7rem;
+        }
+
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: .7rem;
+            color: var(--muted);
+            margin-bottom: .35rem;
+        }
+
+        .bar-bg {
+            height: 5px;
+            background: var(--surface2);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--teal), var(--red));
+            transition: width 1.2s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        /* ── CATEGORIE ──────────────────────────────────────────── */
+        .cat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .35rem;
+            font-size: .74rem;
+            color: var(--muted);
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: .3rem .8rem;
+            margin: 0 1.3rem .9rem;
+        }
+
+        /* ── EXPLICATION PARENTS ────────────────────────────────── */
+        .explanation {
+            margin: 0 1.3rem .9rem;
+            padding: .8rem 1rem;
+            background: rgba(124, 58, 237, .07);
+            border: 1px solid rgba(124, 58, 237, .18);
+            border-radius: 12px;
+            font-size: .83rem;
+            line-height: 1.6;
+            color: #c4b5fd;
+        }
+
+        .explanation strong {
+            display: block;
+            font-size: .68rem;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: #a78bfa;
+            margin-bottom: .35rem;
+        }
+
+        /* ── VIDÉO ──────────────────────────────────────────────── */
+        .video-wrap {
+            margin: 0 1.3rem 1.3rem;
+            border-radius: 14px;
+            overflow: hidden;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+        }
+
+        /* Ratio 9:16 natif TikTok */
+        .video-ratio {
+            position: relative;
+            padding-bottom: 177.78%;
+        }
+
+        .video-ratio iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .no-video {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            padding: 2.2rem 1.5rem;
+            color: var(--muted);
+            font-size: .83rem;
+            text-align: center;
+        }
+
+        .no-video a {
+            color: var(--teal);
+            font-size: .8rem;
+            text-decoration: none;
+        }
+
+        .no-video a:hover {
+            text-decoration: underline;
+        }
+
+        .video-link {
+            display: block;
+            text-align: center;
+            padding: .65rem;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--teal);
+            text-decoration: none;
+            border-top: 1px solid var(--border);
+            transition: background .2s;
+        }
+
+        .video-link:hover {
+            background: rgba(0, 242, 234, .06);
+        }
+
+        /* ── STATS ──────────────────────────────────────────────── */
+        .stats {
+            display: flex;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
+
+        .stat {
+            flex: 1;
+            text-align: center;
+            padding: .75rem .5rem;
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-val {
+            font-size: .95rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stat-key {
+            font-size: .62rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-top: .15rem;
+        }
+
+        /* ── LOADING / ERROR ────────────────────────────────────── */
+        #loading {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 1rem;
+            gap: 1rem;
+            color: var(--muted);
+        }
+
+        .spinner {
+            width: 44px;
+            height: 44px;
+            border: 3px solid var(--surface2);
+            border-top-color: var(--teal);
+            border-right-color: var(--red);
+            border-radius: 50%;
+            animation: spin .75s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ── EMPTY STATE ────────────────────────────────────────── */
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+            color: var(--muted);
+        }
+
+        /* ── FOOTER ─────────────────────────────────────────────── */
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 1.8rem 1.5rem;
+            font-size: .75rem;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+            line-height: 1.8;
+        }
+
+        footer a {
+            color: var(--teal);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── RESPONSIVE ─────────────────────────────────────────── */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            #grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="live-badge">
+            <span class="live-dot"></span>
+            Mis à jour automatiquement toutes les 6h
+        </div>
+        <h1>Trends TikTok<br>des Collégiens</h1>
+        <p class="subtitle">
+            Ce que regardent vos enfants en ce moment —<br>
+            décrypté et expliqué pour les parents.
+        </p>
+        <div class="meta-pill" id="meta">⏳ Chargement…</div>
+    </header>
+
+    <!-- FILTRES PAR CATÉGORIE -->
+    <div class="filters" id="filters"></div>
+
+    <!-- LOADING -->
+    <div id="loading">
+        <div class="spinner"></div>
+        <span>Chargement des tendances…</span>
+    </div>
+
+    <!-- GRILLE DES CARDS -->
+    <div id="grid" style="display:none;"></div>
+
+    <!-- FOOTER -->
+    <footer>
+        Sources : <strong>tiktokhashtags.com</strong> · <strong>Gemini AI</strong> · <strong>Google Trends
+            France</strong><br>
+        Données actualisées automatiquement via GitHub Actions — Projet éducatif pour les parents de collégiens.
+    </footer>
+
+    <script>
+        // URL du JSON généré par le scraper (branche main)
+        const JSON_URL = 'https://raw.githubusercontent.com/Lili-Jeanne/tiktok-tracker/main/trends.json';
+
+        // ── Formatage des nombres ──────────────────────────────────
+        function fmt(n) {
+            if (!n) return '—';
+            if (n >= 1e12) return (n / 1e12).toFixed(1) + ' T';
+            if (n >= 1e9) return (n / 1e9).toFixed(1) + ' Md';
+            if (n >= 1e6) return (n / 1e6).toFixed(1) + ' M';
+            if (n >= 1e3) return (n / 1e3).toFixed(0) + ' K';
+            return String(n);
+        }
+
+        // ── Icône par catégorie ────────────────────────────────────
+        const CAT_ICONS = {
+            'Argot internet / Brainrot': '🧠',
+            'Gaming': '🎮',
+            'Danse / Emote': '💃',
+            'Vie scolaire': '🏫',
+            'Contenu viral': '📱',
+            'Musique': '🎵',
+            'Anime / Manga': '⛩️',
+            'Tendance ados': '✨',
+        };
+
+        // ── Génère le HTML d'une card ──────────────────────────────
+        function renderCard(item, idx) {
+            const score = item.trendScore ?? 0;
+            const rising = item.isRising === true;
+            const unknown = item.trendScore === null;
+            const conf = item.aiConfidence;
+
+            // Badge tendance
+            const trendBadge = unknown
+                ? `<span class="badge badge-unknown">❓ Non mesuré</span>`
+                : rising
+                    ? `<span class="badge badge-rising">📈 En hausse</span>`
+                    : `<span class="badge badge-stable">📊 Stable</span>`;
+
+            // Badge confiance IA
+            const aiBadge = conf != null
+                ? `<span class="badge ${conf >= 75 ? 'badge-ai-high' : conf >= 50 ? 'badge-ai-mid' : 'badge-ai-low'}">
+         🤖 IA ${conf}%
+       </span>`
+                : '';
+
+            // Explication parents
+            const expHtml = item.explanation
+                ? `<div class="explanation">
+         <strong>💡 Pour les parents</strong>
+         ${item.explanation}
+       </div>`
+                : '';
+
+            // Zone vidéo
+            let videoHtml;
+            if (item.exampleVideo?.embedUrl) {
+                const v = item.exampleVideo;
+                videoHtml = `
+      <div class="video-wrap">
+        <div class="video-ratio">
+          <iframe
+            src="${v.embedUrl}"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+            title="Exemple TikTok #${item.tag}">
+          </iframe>
+        </div>
+        ${v.videoUrl
+                        ? `<a class="video-link" href="${v.videoUrl}" target="_blank" rel="noopener noreferrer">
+               🔗 Voir sur TikTok${v.author ? ' · ' + v.author : ''}
+             </a>`
+                        : ''}
+      </div>`;
+            } else {
+                videoHtml = `
+      <div class="video-wrap">
+        <div class="no-video">
+          <span style="font-size:2rem">🎬</span>
+          <span>Exemple vidéo indisponible</span>
+          <a href="https://www.tiktok.com/tag/${item.tag}" target="_blank" rel="noopener noreferrer">
+            Rechercher sur TikTok →
+          </a>
+        </div>
+      </div>`;
+            }
+
+            return `
+    <div class="card" data-cat="${item.category || ''}" style="animation-delay:${idx * 55}ms">
+
+      <div class="card-head">
+        <div class="hashtag"><em>#</em>${item.tag}</div>
+        <div class="badges">${trendBadge}${aiBadge}</div>
+      </div>
+
+      <div class="bar-wrap">
+        <div class="bar-label">
+          <span>Popularité Google Trends</span>
+          <span>${unknown ? 'N/A' : score + '/100'}</span>
+        </div>
+        <div class="bar-bg">
+          <div class="bar-fill" style="width:${score}%"></div>
+        </div>
+      </div>
+
+      <span class="cat-pill">
+        ${CAT_ICONS[item.category] || '✨'} ${item.category || 'Tendance ados'}
+      </span>
+
+      ${expHtml}
+      ${videoHtml}
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val">${fmt(item.views)}</div>
+          <div class="stat-key">Vues totales</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">${fmt(item.posts)}</div>
+          <div class="stat-key">Vidéos postées</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val">${unknown ? '—' : score}</div>
+          <div class="stat-key">Score 30j</div>
+        </div>
+      </div>
+
+    </div>`;
+        }
+
+        // ── État des filtres ───────────────────────────────────────
+        let allTrends = [];
+        let activeFilter = 'Tous';
+
+        function applyFilter(cat) {
+            activeFilter = cat;
+            document.querySelectorAll('.filter-btn').forEach(b =>
+                b.classList.toggle('active', b.dataset.cat === cat)
+            );
+            const filtered = cat === 'Tous'
+                ? allTrends
+                : allTrends.filter(t => t.category === cat);
+            const grid = document.getElementById('grid');
+            grid.innerHTML = filtered.length
+                ? filtered.map((t, i) => renderCard(t, i)).join('')
+                : `<div class="empty">Aucune tendance dans cette catégorie.</div>`;
+        }
+
+        // ── Chargement principal ───────────────────────────────────
+        async function init() {
+            const grid = document.getElementById('grid');
+            const loading = document.getElementById('loading');
+            const meta = document.getElementById('meta');
+            const filters = document.getElementById('filters');
+
+            try {
+                const res = await fetch(JSON_URL + '?v=' + Date.now());
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+
+                allTrends = data.trends || [];
+
+                // Mise à jour du timestamp
+                const d = new Date(data.lastUpdate);
+                meta.textContent = `🕐 Mis à jour le ${d.toLocaleDateString('fr-FR')} à ${d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })}`;
+
+                // Construction des filtres
+                const cats = ['Tous', ...new Set(allTrends.map(t => t.category).filter(Boolean))];
+                filters.innerHTML = cats
+                    .map(cat => `<button class="filter-btn${cat === 'Tous' ? ' active' : ''}" data-cat="${cat}">${CAT_ICONS[cat] ? CAT_ICONS[cat] + ' ' : ''}${cat}</button>`)
+                    .join('');
+                filters.querySelectorAll('.filter-btn').forEach(btn =>
+                    btn.addEventListener('click', () => applyFilter(btn.dataset.cat))
+                );
+
+                loading.style.display = 'none';
+                grid.style.display = 'grid';
+                applyFilter('Tous');
+
+            } catch (e) {
+                loading.innerHTML = `
+      <p style="color:var(--red);text-align:center;line-height:1.8">
+        ❌ Impossible de charger les données.<br>
+        <small style="color:var(--muted)">${e.message}</small><br><br>
+        <small>Vérifie que <code>trends.json</code> existe sur le repo.</small>
+      </p>`;
+            }
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+name: Update TikTok Trends
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # Toutes les 6 heures
+  workflow_dispatch:          # Lancement manuel depuis l'onglet Actions
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout du repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Installation des dépendances npm
+        run: npm ci
+
+      - name: Installation de Chromium + dépendances système
+        run: npx playwright install chromium --with-deps
+
+      - name: Lancement du scraper
+        run: node scraper.js
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Commit et push de trends.json
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add trends.json
+          git diff --staged --quiet || git commit -m "chore: update trends.json [skip ci]"
+          git push
