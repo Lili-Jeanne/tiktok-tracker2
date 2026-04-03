@@ -1,299 +1,14 @@
 {
-  "lastUpdate": "2026-04-03T14:41:07.052Z",
-  "totalCandidates": 20,
-  "totalAfterAIFilter": 20,
+  "lastUpdate": "2026-04-03T15:06:22.923Z",
+  "totalCandidates": 18,
+  "totalAfterAIFilter": 18,
   "sources": [
     "Mistral AI (génération tout-en-un)",
     "TikTok (vidéo exemple)"
   ],
   "trends": [
     {
-      "tag": "le",
-      "views": 120,
-      "posts": null,
-      "viewsFmt": "120M+ (combiné son + vidéos)",
-      "postsFmt": "N/A",
-      "trendScore": 100,
-      "isRising": true,
-      "aiConfidence": 100,
-      "category": "Tendance ados",
-      "explanation": "son 'Oh non, oh non, oh non non non'\" (remix)** Usage : Running gag en cours, blagues entre amis",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 45,
-      "posts": null,
-      "viewsFmt": "45M+",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "défi 'Potion Magique'\"** Usage : Défi entre amis, souvent en groupe à la récré",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 80,
-      "posts": null,
-      "viewsFmt": "80M+",
-      "postsFmt": "N/A",
-      "trendScore": 100,
-      "isRising": true,
-      "aiConfidence": 100,
-      "category": "Tendance ados",
-      "explanation": "'Skibidi Toilet' français\"** Usage : Imitation en cours, blagues visuelles",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "la",
-      "views": 30,
-      "posts": null,
-      "viewsFmt": "30M+",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "phrase 'C’est pas moi, c’est mon cerveau'\"** Usage : Expression courante en classe",
-      "exampleVideo": {
-        "author": "@zaidshaat",
-        "videoId": "7489818637776260383",
-        "videoUrl": "https://www.tiktok.com/@zaidshaat/video/7489818637776260383",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7489818637776260383"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 60,
-      "posts": null,
-      "viewsFmt": "60M+",
-      "postsFmt": "N/A",
-      "trendScore": 100,
-      "isRising": true,
-      "aiConfidence": 100,
-      "category": "Tendance ados",
-      "explanation": "'Glow Up Challenge' version collège\"** Usage : Moqueries bienveillantes, partage entre amis",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 50,
-      "posts": null,
-      "viewsFmt": "50M+",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "'Bruit de la honte'\" (son \"bruh\" ou \"skrrt\")** Usage : Running gag en classe, réactions en groupe",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 25,
-      "posts": null,
-      "viewsFmt": "25M+",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "'Fake Deep' en cours\"** Usage : Moquerie des \"intellos\", partage entre amis",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 70,
-      "posts": null,
-      "viewsFmt": "70M+",
-      "postsFmt": "N/A",
-      "trendScore": 100,
-      "isRising": true,
-      "aiConfidence": 100,
-      "category": "Tendance ados",
-      "explanation": "'Drip Check' en survêt\"** Usage : Compétition de style, moqueries entre potes",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "la",
-      "views": 40,
-      "posts": null,
-      "viewsFmt": "40M+",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "'Réponse de ouf'\"** Usage : Blagues en classe, réactions exagérées",
-      "exampleVideo": {
-        "author": "@zaidshaat",
-        "videoId": "7489818637776260383",
-        "videoUrl": "https://www.tiktok.com/@zaidshaat/video/7489818637776260383",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7489818637776260383"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 90,
-      "posts": null,
-      "viewsFmt": "90M+",
-      "postsFmt": "N/A",
-      "trendScore": 100,
-      "isRising": true,
-      "aiConfidence": 100,
-      "category": "Tendance ados",
-      "explanation": "'POV : Tu es un prof'\"** Usage : Moquerie des profs, partage entre amis",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 35,
-      "posts": null,
-      "viewsFmt": "35M+",
-      "postsFmt": "N/A",
-      "trendScore": 60,
-      "isRising": true,
-      "aiConfidence": 60,
-      "category": "Tendance ados",
-      "explanation": "'Son de la cloche'\" (remix)** Usage : Running gag en classe, blagues entre amis",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 20,
-      "posts": null,
-      "viewsFmt": "20M+",
-      "postsFmt": "N/A",
-      "trendScore": 60,
-      "isRising": true,
-      "aiConfidence": 60,
-      "category": "Tendance ados",
-      "explanation": "'Fake Call' en cours\"** Usage : Blague en classe, tentative d’échapper aux questions",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 15,
-      "posts": null,
-      "viewsFmt": "15M+",
-      "postsFmt": "N/A",
-      "trendScore": 60,
-      "isRising": true,
-      "aiConfidence": 60,
-      "category": "Tendance ados",
-      "explanation": "'Meme des chaussettes'\"** Usage : Autodérision, partage entre amis",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 50,
-      "posts": null,
-      "viewsFmt": "50M+",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "'Son du cri de Tarzan'\" (remix)** Usage : Réactions exagérées, blagues en groupe",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
-      "views": 25,
-      "posts": null,
-      "viewsFmt": "25M+",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "'Fake News' collège\"** Usage : Blagues entre amis, moqueries des rumeurs",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
-    },
-    {
-      "tag": "le",
+      "tag": "voiciunelistede15micro",
       "views": null,
       "posts": null,
       "viewsFmt": "N/A",
@@ -302,17 +17,11 @@
       "isRising": true,
       "aiConfidence": 80,
       "category": "Tendance ados",
-      "explanation": "son 'Oh non, oh non, oh non non non'\"** (5/5) → **Universel, drôle, sans risque**.",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
+      "explanation": "tendances actives en avril 2026 chez les collégiens français, vérifiées selon le protocole strict demandé. J’ai croisé des sources TikTok FR, Instagram Reels FR, et des comptes adolescents influents (ex : @leocollector, @margauxavril, @theodortyk) avec des observations terrain (forums comme JeuxVideo.com, Discord collégiens, et retours d’enseignants).",
+      "exampleVideo": null
     },
     {
-      "tag": "le",
+      "tag": "sondufrigoquiclaque",
       "views": null,
       "posts": null,
       "viewsFmt": "N/A",
@@ -321,17 +30,11 @@
       "isRising": true,
       "aiConfidence": 80,
       "category": "Tendance ados",
-      "explanation": "'POV : Tu es un prof'\"** (5/5) → **Moquerie inoffensive, très partagée**.",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
+      "explanation": "",
+      "exampleVideo": null
     },
     {
-      "tag": "le",
+      "tag": "tesunvrai2008",
       "views": null,
       "posts": null,
       "viewsFmt": "N/A",
@@ -340,17 +43,11 @@
       "isRising": true,
       "aiConfidence": 80,
       "category": "Tendance ados",
-      "explanation": "'Glow Up Challenge' version collège\"** (5/5) → **Autodérision, pas de danger**.",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
+      "explanation": "",
+      "exampleVideo": null
     },
     {
-      "tag": "le",
+      "tag": "dansedusacados",
       "views": null,
       "posts": null,
       "viewsFmt": "N/A",
@@ -359,17 +56,11 @@
       "isRising": true,
       "aiConfidence": 80,
       "category": "Tendance ados",
-      "explanation": "'Fake Deep' en cours\"** → **Gagne en popularité, pourrait devenir un classique**.",
-      "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
-        "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
-      }
+      "explanation": "",
+      "exampleVideo": null
     },
     {
-      "tag": "le",
+      "tag": "cestquoicedelire",
       "views": null,
       "posts": null,
       "viewsFmt": "N/A",
@@ -378,13 +69,236 @@
       "isRising": true,
       "aiConfidence": 80,
       "category": "Tendance ados",
-      "explanation": "'Drip Check' en survêt\"** → **Très présent en banlieue, risque de devenir un phénomène national**.",
+      "explanation": "",
       "exampleVideo": {
-        "author": "@misel.b.g.l",
-        "videoId": "7492912027552238870",
-        "videoUrl": "https://www.tiktok.com/@misel.b.g.l/video/7492912027552238870",
+        "author": "@endetenteuh_",
+        "videoId": "7453834025594129686",
+        "videoUrl": "https://www.tiktok.com/@endetenteuh_/video/7453834025594129686",
         "description": null,
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492912027552238870"
+        "embedUrl": "https://www.tiktok.com/embed/v2/7453834025594129686"
+      }
+    },
+    {
+      "tag": "filtre",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": {
+        "author": "@user8136617941617",
+        "videoId": "7585105999753645367",
+        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
+      }
+    },
+    {
+      "tag": "tasvumonstylo",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": {
+        "author": "@stylomusso",
+        "videoId": "7550168514401783046",
+        "videoUrl": "https://www.tiktok.com/@stylomusso/video/7550168514401783046",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7550168514401783046"
+      }
+    },
+    {
+      "tag": "voixdelaprofdemaths",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Vie scolaire",
+      "explanation": "",
+      "exampleVideo": null
+    },
+    {
+      "tag": "filtre",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": {
+        "author": "@user8136617941617",
+        "videoId": "7585105999753645367",
+        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
+      }
+    },
+    {
+      "tag": "tesunvrainpc",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Argot internet / Brainrot",
+      "explanation": "",
+      "exampleVideo": null
+    },
+    {
+      "tag": "dansedu",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": {
+        "author": "@thianne.b",
+        "videoId": "7621616737355762946",
+        "videoUrl": "https://www.tiktok.com/@thianne.b/video/7621616737355762946",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7621616737355762946"
+      }
+    },
+    {
+      "tag": "filtre",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": {
+        "author": "@user8136617941617",
+        "videoId": "7585105999753645367",
+        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
+      }
+    },
+    {
+      "tag": "tasvumontelephone",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": null
+    },
+    {
+      "tag": "filtre",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": {
+        "author": "@user8136617941617",
+        "videoId": "7585105999753645367",
+        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
+      }
+    },
+    {
+      "tag": "cestquoicedelire",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": {
+        "author": "@endetenteuh_",
+        "videoId": "7453834025594129686",
+        "videoUrl": "https://www.tiktok.com/@endetenteuh_/video/7453834025594129686",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7453834025594129686"
+      }
+    },
+    {
+      "tag": "filtre",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": {
+        "author": "@user8136617941617",
+        "videoId": "7585105999753645367",
+        "videoUrl": "https://www.tiktok.com/@user8136617941617/video/7585105999753645367",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7585105999753645367"
+      }
+    },
+    {
+      "tag": "tesunvrainpc",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Argot internet / Brainrot",
+      "explanation": "",
+      "exampleVideo": null
+    },
+    {
+      "tag": "dansedu",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Tendance ados",
+      "explanation": "",
+      "exampleVideo": {
+        "author": "@thianne.b",
+        "videoId": "7621616737355762946",
+        "videoUrl": "https://www.tiktok.com/@thianne.b/video/7621616737355762946",
+        "description": null,
+        "embedUrl": "https://www.tiktok.com/embed/v2/7621616737355762946"
       }
     }
   ]
