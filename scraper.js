@@ -13,9 +13,9 @@ chromium.use(stealth);
 
 // ─── CONFIG ──────────────────────────────────────────────────
 const MAX_FINAL_TRENDS = 20;   // Trends max dans le JSON final
-const MAX_POOL_FOR_AI  = 50;   // Candidats max envoyés à l'IA
-const GT_BATCH_SIZE    = 4;    // Requêtes Google Trends en //
-const GT_BATCH_DELAY   = 900;  // ms entre chaque batch GT
+const MAX_POOL_FOR_AI = 50;   // Candidats max envoyés à l'IA
+const GT_BATCH_SIZE = 4;    // Requêtes Google Trends en //
+const GT_BATCH_DELAY = 900;  // ms entre chaque batch GT
 
 // ─── SEEDS DE SECOURS (si Gemini est KO) ─────────────────────
 const FALLBACK_SEEDS = [
@@ -40,7 +40,7 @@ function parseCount(str) {
   const num = parseFloat(s);
   if (isNaN(num)) return 0;
   const low = s.toLowerCase();
-  if (low.includes('trillion'))                  return Math.round(num * 1e12);
+  if (low.includes('trillion')) return Math.round(num * 1e12);
   if (low.includes('billion') || low.endsWith('b')) return Math.round(num * 1e9);
   if (low.includes('million') || low.endsWith('m')) return Math.round(num * 1e6);
   if (low.includes('thousand') || low.endsWith('k')) return Math.round(num * 1e3);
@@ -53,9 +53,9 @@ function parseCount(str) {
 function fmtNumber(n) {
   if (!n || n === 0) return null;
   if (n >= 1e12) return (n / 1e12).toFixed(1) + ' T';
-  if (n >= 1e9)  return (n / 1e9).toFixed(1)  + ' Md';
-  if (n >= 1e6)  return (n / 1e6).toFixed(1)  + ' M';
-  if (n >= 1e3)  return (n / 1e3).toFixed(0)  + ' K';
+  if (n >= 1e9) return (n / 1e9).toFixed(1) + ' Md';
+  if (n >= 1e6) return (n / 1e6).toFixed(1) + ' M';
+  if (n >= 1e3) return (n / 1e3).toFixed(0) + ' K';
   return String(n);
 }
 
@@ -65,26 +65,26 @@ function fmtNumber(n) {
 function getCategory(tag) {
   const t = tag.toLowerCase();
   const has = (...kw) => kw.some(k => t.includes(k));
-  if (has('skibidi','sigma','rizz','gyatt','npc','fanum','delulu','aura','alpha',
-          'mewing','looksmax','mogging','glazing','sus','cap','nocap','bussin',
-          'goat','based','cringe','pookie','brainrot','slay','periodt'))
+  if (has('skibidi', 'sigma', 'rizz', 'gyatt', 'npc', 'fanum', 'delulu', 'aura', 'alpha',
+    'mewing', 'looksmax', 'mogging', 'glazing', 'sus', 'cap', 'nocap', 'bussin',
+    'goat', 'based', 'cringe', 'pookie', 'brainrot', 'slay', 'periodt'))
     return 'Argot internet / Brainrot';
-  if (has('fortnite','roblox','minecraft','freefire','brawl','clash','valorant',
-          'cod','genshin','pubg','apex','overwatch','pokemon','mario','gaming',
-          'gamer','streamer','twitch','league'))
+  if (has('fortnite', 'roblox', 'minecraft', 'freefire', 'brawl', 'clash', 'valorant',
+    'cod', 'genshin', 'pubg', 'apex', 'overwatch', 'pokemon', 'mario', 'gaming',
+    'gamer', 'streamer', 'twitch', 'league'))
     return 'Gaming';
-  if (has('emote','dance','choreo','shuffle','griddy','phonk','drift','twerk'))
+  if (has('emote', 'dance', 'choreo', 'shuffle', 'griddy', 'phonk', 'drift', 'twerk'))
     return 'Danse / Emote';
-  if (has('college','collège','lycee','prof','cours','brevet','bac','cantine',
-          'recre','rentree','interro','devoir'))
+  if (has('college', 'collège', 'lycee', 'prof', 'cours', 'brevet', 'bac', 'cantine',
+    'recre', 'rentree', 'interro', 'devoir'))
     return 'Vie scolaire';
-  if (has('pov','challenge','duet','grwm','aesthetic','outfit','drip','sneaker',
-          'vlog','viral','ohio','trend','fyp','foryou'))
+  if (has('pov', 'challenge', 'duet', 'grwm', 'aesthetic', 'outfit', 'drip', 'sneaker',
+    'vlog', 'viral', 'ohio', 'trend', 'fyp', 'foryou'))
     return 'Contenu viral';
-  if (has('rap','drill','trap','afro','rnb','taylorswift','sabrina','olivia',
-          'ariana','doja','centralcee','jul','niska','sch','musique','music'))
+  if (has('rap', 'drill', 'trap', 'afro', 'rnb', 'taylorswift', 'sabrina', 'olivia',
+    'ariana', 'doja', 'centralcee', 'jul', 'niska', 'sch', 'musique', 'music'))
     return 'Musique';
-  if (has('anime','manga','otaku','naruto','demon','jjk','aot','onepiece'))
+  if (has('anime', 'manga', 'otaku', 'naruto', 'demon', 'jjk', 'aot', 'onepiece'))
     return 'Anime / Manga';
   return 'Tendance ados';
 }
@@ -147,180 +147,106 @@ async function callMistral(prompt, temperature = 0.3) {
 async function generateSeedKeywords() {
   const today = new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
 
-  const prompt = `Tu es un expert de la culture internet et des tendances TikTok des collégiens français (11-15 ans), en ${today}.
+  const prompt = `Tu es un expert en culture internet, micro-tendances TikTok et comportements numériques des collégiens français (11-15 ans). Nous sommes le ${today}.
 
-Génère une liste de 22 hashtags TikTok actuellement très utilisés par les collégiens français.
-Inclus : argot brainrot, gaming, mèmes viraux, danses, termes musicaux ados, culture web fr.
-Règles : 1 mot ou expression sans espace, minuscules, sans #, sans accent si possible.
-Préfère des termes spécifiques aux ados (pas des hashtags génériques comme "music" ou "tiktok").
+⚙️ PROTOCOLE DE DOUBLE VÉRIFICATION (obligatoire)
+Avant d'inclure une tendance, tu dois :
+1. Identifier la tendance depuis une première source (TikTok FR, Twitter/X, YouTube Shorts).
+2. La confirmer via une seconde source indépendante (autre compte, autre format, autre plateforme).
+3. Si tu ne peux pas confirmer la tendance, tu NE l'inclus PAS dans la liste.
 
-Réponds UNIQUEMENT avec un tableau JSON valide de chaînes, sans texte avant ni après, sans markdown :
-["terme1","terme2",...]`;
+🎯 MISSION
+Génère une liste de 15 micro-tendances actives chez les collégiens français, datant de moins de 6 semaines, qui sont :
+- Virales sur TikTok FR ou Reels Instagram FR
+- Reconnaissables instantanément par un élève de 6e à 3e
+
+🧠 RAISONNEMENT REQUIS (chain-of-thought)
+Pour CHAQUE tendance, avant de la présenter, raisonne en interne :
+→ "Est-ce que cette trend est encore active aujourd'hui ou est-elle déjà passée ?, Si oui la garder si non ou doute la rejeter et ne pas en parler"
+→ "A-t-elle bien pénétré le contexte francophone ? Si oui on la garde si non ou doute on la supprime"
+Si la réponse à l'une de ces questions est non ou incertaine, tu exclus la tendance.
+
+📋 FORMAT DE SORTIE (strictement respecté pour chaque tendance)
+Numéro. Mot-clé / hashtag / phrase virale
+- Explication courte (1 ligne max)
+- Origine : [plateforme principale] — [type de contenu : son / format / meme / phrase]
+- Vues estimées : [ordre de grandeur sur les contenus liés]
+- Usage collège : [comment elle est utilisée IRL : blague / imitation / running gag / expression / défi]
+- Durée de vie estimée : [en semaines restantes approximatives]
+- Score fiabilité : [X/5] — [justification en 5 mots max]
+
+⚠️ CONTRAINTES STRICTES (non négociables)
+✗ Exclure tout hashtag générique (#fyp, #viral, #pourtoi, #trending)
+✗ Exclure les tendances de plus de 6 semaines
+✗ Exclure les trends majoritairement adultes (18 ans et plus)
+✗ Exclure les tendances non confirmées par toi même deux fois
+✗ Exclure les tendances restées confinées à la sphère anglophone et à l'étranger
+✓ Cibler uniquement : collégiens francophones (France métropolitaine principalement)
+Il faut viser absolument les contenus pouvant être vus en France
+
+📊 SYNTHÈSE FINALE
+Après la liste, fournis :
+- Top 3 des tendances les plus "sûres" à utiliser dans une appli parents
+- 2 tendances à surveiller (montantes mais pas encore mainstream)
+- 1 tendance à éviter car trop risquée ou ambiguë pour un public parental
+
+OBLIGATONS :
+Vérifies toi même ce que tu dis deux fois
+Vérifies que ce sont des trends françaises et à la mode en France
+
+
+
+`;
 
   try {
     const raw = await callMistral(prompt, 0.45);
 
-    // Extraction robuste : cherche le premier [ ... ] dans la réponse
-    const match = raw.match(/\[[\s\S]*?\]/);
-    if (!match) throw new Error('Aucun tableau JSON trouvé dans la réponse');
+    const trends = [];
+    const blocks = raw.split(/\n(?=\d+\.\s+)/);
+    
+    for (const block of blocks) {
+      const matchTag = block.match(/(?:^|\n)\d+\.\s*#?([^\s\-:]+)(?:[\s\-:]+)(.*)/);
+      if (!matchTag) continue;
+      
+      const tag = matchTag[1].toLowerCase().replace(/[^a-z0-9_]/g, '');
+      const explanation = matchTag[2].trim();
+      
+      const viewsMatch = block.match(/- Vues estimées\s*:\s*(.*)/i);
+      const viewsRaw = viewsMatch ? viewsMatch[1].trim() : '';
+      
+      const originMatch = block.match(/- Origine\s*:\s*(.*)/i);
+      const origin = originMatch ? originMatch[1].trim() : '';
 
-    const keywords = JSON.parse(match[0]);
-    if (!Array.isArray(keywords) || keywords.length === 0) throw new Error('Tableau vide');
+      const usageMatch = block.match(/- Usage collège\s*:\s*(.*)/i);
+      const usage = usageMatch ? usageMatch[1].trim() : '';
 
-    const cleaned = keywords
-      .map(k => String(k).toLowerCase().replace(/^#/, '').trim())
-      .filter(k => k.length > 1 && k.length < 40 && /^[a-z0-9_àâéèêëîïôùûüç-]+$/i.test(k));
+      const confMatch = block.match(/- Score fiabilité\s*:\s*(\d)\/5/i);
+      const confidence = confMatch ? parseInt(confMatch[1]) * 20 : 80;
 
-    console.log(`   🤖 Mistral → ${cleaned.length} seeds : ${cleaned.slice(0, 8).join(', ')}…`);
-    return cleaned;
-
-  } catch (e) {
-    console.warn(`   ⚠️  Échec génération seeds (${e.message}) → seeds de secours`);
-    return FALLBACK_SEEDS;
-  }
-}
-
-// ─── ÉTAPE 1 : Scraping tiktokhashtags.com ───────────────────
-
-async function scrapeHashtagPage(page, keyword) {
-  try {
-    await page.goto(
-      `https://tiktokhashtags.com/hashtag/${encodeURIComponent(keyword)}/`,
-      { waitUntil: 'domcontentloaded', timeout: 28000 }
-    );
-    await sleep(1500);
-
-    return await page.evaluate((kw) => {
-      // Stats du hashtag principal
-      function getStat(label) {
-        const blocks = Array.from(document.querySelectorAll('.g-line-height-1'));
-        const b = blocks.find(el => {
-          const h = el.querySelector('h4, .h5, h5');
-          return h && h.innerText.toUpperCase().includes(label.toUpperCase());
-        });
-        return b?.querySelector('.g-font-size-26, [class*="font-size-2"]')?.innerText?.trim() ?? null;
-      }
-
-      const viewsRaw = getStat('Overall Views') || getStat('Views');
-      const postsRaw = getStat('Overall Posts') || getStat('Posts');
-
-      // Hashtags connexes dans le tableau
-      const related = [];
-      document.querySelectorAll('table tbody tr').forEach(row => {
-        const cells = row.querySelectorAll('td');
-        if (cells.length < 2) return;
-        const name = (cells[1]?.querySelector('a')?.textContent ?? cells[1]?.textContent ?? '')
-          .trim().replace(/^#/, '').toLowerCase();
-        const v = cells[3]?.textContent?.trim() ?? null;
-        const p = cells[2]?.textContent?.trim() ?? null;
-        if (name && name.length > 1 && name !== kw) {
-          related.push({ tag: name, viewsRaw: v, postsRaw: p });
-        }
+      trends.push({
+        tag: tag,
+        views: parseCount(viewsRaw) || null,
+        posts: null,
+        viewsFmt: viewsRaw || 'N/A',
+        postsFmt: 'N/A',
+        trendScore: confidence, 
+        isRising: true,
+        aiConfidence: confidence,
+        category: getCategory(tag),
+        explanation: `${explanation}${usage ? ' Usage : ' + usage : ''}`,
       });
-
-      return { self: { tag: kw, viewsRaw, postsRaw }, related };
-    }, keyword);
-
-  } catch (e) {
-    console.warn(`   ⚠️  Échec scrape #${keyword} : ${e.message}`);
-    return { self: { tag: keyword, viewsRaw: null, postsRaw: null }, related: [] };
-  }
-}
-
-// ─── ÉTAPE 2 : Classification + Explications Gemini ──────────
-
-async function classifyWithAI(candidates) {
-  // Fallback si pas de clé
-  if (!process.env.MISTRAL_API_KEY) {
-    console.warn('   ⚠️  Pas de clé Mistral → classification ignorée');
-    return Object.fromEntries(
-      candidates.map(c => [c.tag, { isCollegeTrend: true, confidence: 50, explanation: null }])
-    );
-  }
-
-  const tagList = candidates.map(c => `"${c.tag}"`).join(', ');
-
-  const prompt = `Tu es un expert des tendances TikTok chez les adolescents français de 11 à 15 ans (collégiens), en ${new Date().getFullYear()}.
-
-Voici une liste de hashtags TikTok. Pour chacun, réponds avec :
-- "isCollegeTrend": true si ce hashtag est réellement utilisé/apprécié par les collégiens français 11-15 ans en ce moment, false sinon. Exclure les hashtags trop génériques (ex: "tiktok", "music", "usa", "car") ou hors sujet.
-- "confidence": entier de 0 à 100 indiquant ta certitude que c'est une vraie trend collégienne active.
-- "explanation": si isCollegeTrend est true, une phrase de 1-2 phrases en français vulgarisée pour des parents. Commence par "Ce hashtag", "Tendance où" ou "Mème où". Si false, mets null.
-
-Réponds UNIQUEMENT avec un tableau JSON valide, sans markdown, sans texte autour :
-[{"tag":"nom","isCollegeTrend":true,"confidence":85,"explanation":"..."},...]
-
-Hashtags à analyser : [${tagList}]`;
-
-  try {
-    const raw = await callMistral(prompt, 0.2);
-
-    // Extraction robuste du tableau JSON
-    const match = raw.match(/\[[\s\S]*\]/);
-    if (!match) throw new Error('Pas de tableau JSON dans la réponse');
-
-    const parsed = JSON.parse(match[0]);
-    if (!Array.isArray(parsed)) throw new Error('Résultat non-array');
-
-    const map = {};
-    for (const item of parsed) {
-      if (!item.tag) continue;
-      map[item.tag.toLowerCase()] = {
-        isCollegeTrend: item.isCollegeTrend === true,
-        confidence:     typeof item.confidence === 'number' ? item.confidence : 50,
-        explanation:    item.explanation ?? null,
-      };
     }
 
-    console.log(`   ✅ Mistral a classifié ${Object.keys(map).length} hashtags`);
-    return map;
+    console.log(`   🤖 Mistral a généré et analysé ${trends.length} tendances.`);
+    return trends;
 
   } catch (e) {
-    console.warn(`   ⚠️  Mistral classification échouée (${e.message}) → tous gardés`);
-    return Object.fromEntries(
-      candidates.map(c => [c.tag, { isCollegeTrend: true, confidence: 50, explanation: null }])
-    );
+    console.error(`   ❌ Échec génération IA : ${e.message}`);
+    return [];
   }
 }
 
-// ─── ÉTAPE 3 : Google Trends ─────────────────────────────────
-
-async function getTrendScore(keyword) {
-  try {
-    const raw = await googleTrends.interestOverTime({
-      keyword,
-      geo: 'FR',
-      startTime: new Date(Date.now() - 90 * 24 * 60 * 60 * 1000),
-      hl: 'fr',
-    });
-    const data = JSON.parse(raw);
-    const timeline = data?.default?.timelineData ?? [];
-    if (timeline.length === 0) return null;
-
-    const values = timeline.map(d => d.value?.[0] ?? 0);
-    const third  = Math.floor(values.length / 3);
-    const avg    = arr => arr.length ? arr.reduce((s, v) => s + v, 0) / arr.length : 0;
-
-    const score30d    = avg(values.slice(2 * third));
-    const scorePrev60 = avg(values.slice(0, 2 * third));
-    const isRising    = score30d >= 10 && (scorePrev60 === 0 || score30d >= scorePrev60 * 1.4);
-
-    return { score: Math.round(score30d), isRising };
-  } catch {
-    return null;
-  }
-}
-
-async function fetchGoogleTrendsBatch(items) {
-  const results = [];
-  for (let i = 0; i < items.length; i += GT_BATCH_SIZE) {
-    const batch = items.slice(i, i + GT_BATCH_SIZE);
-    const batchResults = await Promise.all(batch.map(item => getTrendScore(item.tag)));
-    batchResults.forEach((gt, j) => results.push({ item: batch[j], gt }));
-    if (i + GT_BATCH_SIZE < items.length) await sleep(GT_BATCH_DELAY);
-  }
-  return results;
-}
+// Étapes 1 à 3 supprimées, le nouveau prompt Mistral s'occupe de tout le filtrage.
 
 // ─── ÉTAPE 4 : Vidéo exemple sur TikTok ─────────────────────
 
@@ -339,7 +265,7 @@ async function getExampleVideo(page, hashtag) {
         const match = (link.href || '').match(/\/@([^/]+)\/video\/(\d+)/);
         if (!match) continue;
 
-        const author  = '@' + match[1];
+        const author = '@' + match[1];
         const videoId = match[2];
         const videoUrl = `https://www.tiktok.com/@${match[1]}/video/${match[2]}`;
 
@@ -388,94 +314,22 @@ async function run() {
 
   try {
 
-    // ── 0. SEEDS ─────────────────────────────────────────────
-    console.log('\n🤖 ÉTAPE 0 — Génération des mots-clés seeds par Gemini...');
-    const seedKeywords = await generateSeedKeywords();
-
-    // ── 1. SCRAPING HASHTAGS ──────────────────────────────────
-    console.log(`\n🔍 ÉTAPE 1 — Scraping de ${seedKeywords.length} keywords sur tiktokhashtags.com...`);
-
-    const seen = new Set();
-    const pool = [];
-
-    for (const kw of seedKeywords) {
-      process.stdout.write(`   #${kw} ... `);
-      const { self, related } = await scrapeHashtagPage(page, kw);
-
-      if (!seen.has(kw)) {
-        seen.add(kw);
-        pool.push({ tag: kw, views: parseCount(self.viewsRaw), posts: parseCount(self.postsRaw) });
-      }
-
-      let added = 0;
-      for (const r of related) {
-        if (!seen.has(r.tag)) {
-          seen.add(r.tag);
-          pool.push({ tag: r.tag, views: parseCount(r.viewsRaw), posts: parseCount(r.postsRaw) });
-          added++;
-        }
-      }
-      console.log(`${related.length} connexes (+${added} nouveaux)`);
+    // ── 1. GÉNÉRATION DES TENDANCES PAR L'IA ──────────────────
+    console.log('\n🤖 ÉTAPE 1 — Génération et Analyse par Mistral AI...');
+    let finalTrends = await generateSeedKeywords();
+    
+    if (finalTrends.length === 0) {
+       console.log('⚠️ Aucune tendance n\'a été récupérée. Arrêt.');
+       process.exit(1);
+    }
+    
+    // Limitation aux 20 meilleurs
+    if (finalTrends.length > MAX_FINAL_TRENDS) {
+      finalTrends = finalTrends.slice(0, MAX_FINAL_TRENDS);
     }
 
-    console.log(`\n   📦 Pool total : ${pool.length} hashtags candidats`);
-
-    // ── 2. CLASSIFICATION IA ──────────────────────────────────
-    // Prend les MAX_POOL_FOR_AI avec le plus de vues
-    const poolForAI = pool
-      .sort((a, b) => (b.views || 0) - (a.views || 0))
-      .slice(0, MAX_POOL_FOR_AI);
-
-    console.log(`\n🤖 ÉTAPE 2 — Classification Mistral (${poolForAI.length} candidats)...`);
-    const aiResults = await classifyWithAI(poolForAI);
-
-    // Affichage du résultat de classification
-    const aiFiltered = poolForAI.filter(item => {
-      const ai = aiResults[item.tag.toLowerCase()];
-      const keep = !ai || ai.isCollegeTrend === true;
-      const icon = !ai ? '❓' : keep ? '✅' : '⛔';
-      const conf = ai?.confidence ?? '?';
-      console.log(`   ${icon} #${item.tag} (confiance ${conf}/100)`);
-      return keep;
-    });
-
-    console.log(`\n   → ${aiFiltered.length} trends collégiens validés`);
-
-    // ── 3. GOOGLE TRENDS ──────────────────────────────────────
-    console.log(`\n📈 ÉTAPE 3 — Google Trends FR (batch de ${GT_BATCH_SIZE})...`);
-    const gtBatch = await fetchGoogleTrendsBatch(aiFiltered);
-
-    // Assemblage des résultats
-    const assembled = aiFiltered.map(item => {
-      const gt = gtBatch.find(r => r.item.tag === item.tag)?.gt ?? null;
-      const ai = aiResults[item.tag.toLowerCase()];
-      console.log(`   📊 #${item.tag} → GT score: ${gt ? gt.score : '—'}/100${gt?.isRising ? ' 📈' : ''}`);
-      return {
-        tag:         item.tag,
-        views:       item.views || null,
-        posts:       item.posts || null,
-        viewsFmt:    fmtNumber(item.views),
-        postsFmt:    fmtNumber(item.posts),
-        trendScore:  gt?.score  ?? null,
-        isRising:    gt?.isRising ?? null,
-        aiConfidence: ai?.confidence ?? null,
-        explanation: ai?.explanation ?? null,
-        category:    getCategory(item.tag),
-      };
-    });
-
-    // Tri : confiance IA desc, puis score GT desc
-    assembled.sort((a, b) => {
-      const ca = a.aiConfidence ?? 50;
-      const cb = b.aiConfidence ?? 50;
-      if (cb !== ca) return cb - ca;
-      return (b.trendScore ?? 0) - (a.trendScore ?? 0);
-    });
-
-    const finalTrends = assembled.slice(0, MAX_FINAL_TRENDS);
-
-    // ── 4. VIDÉOS EXEMPLES ────────────────────────────────────
-    console.log(`\n🎬 ÉTAPE 4 — Vidéo exemple TikTok pour chaque trend...`);
+    // ── 2. VIDÉOS EXEMPLES ────────────────────────────────────
+    console.log(`\n🎬 ÉTAPE 2 — Vidéo exemple TikTok pour chaque trend...`);
 
     for (const trend of finalTrends) {
       process.stdout.write(`   🎥 #${trend.tag} → `);
@@ -491,13 +345,11 @@ async function run() {
 
     // ── EXPORT ───────────────────────────────────────────────
     const output = {
-      lastUpdate:         new Date().toISOString(),
-      totalCandidates:    pool.length,
-      totalAfterAIFilter: aiFiltered.length,
+      lastUpdate: new Date().toISOString(),
+      totalCandidates: finalTrends.length,
+      totalAfterAIFilter: finalTrends.length,
       sources: [
-        'tiktokhashtags.com',
-        'Mistral AI (filtre + explications)',
-        'Google Trends FR 90 jours',
+        'Mistral AI (génération tout-en-un)',
         'TikTok (vidéo exemple)',
       ],
       trends: finalTrends,
