@@ -142,125 +142,66 @@ async function callMistral(prompt, temperature = 0.3) {
   throw new Error('Mistral indisponible après 3 tentatives');
 }
 
-// ─── ÉTAPE 0 : Génération des seeds par Gemini ───────────────
+// ─── ÉTAPE 1 : Génération des tendances par Mistral (JSON) ────
 
-async function generateSeedKeywords() {
-  const today = new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+async function generateTrends() {
+  const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 
-  const prompt = `Tu es un expert en culture internet, micro-tendances TikTok et comportements numériques des collégiens français (11-15 ans). Nous sommes le ${today}.
+  const prompt = `Tu es un expert des tendances TikTok chez les collégiens français (11-15 ans). Nous sommes le ${today}.
 
-⚙️ PROTOCOLE DE DOUBLE VÉRIFICATION (obligatoire)
-Avant d'inclure une tendance, tu dois :
-1. Identifier la tendance depuis une première source (TikTok FR, Twitter/X, YouTube Shorts).
-2. La confirmer via une seconde source indépendante (autre compte, autre format, autre plateforme).
-3. Si tu ne peux pas confirmer la tendance, tu NE l'inclus PAS dans la liste.
+Ton rôle : Identifier les 15 meilleurs hashtags TikTok actifs EN CE MOMENT, populaires sur TikTok France, reconnus par les collégiens français.
 
-🎯 MISSION
-Génère une liste de 15 micro-tendances actives chez les collégiens français, datant de moins de 6 semaines, qui sont :
-- Virales sur TikTok FR ou Reels Instagram FR
-- Reconnaissables instantanément par un élève de 6e à 3e
+Règles strictes :
+- Chaque élément "hashtag" doit être un seul mot, sans espace, sans #, sans accent, tout en minuscules
+- Exemples valides : "skibidi", "sigma", "brainrot", "rizz", "glowtok", "miaw", "fanum"
+- Exemples invalides : "le son", "la phrase", "c'est pas moi", "oh non oh non"
+- Le champ "explication" est une phrase courte EN FRANÇAIS expliquée pour des PARENTS (pas des ados), qui décrit ce que cette tendance représente dans la culture ado actuelle
+- Le champ "categorie" doit être l'une de ces valeurs exactes : "Argot internet / Brainrot", "Gaming", "Danse / Emote", "Vie scolaire", "Contenu viral", "Musique", "Anime / Manga", "Tendance ados"
+- Le champ "fiabilite" est un entier de 0 à 100 indiquant à quel point cette tendance est active et populaire maintenant en France
+- Le champ "vues" est une estimation formatée comme "50M+" ou "200M+"
 
-🧠 RAISONNEMENT REQUIS (chain-of-thought)
-Pour CHAQUE tendance, avant de la présenter, raisonne en interne :
-→ "Est-ce que cette trend est encore active aujourd'hui ou est-elle déjà passée ?, Si oui la garder si non ou doute la rejeter et ne pas en parler"
-→ "A-t-elle bien pénétré le contexte francophone ? Si oui on la garde si non ou doute on la supprime"
-Si la réponse à l'une de ces questions est non ou incertaine, tu exclus la tendance.
-
-📋 FORMAT DE SORTIE (strictement respecté pour chaque tendance)
-Numéro. Mot-clé / hashtag / phrase virale
-- Explication courte (1 ligne max)
-- Origine : [plateforme principale] — [type de contenu : son / format / meme / phrase]
-- Vues estimées : [ordre de grandeur sur les contenus liés]
-- Usage collège : [comment elle est utilisée IRL : blague / imitation / running gag / expression / défi]
-- Durée de vie estimée : [en semaines restantes approximatives]
-- Score fiabilité : [X/5] — [justification en 5 mots max]
-
-⚠️ CONTRAINTES STRICTES (non négociables)
-✗ Exclure tout hashtag générique (#fyp, #viral, #pourtoi, #trending)
-✗ Exclure les tendances de plus de 6 semaines
-✗ Exclure les trends majoritairement adultes (18 ans et plus)
-✗ Exclure les tendances non confirmées par toi même deux fois
-✗ Exclure les tendances restées confinées à la sphère anglophone et à l'étranger
-✓ Cibler uniquement : collégiens francophones (France métropolitaine principalement)
-Il faut viser absolument les contenus pouvant être vus en France
-
-📊 SYNTHÈSE FINALE
-Après la liste, fournis :
-- Top 3 des tendances les plus "sûres" à utiliser dans une appli parents
-- 2 tendances à surveiller (montantes mais pas encore mainstream)
-- 1 tendance à éviter car trop risquée ou ambiguë pour un public parental
-
-OBLIGATONS :
-Vérifies toi même ce que tu dis deux fois
-Vérifies que ce sont des trends françaises et à la mode en France
-
-
-
-`;
+Réponds UNIQUEMENT avec un tableau JSON valide, sans texte avant ni après, sans markdown :
+[
+  {
+    "hashtag": "skibidi",
+    "explication": "Expression comique issue d'un dessin animé internet très populaire chez les ados, utilisée pour faire des blagues absurdes.",
+    "categorie": "Argot internet / Brainrot",
+    "fiabilite": 95,
+    "vues": "500M+"
+  }
+]`;
 
   try {
-    const raw = await callMistral(prompt, 0.45);
+    const raw = await callMistral(prompt, 0.3);
 
-    const trends = [];
-    const blocks = raw.split(/\n(?=\d+\.\s+)/);
-    
-    for (const block of blocks) {
-      const lines = block.split('\n').filter(l => l.trim().length > 0);
-      if (lines.length === 0) continue;
+    const match = raw.match(/\[[\s\S]*\]/);
+    if (!match) throw new Error('Pas de tableau JSON dans la réponse');
 
-      let titleLine = lines[0].replace(/^\d+\.\s*/, '').trim();
-      titleLine = titleLine.replace(/\*\*/g, ''); // enlever le gras
+    const parsed = JSON.parse(match[0]);
+    if (!Array.isArray(parsed) || parsed.length === 0) throw new Error('Tableau vide');
 
-      let tagRaw = titleLine;
-      let explanation = "";
-      
-      const parts = titleLine.match(/^(.*?)\s*(?:[-:—])\s*(.*)$/);
-      if (parts) {
-         tagRaw = parts[1];
-         explanation = parts[2].trim();
-      }
+    const trends = parsed
+      .filter(item => typeof item.hashtag === 'string' && item.hashtag.trim().length >= 2)
+      .map(item => {
+        const tag = item.hashtag.toLowerCase()
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]/g, '');
+        return {
+          tag,
+          views: null,
+          posts: null,
+          viewsFmt: item.vues || 'N/A',
+          postsFmt: 'N/A',
+          trendScore: typeof item.fiabilite === 'number' ? item.fiabilite : 80,
+          isRising: true,
+          aiConfidence: typeof item.fiabilite === 'number' ? item.fiabilite : 80,
+          category: item.categorie || getCategory(tag),
+          explanation: item.explication || null,
+        };
+      })
+      .filter(t => t.tag.length >= 2);
 
-      // Si le mot clé est entre guillemets, on prend le contenu
-      const quoteMatch = tagRaw.match(/['"«](.*?)['"»]/);
-      let tagStr = quoteMatch ? quoteMatch[1] : tagRaw;
-      
-      // Nettoyage des préfixes inutiles
-      tagStr = tagStr.replace(/^(le|la|les|un|une|des|hashtag|phrase|son|défi|trend)\s+/i, '').trim();
-      
-      // Transformation en format hashtag (minuscules, sans accents, sans espaces)
-      const tag = tagStr.toLowerCase()
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^a-z0-9]/g, '');
-
-      if (!tag || tag.length < 2) continue;
-      
-      const viewsMatch = block.match(/- Vues estimées\s*:\s*(.*)/i);
-      const viewsRaw = viewsMatch ? viewsMatch[1].replace(/\*\*/g, '').trim() : '';
-      
-      const originMatch = block.match(/- Origine\s*:\s*(.*)/i);
-      const origin = originMatch ? originMatch[1].trim() : '';
-
-      const usageMatch = block.match(/- Usage collège\s*:\s*(.*)/i);
-      const usage = usageMatch ? usageMatch[1].trim() : '';
-
-      const confMatch = block.match(/- Score fiabilité\s*:\s*(\d)\/5/i);
-      const confidence = confMatch ? parseInt(confMatch[1]) * 20 : 80;
-
-      trends.push({
-        tag: tag,
-        views: parseCount(viewsRaw) || null,
-        posts: null,
-        viewsFmt: viewsRaw || 'N/A',
-        postsFmt: 'N/A',
-        trendScore: confidence, 
-        isRising: true,
-        aiConfidence: confidence,
-        category: getCategory(tag),
-        explanation: `${explanation}${usage ? ' Usage : ' + usage : ''}`,
-      });
-    }
-
-    console.log(`   🤖 Mistral a généré et analysé ${trends.length} tendances.`);
+    console.log(`   ✅ Mistral a généré ${trends.length} tendances.`);
     return trends;
 
   } catch (e) {
@@ -269,7 +210,10 @@ Vérifies que ce sont des trends françaises et à la mode en France
   }
 }
 
-// Étapes 1 à 3 supprimées, le nouveau prompt Mistral s'occupe de tout le filtrage.
+// ────────────────────────────────────────────────────────────
+
+
+
 
 // ─── ÉTAPE 4 : Vidéo exemple sur TikTok ─────────────────────
 
@@ -277,49 +221,38 @@ async function getExampleVideo(page, hashtag) {
   try {
     await page.goto(
       `https://www.tiktok.com/tag/${encodeURIComponent(hashtag)}`,
-      { waitUntil: 'domcontentloaded', timeout: 28000 }
+      { waitUntil: 'networkidle', timeout: 30000 }
     );
-    await sleep(3000);
+    // Attente supplémentaire pour laisser le JS charger les vidéos
+    await sleep(5000);
 
     const videoData = await page.evaluate(() => {
-      // Cherche tous les liens vidéo de la page
       const links = Array.from(document.querySelectorAll('a[href*="/video/"]'));
-      for (const link of links) {
-        const match = (link.href || '').match(/\/@([^/]+)\/video\/(\d+)/);
-        if (!match) continue;
+      // Filtrer les liens avec un vrai ID de vidéo (18-19 chiffres)
+      const videoLinks = links.filter(l => /\/@[^/]+\/video\/\d{15,}/.test(l.href || ''));
+      if (videoLinks.length === 0) return null;
 
-        const author = '@' + match[1];
-        const videoId = match[2];
-        const videoUrl = `https://www.tiktok.com/@${match[1]}/video/${match[2]}`;
+      // Prendre aléatoirement parmi les 3 premiers pour varier
+      const idx = Math.floor(Math.random() * Math.min(3, videoLinks.length));
+      const link = videoLinks[idx];
+      const match = (link.href || '').match(/\/@([^/]+)\/video\/(\d+)/);
+      if (!match) return null;
 
-        // Cherche une description dans les éléments voisins
-        const container = link.closest('[class*="DivWrapper"], [class*="item"], article, li');
-        let description = null;
-        if (container) {
-          const descEl = container.querySelector(
-            '[class*="SpanText"], [class*="desc"], [class*="caption"], p'
-          );
-          description = descEl?.textContent?.trim()?.slice(0, 150) ?? null;
-          // Ignore si la description est juste le nom d'utilisateur
-          if (description && description === match[1]) description = null;
-        }
-
-        return { author, videoId, videoUrl, description };
-      }
-      return null;
+      return {
+        author: '@' + match[1],
+        videoId: match[2],
+        videoUrl: `https://www.tiktok.com/@${match[1]}/video/${match[2]}`,
+        embedUrl: `https://www.tiktok.com/embed/v2/${match[2]}`,
+      };
     });
 
-    if (!videoData) return null;
-
-    return {
-      ...videoData,
-      embedUrl: `https://www.tiktok.com/embed/v2/${videoData.videoId}`,
-    };
+    return videoData || null;
 
   } catch {
     return null;
   }
 }
+
 
 // ─── MAIN ────────────────────────────────────────────────────
 
@@ -337,9 +270,9 @@ async function run() {
 
   try {
 
-    // ── 1. GÉNÉRATION DES TENDANCES PAR L'IA ──────────────────
-    console.log('\n🤖 ÉTAPE 1 — Génération et Analyse par Mistral AI...');
-    let finalTrends = await generateSeedKeywords();
+    // ── 1. GÉNÉRATION DES TENDANCES PAR L'IA (JSON) ───────────
+    console.log('\n🤖 ÉTAPE 1 — Génération des tendances par Mistral AI...');
+    let finalTrends = await generateTrends();
     
     if (finalTrends.length === 0) {
        console.log('⚠️ Aucune tendance n\'a été récupérée. Arrêt.');

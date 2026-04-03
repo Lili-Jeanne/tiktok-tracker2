@@ -608,18 +608,18 @@
       <div class="video-wrap">
         <div class="video-ratio">
           <iframe
+            id="vid-${item.tag}"
             src="${v.embedUrl}"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
             allowfullscreen
             loading="lazy"
-            title="Exemple TikTok #${item.tag}">
-          </iframe>
+            title="Exemple TikTok #${item.tag}"
+            onerror="this.closest('.video-ratio').innerHTML='<div class=\\'no-video\\'><span style=\\'font-size:2rem\\'>🎬</span><span>Vidéo non disponible</span><a href=\\'https://www.tiktok.com/tag/${item.tag}\\' target=\\'_blank\\'>Rechercher sur TikTok →</a></div>'"
+          ></iframe>
         </div>
-        ${v.videoUrl
-                        ? `<a class="video-link" href="${v.videoUrl}" target="_blank" rel="noopener noreferrer">
-               🔗 Voir sur TikTok${v.author ? ' · ' + v.author : ''}
-             </a>`
-                        : ''}
+        <a class="video-link" href="${v.videoUrl || 'https://www.tiktok.com/tag/' + item.tag}" target="_blank" rel="noopener noreferrer">
+          🔗 Voir sur TikTok${v.author ? ' · ' + v.author : ''}
+        </a>
       </div>`;
             } else {
                 videoHtml = `
