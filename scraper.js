@@ -92,7 +92,8 @@ function getCategory(tag) {
 // ─── GEMINI : appel générique avec retry ─────────────────────
 
 async function callGemini(prompt, temperature = 0.3) {
-  const apiKey = process.env.GEMINI_API_KEY;
+  let apiKey = process.env.GEMINI_API_KEY;
+  if (apiKey) apiKey = apiKey.replace(/^["']|["']$/g, '').trim();
   if (!apiKey) throw new Error('GEMINI_API_KEY manquante');
 
   for (let attempt = 1; attempt <= 3; attempt++) {
