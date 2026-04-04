@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-04T01:17:56.337Z",
+  "lastUpdate": "2026-04-04T06:50:55.713Z",
   "totalCandidates": 15,
   "totalAfterAIFilter": 15,
   "sources": [
@@ -17,12 +17,12 @@
       "isRising": true,
       "aiConfidence": 90,
       "category": "Argot internet / Brainrot",
-      "explanation": "Expression utilisée pour complimenter une personne (souvent une fille) avec une silhouette marquée, notamment au niveau des fesses. Popularisée par des vidéos humoristiques où les ados réagissent à des silhouettes exagérées.",
+      "explanation": "Expression utilisée pour complimenter une personne (souvent une fille) avec une silhouette marquée, notamment au niveau des fesses. Popularisée par des vidéos humoristiques où des adolescents réagissent à des silhouettes.",
       "exampleVideo": {
-        "author": "@r6lphy",
-        "videoId": "7231685302186757419",
-        "videoUrl": "https://www.tiktok.com/@r6lphy/video/7231685302186757419",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7231685302186757419"
+        "author": "@sammy.kmetz",
+        "videoId": "7624745131811376415",
+        "videoUrl": "https://www.tiktok.com/@sammy.kmetz/video/7624745131811376415",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624745131811376415"
       }
     },
     {
@@ -35,12 +35,12 @@
       "isRising": true,
       "aiConfidence": 85,
       "category": "Argot internet / Brainrot",
-      "explanation": "Mème désignant un endroit chaotique ou absurde, inspiré par des vidéos montrant des situations étranges ou des comportements bizarres. Les collégiens l’utilisent pour décrire une situation désordonnée ou ridicule.",
+      "explanation": "Mème internet désignant un lieu ou une situation chaotique, souvent associé à des vidéos absurdes ou exagérées. Originaire des États-Unis mais adopté en France pour décrire des scènes de désordre.",
       "exampleVideo": {
-        "author": "@_yunglimabean_",
-        "videoId": "7178456946649877803",
-        "videoUrl": "https://www.tiktok.com/@_yunglimabean_/video/7178456946649877803",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7178456946649877803"
+        "author": "@realprogressive11",
+        "videoId": "7624529717114326303",
+        "videoUrl": "https://www.tiktok.com/@realprogressive11/video/7624529717114326303",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624529717114326303"
       }
     },
     {
@@ -53,12 +53,12 @@
       "isRising": true,
       "aiConfidence": 88,
       "category": "Contenu viral",
-      "explanation": "Terme désignant un style vestimentaire très stylé ou une tenue particulièrement réussie. Les ados l’utilisent pour complimenter quelqu’un qui a un look impressionnant.",
+      "explanation": "Terme utilisé pour décrire un style vestimentaire très stylé ou une tenue qui impressionne. Les collégiens l’emploient pour complimenter quelqu’un qui a un look réussi.",
       "exampleVideo": {
-        "author": "@3nmxuel",
-        "videoId": "7623906520677322014",
-        "videoUrl": "https://www.tiktok.com/@3nmxuel/video/7623906520677322014",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7623906520677322014"
+        "author": "@magnumnnk2",
+        "videoId": "7617976930993818900",
+        "videoUrl": "https://www.tiktok.com/@magnumnnk2/video/7617976930993818900",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7617976930993818900"
       }
     },
     {
@@ -71,12 +71,30 @@
       "isRising": true,
       "aiConfidence": 92,
       "category": "Danse / Emote",
-      "explanation": "Danse virale inspirée d’un mouvement de bras et de jambes synchronisé, souvent accompagnée d’une musique rythmée. Très populaire dans les défis TikTok en groupe.",
+      "explanation": "Danse virale inspirée d’un mouvement de bras et de jambes synchronisé, souvent réalisée en groupe ou en duo. Très populaire dans les défis TikTok et les vidéos de récréation.",
       "exampleVideo": {
-        "author": "@mushiemaggie",
-        "videoId": "7624314927871741197",
-        "videoUrl": "https://www.tiktok.com/@mushiemaggie/video/7624314927871741197",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7624314927871741197"
+        "author": "@mazzy_williams",
+        "videoId": "7620612562987617566",
+        "videoUrl": "https://www.tiktok.com/@mazzy_williams/video/7620612562987617566",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7620612562987617566"
+      }
+    },
+    {
+      "tag": "sigma",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "1Md+",
+      "postsFmt": "N/A",
+      "trendScore": 87,
+      "isRising": true,
+      "aiConfidence": 87,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Terme issu de la culture internet pour désigner une personne charismatique, indépendante et dominante, souvent utilisée de manière ironique ou sérieuse pour se moquer ou s’identifier.",
+      "exampleVideo": {
+        "author": "@argenby",
+        "videoId": "7173631007885724929",
+        "videoUrl": "https://www.tiktok.com/@argenby/video/7173631007885724929",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7173631007885724929"
       }
     },
     {
@@ -85,29 +103,29 @@
       "posts": null,
       "viewsFmt": "120M+",
       "postsFmt": "N/A",
-      "trendScore": 87,
+      "trendScore": 80,
       "isRising": true,
-      "aiConfidence": 87,
+      "aiConfidence": 80,
       "category": "Argot internet / Brainrot",
-      "explanation": "Variante de « rizz » (charisme), désignant une personne qui maîtrise parfaitement l’art de séduire ou de faire rire. Souvent utilisé pour se vanter ou complimenter un ami.",
+      "explanation": "Variante du terme « rizz » (charisme), utilisée pour désigner quelqu’un qui a un talent particulier pour séduire ou faire rire. Souvent employé dans des vidéos de drague ou de blagues.",
       "exampleVideo": {
-        "author": "@fallontonight",
-        "videoId": "7431049084410121514",
-        "videoUrl": "https://www.tiktok.com/@fallontonight/video/7431049084410121514",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7431049084410121514"
+        "author": "@daily5ives",
+        "videoId": "7438750504865238304",
+        "videoUrl": "https://www.tiktok.com/@daily5ives/video/7438750504865238304",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7438750504865238304"
       }
     },
     {
       "tag": "fanumtax",
       "views": null,
       "posts": null,
-      "viewsFmt": "350M+",
+      "viewsFmt": "250M+",
       "postsFmt": "N/A",
-      "trendScore": 94,
+      "trendScore": 95,
       "isRising": true,
-      "aiConfidence": 94,
+      "aiConfidence": 95,
       "category": "Contenu viral",
-      "explanation": "Jeu où une personne « vole » un morceau de nourriture à quelqu’un d’autre en disant « Fanum tax ». Inspiré par un streamer populaire, ce mème est devenu un running gag à la cantine ou entre amis.",
+      "explanation": "Mème popularisé par un streamer français, où l’on « vole » la nourriture de quelqu’un en disant « Fanum tax ». Utilisé dans les vidéos de repas ou de collations entre amis.",
       "exampleVideo": {
         "author": "@streamerful",
         "videoId": "7260274143311023402",
@@ -116,34 +134,88 @@
       }
     },
     {
-      "tag": "sigmafemale",
+      "tag": "glizzy",
       "views": null,
       "posts": null,
       "viewsFmt": "90M+",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 78,
       "isRising": true,
-      "aiConfidence": 80,
+      "aiConfidence": 78,
       "category": "Argot internet / Brainrot",
-      "explanation": "Variante féminine du terme « sigma » (homme solitaire et dominant), utilisée pour décrire une fille indépendante, mystérieuse ou qui ne suit pas les normes sociales. Souvent ironique ou exagérée.",
+      "explanation": "Argot pour désigner un hot-dog, souvent utilisé dans des vidéos humoristiques où les collégiens mangent ou comparent des sandwichs. Peut aussi avoir un double sens ironique.",
       "exampleVideo": {
-        "author": "@victoria.martinho6",
-        "videoId": "7333662767334886661",
-        "videoUrl": "https://www.tiktok.com/@victoria.martinho6/video/7333662767334886661",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7333662767334886661"
+        "author": "@beast.cam.videos",
+        "videoId": "7272787906106838314",
+        "videoUrl": "https://www.tiktok.com/@beast.cam.videos/video/7272787906106838314",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7272787906106838314"
+      }
+    },
+    {
+      "tag": "mewing",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "180M+",
+      "postsFmt": "N/A",
+      "trendScore": 82,
+      "isRising": true,
+      "aiConfidence": 82,
+      "category": "Contenu viral",
+      "explanation": "Technique controversée consistant à positionner sa langue contre le palais pour affiner la mâchoire. Popularisée par des influenceurs beauté et des défis TikTok.",
+      "exampleVideo": {
+        "author": "@mattrandon",
+        "videoId": "6914742063120600321",
+        "videoUrl": "https://www.tiktok.com/@mattrandon/video/6914742063120600321",
+        "embedUrl": "https://www.tiktok.com/embed/v2/6914742063120600321"
+      }
+    },
+    {
+      "tag": "bussin",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "130M+",
+      "postsFmt": "N/A",
+      "trendScore": 85,
+      "isRising": true,
+      "aiConfidence": 85,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Terme utilisé pour qualifier quelque chose d’exceptionnel, souvent de la nourriture ou une performance. Exemple : « Ce burger est bussin ! ».",
+      "exampleVideo": {
+        "author": "@user1280801",
+        "videoId": "7624014356551847181",
+        "videoUrl": "https://www.tiktok.com/@user1280801/video/7624014356551847181",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624014356551847181"
+      }
+    },
+    {
+      "tag": "delulu",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "220M+",
+      "postsFmt": "N/A",
+      "trendScore": 90,
+      "isRising": true,
+      "aiConfidence": 90,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Abréviation de « delusional » (délirant), utilisée pour décrire quelqu’un qui a des idées irréalistes ou exagérées, souvent dans un contexte amoureux ou humoristique.",
+      "exampleVideo": {
+        "author": "@wemiopakunle",
+        "videoId": "7348787993768938794",
+        "videoUrl": "https://www.tiktok.com/@wemiopakunle/video/7348787993768938794",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7348787993768938794"
       }
     },
     {
       "tag": "lobotomy",
       "views": null,
       "posts": null,
-      "viewsFmt": "250M+",
+      "viewsFmt": "160M+",
       "postsFmt": "N/A",
-      "trendScore": 89,
+      "trendScore": 88,
       "isRising": true,
-      "aiConfidence": 89,
+      "aiConfidence": 88,
       "category": "Gaming",
-      "explanation": "Mème issu d’un jeu vidéo (Lethal Company) où les joueurs simulent une opération chirurgicale absurde sur un personnage. Les collégiens l’utilisent pour des vidéos humoristiques ou des réactions exagérées.",
+      "explanation": "Mème issu d’un jeu vidéo (Lethal Company) où un personnage subit une lobotomie. Utilisé dans des vidéos absurdes ou pour décrire une situation chaotique.",
       "exampleVideo": {
         "author": "@doctormyro",
         "videoId": "7312110280379600171",
@@ -152,75 +224,39 @@
       }
     },
     {
-      "tag": "delulu",
+      "tag": "sigmafemale",
       "views": null,
       "posts": null,
-      "viewsFmt": "180M+",
+      "viewsFmt": "110M+",
       "postsFmt": "N/A",
-      "trendScore": 91,
+      "trendScore": 83,
       "isRising": true,
-      "aiConfidence": 91,
+      "aiConfidence": 83,
       "category": "Argot internet / Brainrot",
-      "explanation": "Abréviation de « delusional » (délirant), utilisée pour décrire quelqu’un qui a des idées farfelues ou qui se fait des films. Souvent employé pour rire des situations où une personne s’imagine des choses.",
+      "explanation": "Variante féminine du terme « sigma », utilisée pour décrire une fille indépendante et charismatique, souvent de manière ironique ou admirative.",
       "exampleVideo": {
-        "author": "@mayssachehata",
-        "videoId": "7296165106428267806",
-        "videoUrl": "https://www.tiktok.com/@mayssachehata/video/7296165106428267806",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7296165106428267806"
+        "author": "@victoria.martinho6",
+        "videoId": "7333662767334886661",
+        "videoUrl": "https://www.tiktok.com/@victoria.martinho6/video/7333662767334886661",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7333662767334886661"
       }
     },
     {
-      "tag": "pov",
+      "tag": "skibidi2",
       "views": null,
       "posts": null,
-      "viewsFmt": "1Md+",
+      "viewsFmt": "450M+",
       "postsFmt": "N/A",
-      "trendScore": 93,
+      "trendScore": 94,
       "isRising": true,
-      "aiConfidence": 93,
-      "category": "Contenu viral",
-      "explanation": "Abréviation de « Point Of View » (point de vue), utilisée pour des vidéos où l’ado incarne un personnage ou une situation humoristique, comme « POV : tu es le prof qui voit un élève tricher ».",
+      "aiConfidence": 94,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Suite de la tendance « skibidi », avec de nouveaux personnages et animations absurdes. Les collégiens l’utilisent pour qualifier des situations ou des objets bizarres.",
       "exampleVideo": {
-        "author": "@louisandmelo",
-        "videoId": "7100296335630306566",
-        "videoUrl": "https://www.tiktok.com/@louisandmelo/video/7100296335630306566",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7100296335630306566"
-      }
-    },
-    {
-      "tag": "grimace",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "220M+",
-      "postsFmt": "N/A",
-      "trendScore": 86,
-      "isRising": true,
-      "aiConfidence": 86,
-      "category": "Danse / Emote",
-      "explanation": "Danse ou mouvement inspiré par le personnage Grimace de McDonald’s, devenu un mème après une campagne publicitaire. Les ados imitent sa démarche maladroite ou ses expressions faciales.",
-      "exampleVideo": {
-        "author": "@matthewmccleskey",
-        "videoId": "7249863271275056430",
-        "videoUrl": "https://www.tiktok.com/@matthewmccleskey/video/7249863271275056430",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7249863271275056430"
-      }
-    },
-    {
-      "tag": "sus",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "150M+",
-      "postsFmt": "N/A",
-      "trendScore": 84,
-      "isRising": true,
-      "aiConfidence": 84,
-      "category": "Gaming",
-      "explanation": "Abréviation de « suspect », popularisée par le jeu Among Us. Utilisée pour désigner quelque chose ou quelqu’un de bizarre, de louche ou de pas clair.",
-      "exampleVideo": {
-        "author": "@mokesftw",
-        "videoId": "7026845970314824965",
-        "videoUrl": "https://www.tiktok.com/@mokesftw/video/7026845970314824965",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7026845970314824965"
+        "author": "@frenchstalkers",
+        "videoId": "7624552850173005078",
+        "videoUrl": "https://www.tiktok.com/@frenchstalkers/video/7624552850173005078",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624552850173005078"
       }
     },
     {
@@ -229,52 +265,16 @@
       "posts": null,
       "viewsFmt": "100M+",
       "postsFmt": "N/A",
-      "trendScore": 82,
+      "trendScore": 80,
       "isRising": true,
-      "aiConfidence": 82,
+      "aiConfidence": 80,
       "category": "Gaming",
-      "explanation": "Terme issu du gaming pour désigner un débutant ou quelqu’un de mauvais dans un jeu. Les collégiens l’utilisent aussi pour se moquer gentiment d’un ami qui rate quelque chose.",
+      "explanation": "Terme issu du gaming pour désigner un débutant ou quelqu’un de maladroit. Utilisé dans les vidéos de jeux vidéo ou pour se moquer gentiment d’un ami.",
       "exampleVideo": {
         "author": "@ethanwayne00",
         "videoId": "6704433919346871558",
         "videoUrl": "https://www.tiktok.com/@ethanwayne00/video/6704433919346871558",
         "embedUrl": "https://www.tiktok.com/embed/v2/6704433919346871558"
-      }
-    },
-    {
-      "tag": "clash",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "130M+",
-      "postsFmt": "N/A",
-      "trendScore": 88,
-      "isRising": true,
-      "aiConfidence": 88,
-      "category": "Vie scolaire",
-      "explanation": "Désigne une dispute ou un conflit, souvent utilisé pour des vidéos où des ados simulent des arguments exagérés (ex. : « Clash à la cantine »). Peut aussi concerner des compétitions entre amis.",
-      "exampleVideo": {
-        "author": "@meganightknite",
-        "videoId": "7624511474139942166",
-        "videoUrl": "https://www.tiktok.com/@meganightknite/video/7624511474139942166",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7624511474139942166"
-      }
-    },
-    {
-      "tag": "wrapped",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "200M+",
-      "postsFmt": "N/A",
-      "trendScore": 90,
-      "isRising": true,
-      "aiConfidence": 90,
-      "category": "Contenu viral",
-      "explanation": "Inspiré par les « Spotify Wrapped » (récapitulatifs musicaux), ce hashtag est utilisé pour des vidéos où les ados résument leur année, leur trimestre ou même leur journée de manière humoristique.",
-      "exampleVideo": {
-        "author": "@noahandlori",
-        "videoId": "7585293732954508557",
-        "videoUrl": "https://www.tiktok.com/@noahandlori/video/7585293732954508557",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7585293732954508557"
       }
     }
   ]
