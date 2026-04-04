@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-03T18:37:28.873Z",
+  "lastUpdate": "2026-04-04T01:17:56.337Z",
   "totalCandidates": 15,
   "totalAfterAIFilter": 15,
   "sources": [
@@ -11,31 +11,49 @@
       "tag": "gyatt",
       "views": null,
       "posts": null,
-      "viewsFmt": "1Md+",
+      "viewsFmt": "300M+",
       "postsFmt": "N/A",
-      "trendScore": 98,
+      "trendScore": 90,
       "isRising": true,
-      "aiConfidence": 98,
+      "aiConfidence": 90,
       "category": "Argot internet / Brainrot",
-      "explanation": "Expression utilisée pour complimenter une personne (souvent une fille) avec une silhouette marquée, notamment au niveau des fesses. Popularisée par des vidéos humoristiques où des adolescents réagissent à des silhouettes exagérées.",
+      "explanation": "Expression utilisée pour complimenter une personne (souvent une fille) avec une silhouette marquée, notamment au niveau des fesses. Popularisée par des vidéos humoristiques où les ados réagissent à des silhouettes exagérées.",
       "exampleVideo": {
-        "author": "@n_le26",
-        "videoId": "7624495547268746504",
-        "videoUrl": "https://www.tiktok.com/@n_le26/video/7624495547268746504",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7624495547268746504"
+        "author": "@r6lphy",
+        "videoId": "7231685302186757419",
+        "videoUrl": "https://www.tiktok.com/@r6lphy/video/7231685302186757419",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7231685302186757419"
+      }
+    },
+    {
+      "tag": "ohio",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "200M+",
+      "postsFmt": "N/A",
+      "trendScore": 85,
+      "isRising": true,
+      "aiConfidence": 85,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Mème désignant un endroit chaotique ou absurde, inspiré par des vidéos montrant des situations étranges ou des comportements bizarres. Les collégiens l’utilisent pour décrire une situation désordonnée ou ridicule.",
+      "exampleVideo": {
+        "author": "@_yunglimabean_",
+        "videoId": "7178456946649877803",
+        "videoUrl": "https://www.tiktok.com/@_yunglimabean_/video/7178456946649877803",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7178456946649877803"
       }
     },
     {
       "tag": "drip",
       "views": null,
       "posts": null,
-      "viewsFmt": "800M+",
+      "viewsFmt": "150M+",
       "postsFmt": "N/A",
-      "trendScore": 92,
+      "trendScore": 88,
       "isRising": true,
-      "aiConfidence": 92,
-      "category": "Tendance ados",
-      "explanation": "Terme désignant un style vestimentaire très stylé ou une tenue particulièrement réussie. Les collégiens l’utilisent pour vanter leurs looks ou ceux de leurs idoles.",
+      "aiConfidence": 88,
+      "category": "Contenu viral",
+      "explanation": "Terme désignant un style vestimentaire très stylé ou une tenue particulièrement réussie. Les ados l’utilisent pour complimenter quelqu’un qui a un look impressionnant.",
       "exampleVideo": {
         "author": "@3nmxuel",
         "videoId": "7623906520677322014",
@@ -47,116 +65,103 @@
       "tag": "binks",
       "views": null,
       "posts": null,
-      "viewsFmt": "600M+",
+      "viewsFmt": "400M+",
       "postsFmt": "N/A",
-      "trendScore": 88,
+      "trendScore": 92,
       "isRising": true,
-      "aiConfidence": 88,
+      "aiConfidence": 92,
       "category": "Danse / Emote",
-      "explanation": "Danse virale inspirée d’un mouvement de bras et de jambes synchronisé, souvent réalisée en groupe ou en duo. Très populaire dans les défis TikTok et les vidéos de cour de récréation.",
+      "explanation": "Danse virale inspirée d’un mouvement de bras et de jambes synchronisé, souvent accompagnée d’une musique rythmée. Très populaire dans les défis TikTok en groupe.",
       "exampleVideo": {
-        "author": "@bellarainn_",
-        "videoId": "7619423025900866847",
-        "videoUrl": "https://www.tiktok.com/@bellarainn_/video/7619423025900866847",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7619423025900866847"
+        "author": "@mushiemaggie",
+        "videoId": "7624314927871741197",
+        "videoUrl": "https://www.tiktok.com/@mushiemaggie/video/7624314927871741197",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624314927871741197"
       }
     },
     {
       "tag": "rizzler",
       "views": null,
       "posts": null,
-      "viewsFmt": "400M+",
-      "postsFmt": "N/A",
-      "trendScore": 85,
-      "isRising": true,
-      "aiConfidence": 85,
-      "category": "Argot internet / Brainrot",
-      "explanation": "Variante de 'rizz' (charisme), désignant une personne qui maîtrise l’art de séduire ou de faire rire. Souvent utilisé pour se vanter ou complimenter un ami.",
-      "exampleVideo": {
-        "author": "@daily5ives",
-        "videoId": "7438750504865238304",
-        "videoUrl": "https://www.tiktok.com/@daily5ives/video/7438750504865238304",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7438750504865238304"
-      }
-    },
-    {
-      "tag": "mob",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "300M+",
-      "postsFmt": "N/A",
-      "trendScore": 90,
-      "isRising": true,
-      "aiConfidence": 90,
-      "category": "Gaming",
-      "explanation": "Abréviation de 'mobile' (téléphone), utilisée pour parler des jeux mobiles comme *Brawl Stars* ou *Clash Royale*. Les collégiens l’emploient pour partager leurs stratégies ou leurs victoires.",
-      "exampleVideo": {
-        "author": "@nas.hua",
-        "videoId": "7622047015068781846",
-        "videoUrl": "https://www.tiktok.com/@nas.hua/video/7622047015068781846",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7622047015068781846"
-      }
-    },
-    {
-      "tag": "sigmafem",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "250M+",
+      "viewsFmt": "120M+",
       "postsFmt": "N/A",
       "trendScore": 87,
       "isRising": true,
       "aiConfidence": 87,
       "category": "Argot internet / Brainrot",
-      "explanation": "Version féminine du terme 'sigma' (personne indépendante et charismatique), souvent utilisée ironiquement pour se moquer des filles qui adoptent un comportement trop sûr d’elles.",
-      "exampleVideo": null
-    },
-    {
-      "tag": "pov",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "2Md+",
-      "postsFmt": "N/A",
-      "trendScore": 95,
-      "isRising": true,
-      "aiConfidence": 95,
-      "category": "Contenu viral",
-      "explanation": "Abréviation de 'Point Of View' (point de vue), utilisée pour des vidéos où le spectateur vit une situation à la première personne, comme 'POV : tu es le chouchou du prof'. Très répandu dans les scénarios humoristiques ou dramatiques.",
+      "explanation": "Variante de « rizz » (charisme), désignant une personne qui maîtrise parfaitement l’art de séduire ou de faire rire. Souvent utilisé pour se vanter ou complimenter un ami.",
       "exampleVideo": {
-        "author": "@louisandmelo",
-        "videoId": "7100296335630306566",
-        "videoUrl": "https://www.tiktok.com/@louisandmelo/video/7100296335630306566",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7100296335630306566"
+        "author": "@fallontonight",
+        "videoId": "7431049084410121514",
+        "videoUrl": "https://www.tiktok.com/@fallontonight/video/7431049084410121514",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7431049084410121514"
       }
     },
     {
-      "tag": "wizz",
+      "tag": "fanumtax",
       "views": null,
       "posts": null,
-      "viewsFmt": "150M+",
+      "viewsFmt": "350M+",
       "postsFmt": "N/A",
-      "trendScore": 82,
+      "trendScore": 94,
       "isRising": true,
-      "aiConfidence": 82,
-      "category": "Gaming",
-      "explanation": "Action de surprendre quelqu’un en apparaissant soudainement derrière lui (comme dans le jeu *Among Us*). Utilisé dans des vidéos où les ados font des blagues à leurs amis ou à leurs parents.",
+      "aiConfidence": 94,
+      "category": "Contenu viral",
+      "explanation": "Jeu où une personne « vole » un morceau de nourriture à quelqu’un d’autre en disant « Fanum tax ». Inspiré par un streamer populaire, ce mème est devenu un running gag à la cantine ou entre amis.",
       "exampleVideo": {
-        "author": "@dontmissmetoohard",
-        "videoId": "7601818968826907922",
-        "videoUrl": "https://www.tiktok.com/@dontmissmetoohard/video/7601818968826907922",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7601818968826907922"
+        "author": "@streamerful",
+        "videoId": "7260274143311023402",
+        "videoUrl": "https://www.tiktok.com/@streamerful/video/7260274143311023402",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7260274143311023402"
+      }
+    },
+    {
+      "tag": "sigmafemale",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "90M+",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Variante féminine du terme « sigma » (homme solitaire et dominant), utilisée pour décrire une fille indépendante, mystérieuse ou qui ne suit pas les normes sociales. Souvent ironique ou exagérée.",
+      "exampleVideo": {
+        "author": "@victoria.martinho6",
+        "videoId": "7333662767334886661",
+        "videoUrl": "https://www.tiktok.com/@victoria.martinho6/video/7333662767334886661",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7333662767334886661"
+      }
+    },
+    {
+      "tag": "lobotomy",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "250M+",
+      "postsFmt": "N/A",
+      "trendScore": 89,
+      "isRising": true,
+      "aiConfidence": 89,
+      "category": "Gaming",
+      "explanation": "Mème issu d’un jeu vidéo (Lethal Company) où les joueurs simulent une opération chirurgicale absurde sur un personnage. Les collégiens l’utilisent pour des vidéos humoristiques ou des réactions exagérées.",
+      "exampleVideo": {
+        "author": "@doctormyro",
+        "videoId": "7312110280379600171",
+        "videoUrl": "https://www.tiktok.com/@doctormyro/video/7312110280379600171",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7312110280379600171"
       }
     },
     {
       "tag": "delulu",
       "views": null,
       "posts": null,
-      "viewsFmt": "700M+",
+      "viewsFmt": "180M+",
       "postsFmt": "N/A",
       "trendScore": 91,
       "isRising": true,
       "aiConfidence": 91,
       "category": "Argot internet / Brainrot",
-      "explanation": "Abréviation de 'delusional' (délirant), utilisée pour décrire quelqu’un qui se fait des illusions, souvent en amour ou sur ses capacités. Employé avec humour ou pour se moquer gentiment.",
+      "explanation": "Abréviation de « delusional » (délirant), utilisée pour décrire quelqu’un qui a des idées farfelues ou qui se fait des films. Souvent employé pour rire des situations où une personne s’imagine des choses.",
       "exampleVideo": {
         "author": "@mayssachehata",
         "videoId": "7296165106428267806",
@@ -165,111 +170,111 @@
       }
     },
     {
-      "tag": "clash",
+      "tag": "pov",
       "views": null,
       "posts": null,
-      "viewsFmt": "200M+",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Gaming",
-      "explanation": "Référence au jeu *Clash of Clans* ou *Clash Royale*, mais aussi utilisé pour parler d’une dispute ou d’un conflit, souvent de manière exagérée ('J’ai clashé mon pote hier').",
-      "exampleVideo": {
-        "author": "@freaky_clash1",
-        "videoId": "7624382239782096145",
-        "videoUrl": "https://www.tiktok.com/@freaky_clash1/video/7624382239782096145",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7624382239782096145"
-      }
-    },
-    {
-      "tag": "glaz",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "120M+",
-      "postsFmt": "N/A",
-      "trendScore": 78,
-      "isRising": true,
-      "aiConfidence": 78,
-      "category": "Gaming",
-      "explanation": "Personnage du jeu *Call of Duty* devenu un mème, souvent utilisé pour imiter son accent russe ou ses répliques cultes. Les collégiens s’en servent pour des vidéos humoristiques.",
-      "exampleVideo": {
-        "author": "@themojomen",
-        "videoId": "7288772235798547745",
-        "videoUrl": "https://www.tiktok.com/@themojomen/video/7288772235798547745",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7288772235798547745"
-      }
-    },
-    {
-      "tag": "snap",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "500M+",
-      "postsFmt": "N/A",
-      "trendScore": 89,
-      "isRising": true,
-      "aiConfidence": 89,
-      "category": "Vie scolaire",
-      "explanation": "Abréviation de *Snapchat*, utilisée pour parler des stories ou des messages échangés sur l’appli. Les ados l’emploient pour partager des captures d’écran drôles ou des réactions.",
-      "exampleVideo": {
-        "author": "@2bereal.23",
-        "videoId": "7619747524621978902",
-        "videoUrl": "https://www.tiktok.com/@2bereal.23/video/7619747524621978902",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7619747524621978902"
-      }
-    },
-    {
-      "tag": "luffy",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "350M+",
-      "postsFmt": "N/A",
-      "trendScore": 84,
-      "isRising": true,
-      "aiConfidence": 84,
-      "category": "Anime / Manga",
-      "explanation": "Personnage principal de *One Piece*, devenu un symbole de détermination. Les collégiens l’utilisent pour des vidéos de motivation ou des défis physiques (ex : 'Je vais devenir aussi fort que Luffy').",
-      "exampleVideo": {
-        "author": "@onlyluffiy",
-        "videoId": "7623473235304123668",
-        "videoUrl": "https://www.tiktok.com/@onlyluffiy/video/7623473235304123668",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7623473235304123668"
-      }
-    },
-    {
-      "tag": "bffr",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "900M+",
+      "viewsFmt": "1Md+",
       "postsFmt": "N/A",
       "trendScore": 93,
       "isRising": true,
       "aiConfidence": 93,
-      "category": "Argot internet / Brainrot",
-      "explanation": "Abréviation de 'Be For F*cking Real' (sois sérieux), utilisée pour exprimer son incrédulité face à une situation absurde ou une blague. Souvent écrit en commentaire sous des vidéos.",
+      "category": "Contenu viral",
+      "explanation": "Abréviation de « Point Of View » (point de vue), utilisée pour des vidéos où l’ado incarne un personnage ou une situation humoristique, comme « POV : tu es le prof qui voit un élève tricher ».",
       "exampleVideo": {
-        "author": "@yeoshinoya",
-        "videoId": "7275678254114049282",
-        "videoUrl": "https://www.tiktok.com/@yeoshinoya/video/7275678254114049282",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7275678254114049282"
+        "author": "@louisandmelo",
+        "videoId": "7100296335630306566",
+        "videoUrl": "https://www.tiktok.com/@louisandmelo/video/7100296335630306566",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7100296335630306566"
       }
     },
     {
-      "tag": "skibiditoilet",
+      "tag": "grimace",
       "views": null,
       "posts": null,
-      "viewsFmt": "1.5Md+",
+      "viewsFmt": "220M+",
       "postsFmt": "N/A",
-      "trendScore": 96,
+      "trendScore": 86,
       "isRising": true,
-      "aiConfidence": 96,
-      "category": "Brainrot",
-      "explanation": "Variante absurde de 'skibidi', désignant des vidéos ou des mèmes mettant en scène des personnages étranges dans des toilettes. Très populaire pour son côté décalé et répétitif.",
+      "aiConfidence": 86,
+      "category": "Danse / Emote",
+      "explanation": "Danse ou mouvement inspiré par le personnage Grimace de McDonald’s, devenu un mème après une campagne publicitaire. Les ados imitent sa démarche maladroite ou ses expressions faciales.",
       "exampleVideo": {
-        "author": "@dafuq_st",
-        "videoId": "7624544151626976529",
-        "videoUrl": "https://www.tiktok.com/@dafuq_st/video/7624544151626976529",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7624544151626976529"
+        "author": "@matthewmccleskey",
+        "videoId": "7249863271275056430",
+        "videoUrl": "https://www.tiktok.com/@matthewmccleskey/video/7249863271275056430",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7249863271275056430"
+      }
+    },
+    {
+      "tag": "sus",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "150M+",
+      "postsFmt": "N/A",
+      "trendScore": 84,
+      "isRising": true,
+      "aiConfidence": 84,
+      "category": "Gaming",
+      "explanation": "Abréviation de « suspect », popularisée par le jeu Among Us. Utilisée pour désigner quelque chose ou quelqu’un de bizarre, de louche ou de pas clair.",
+      "exampleVideo": {
+        "author": "@mokesftw",
+        "videoId": "7026845970314824965",
+        "videoUrl": "https://www.tiktok.com/@mokesftw/video/7026845970314824965",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7026845970314824965"
+      }
+    },
+    {
+      "tag": "noob",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "100M+",
+      "postsFmt": "N/A",
+      "trendScore": 82,
+      "isRising": true,
+      "aiConfidence": 82,
+      "category": "Gaming",
+      "explanation": "Terme issu du gaming pour désigner un débutant ou quelqu’un de mauvais dans un jeu. Les collégiens l’utilisent aussi pour se moquer gentiment d’un ami qui rate quelque chose.",
+      "exampleVideo": {
+        "author": "@ethanwayne00",
+        "videoId": "6704433919346871558",
+        "videoUrl": "https://www.tiktok.com/@ethanwayne00/video/6704433919346871558",
+        "embedUrl": "https://www.tiktok.com/embed/v2/6704433919346871558"
+      }
+    },
+    {
+      "tag": "clash",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "130M+",
+      "postsFmt": "N/A",
+      "trendScore": 88,
+      "isRising": true,
+      "aiConfidence": 88,
+      "category": "Vie scolaire",
+      "explanation": "Désigne une dispute ou un conflit, souvent utilisé pour des vidéos où des ados simulent des arguments exagérés (ex. : « Clash à la cantine »). Peut aussi concerner des compétitions entre amis.",
+      "exampleVideo": {
+        "author": "@meganightknite",
+        "videoId": "7624511474139942166",
+        "videoUrl": "https://www.tiktok.com/@meganightknite/video/7624511474139942166",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7624511474139942166"
+      }
+    },
+    {
+      "tag": "wrapped",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "200M+",
+      "postsFmt": "N/A",
+      "trendScore": 90,
+      "isRising": true,
+      "aiConfidence": 90,
+      "category": "Contenu viral",
+      "explanation": "Inspiré par les « Spotify Wrapped » (récapitulatifs musicaux), ce hashtag est utilisé pour des vidéos où les ados résument leur année, leur trimestre ou même leur journée de manière humoristique.",
+      "exampleVideo": {
+        "author": "@noahandlori",
+        "videoId": "7585293732954508557",
+        "videoUrl": "https://www.tiktok.com/@noahandlori/video/7585293732954508557",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7585293732954508557"
       }
     }
   ]
