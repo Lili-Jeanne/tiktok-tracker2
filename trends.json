@@ -1,6 +1,6 @@
 {
-  "lastUpdate": "2026-04-07T08:25:47.443Z",
-  "totalCandidates": 38,
+  "lastUpdate": "2026-04-07T08:33:24.894Z",
+  "totalCandidates": 48,
   "totalAfterAIFilter": 10,
   "sources": [
     "Tavily Search API (sourcing web en temps réel)",
@@ -9,25 +9,169 @@
   ],
   "trends": [
     {
-      "tag": "pnj",
+      "tag": "skibidi",
       "views": null,
       "posts": null,
       "viewsFmt": "N/A",
       "postsFmt": "N/A",
-      "trendScore": 60,
+      "trendScore": 80,
       "isRising": true,
-      "aiConfidence": 60,
-      "category": "Argot internet / Brainrot",
-      "explanation": "Abréviation de 'personnage non joueur', utilisé pour décrire quelqu'un qui se comporte de manière étrange ou inhabituelle.",
+      "aiConfidence": 80,
+      "category": "Danse / Emote",
+      "explanation": "Un terme utilisé pour décrire une danse ou un mouvement amusant et énergique, souvent utilisé de manière ironique ou exagérée.",
       "exampleVideo": {
-        "author": "@huongho_pnj",
-        "videoId": "7447863853943180552",
-        "videoUrl": "https://www.tiktok.com/@huongho_pnj/video/7447863853943180552",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7447863853943180552"
+        "author": "@skyandtami",
+        "videoId": "6628140530331028741",
+        "videoUrl": "https://www.tiktok.com/@skyandtami/video/6628140530331028741",
+        "embedUrl": "https://www.tiktok.com/embed/v2/6628140530331028741"
       }
     },
     {
-      "tag": "cringe",
+      "tag": "rizz",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 90,
+      "isRising": true,
+      "aiConfidence": 90,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Un terme utilisé pour décrire la confiance ou le charme que quelqu'un possède, souvent dans le contexte des relations amoureuses ou de la séduction.",
+      "exampleVideo": {
+        "author": "@practice.rizz",
+        "videoId": "7522715011249147166",
+        "videoUrl": "https://www.tiktok.com/@practice.rizz/video/7522715011249147166",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7522715011249147166"
+      }
+    },
+    {
+      "tag": "bussin",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 85,
+      "isRising": true,
+      "aiConfidence": 85,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Un terme utilisé pour décrire quelque chose qui est exceptionnel ou incroyable, souvent utilisé pour exprimer son admiration ou son enthousiasme.",
+      "exampleVideo": {
+        "author": "@clip_consumers",
+        "videoId": "7579705984914918658",
+        "videoUrl": "https://www.tiktok.com/@clip_consumers/video/7579705984914918658",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7579705984914918658"
+      }
+    },
+    {
+      "tag": "whippin",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 75,
+      "isRising": true,
+      "aiConfidence": 75,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Un terme utilisé pour décrire une situation où quelqu'un est en train de faire quelque chose de manière intense ou excessive, souvent de manière amusante ou ironique.",
+      "exampleVideo": {
+        "author": "@smack1800_",
+        "videoId": "7620842227467570463",
+        "videoUrl": "https://www.tiktok.com/@smack1800_/video/7620842227467570463",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7620842227467570463"
+      }
+    },
+    {
+      "tag": "aigri",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Un terme utilisé pour décrire quelqu'un qui est de mauvaise humeur ou qui se sent irrité, souvent utilisé de manière ironique ou exagérée.",
+      "exampleVideo": {
+        "author": "@traduglish",
+        "videoId": "7305522406477532448",
+        "videoUrl": "https://www.tiktok.com/@traduglish/video/7305522406477532448",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7305522406477532448"
+      }
+    },
+    {
+      "tag": "gaten",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 70,
+      "isRising": true,
+      "aiConfidence": 70,
+      "category": "Danse / Emote",
+      "explanation": "Un terme utilisé pour décrire une situation où quelqu'un est en train de faire quelque chose de manière créative ou originale, souvent dans le contexte de la musique ou de la danse.",
+      "exampleVideo": {
+        "author": "@celebrityeffect",
+        "videoId": "7574986182421925134",
+        "videoUrl": "https://www.tiktok.com/@celebrityeffect/video/7574986182421925134",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7574986182421925134"
+      }
+    },
+    {
+      "tag": "understood",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 85,
+      "isRising": true,
+      "aiConfidence": 85,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Un terme utilisé pour décrire une situation où quelqu'un a compris ou accepté quelque chose, souvent utilisé de manière ironique ou exagérée.",
+      "exampleVideo": {
+        "author": "@anthonydbrice",
+        "videoId": "7449894300281802030",
+        "videoUrl": "https://www.tiktok.com/@anthonydbrice/video/7449894300281802030",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7449894300281802030"
+      }
+    },
+    {
+      "tag": "eat",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Un terme utilisé pour décrire quelque chose qui est exceptionnel ou incroyable, souvent utilisé pour exprimer son admiration ou son enthousiasme.",
+      "exampleVideo": {
+        "author": "@jackkknormannn",
+        "videoId": "7605423390538698015",
+        "videoUrl": "https://www.tiktok.com/@jackkknormannn/video/7605423390538698015",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7605423390538698015"
+      }
+    },
+    {
+      "tag": "sigma",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 75,
+      "isRising": true,
+      "aiConfidence": 75,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Un terme utilisé pour décrire quelqu'un qui est considéré comme étant en dehors des normes sociales ou qui se sent isolé, souvent utilisé de manière ironique ou exagérée.",
+      "exampleVideo": {
+        "author": "@mindofarebel",
+        "videoId": "7431723005476113706",
+        "videoUrl": "https://www.tiktok.com/@mindofarebel/video/7431723005476113706",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7431723005476113706"
+      }
+    },
+    {
+      "tag": "delulu",
       "views": null,
       "posts": null,
       "viewsFmt": "N/A",
@@ -36,156 +180,12 @@
       "isRising": true,
       "aiConfidence": 70,
       "category": "Argot internet / Brainrot",
-      "explanation": "Terme utilisé pour décrire quelque chose de gênant ou de embarrassant.",
+      "explanation": "Un terme utilisé pour décrire quelqu'un qui est considéré comme étant trop optimiste ou trop idéaliste, souvent utilisé de manière ironique ou exagérée.",
       "exampleVideo": {
-        "author": "@rankedreality3",
-        "videoId": "7625728597113769238",
-        "videoUrl": "https://www.tiktok.com/@rankedreality3/video/7625728597113769238",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7625728597113769238"
-      }
-    },
-    {
-      "tag": "roblox",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Gaming",
-      "explanation": "Jeux en ligne très populaires parmi les adolescents, permettant de créer et de jouer à des jeux créés par d'autres utilisateurs.",
-      "exampleVideo": {
-        "author": "@giventothestarss",
-        "videoId": "7625669047232908558",
-        "videoUrl": "https://www.tiktok.com/@giventothestarss/video/7625669047232908558",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7625669047232908558"
-      }
-    },
-    {
-      "tag": "jujutsukaisen",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 75,
-      "isRising": true,
-      "aiConfidence": 75,
-      "category": "Anime / Manga",
-      "explanation": "Série d'anime et de manga très populaire parmi les adolescents, qui suit l'histoire d'un jeune garçon qui découvre un monde de sorcellerie.",
-      "exampleVideo": {
-        "author": "@luz..mybeloved",
-        "videoId": "7625207068944813334",
-        "videoUrl": "https://www.tiktok.com/@luz..mybeloved/video/7625207068944813334",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7625207068944813334"
-      }
-    },
-    {
-      "tag": "disiz",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 65,
-      "isRising": true,
-      "aiConfidence": 65,
-      "category": "Musique",
-      "explanation": "Chanteur de rap français très populaire sur TikTok, connu pour ses chansons virales.",
-      "exampleVideo": {
-        "author": "@angele_vl",
-        "videoId": "7565613176675519777",
-        "videoUrl": "https://www.tiktok.com/@angele_vl/video/7565613176675519777",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7565613176675519777"
-      }
-    },
-    {
-      "tag": "ninho",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 60,
-      "isRising": true,
-      "aiConfidence": 60,
-      "category": "Musique",
-      "explanation": "Chanteur de rap français très populaire sur TikTok, connu pour ses chansons virales.",
-      "exampleVideo": {
-        "author": "@nrvfss",
-        "videoId": "7625335004431781142",
-        "videoUrl": "https://www.tiktok.com/@nrvfss/video/7625335004431781142",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7625335004431781142"
-      }
-    },
-    {
-      "tag": "dinguerie",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 55,
-      "isRising": true,
-      "aiConfidence": 55,
-      "category": "Argot internet / Brainrot",
-      "explanation": "Terme utilisé pour décrire quelque chose de cool ou de tendance.",
-      "exampleVideo": {
-        "author": "@coulisse.dj",
-        "videoId": "7625620026262867222",
-        "videoUrl": "https://www.tiktok.com/@coulisse.dj/video/7625620026262867222",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7625620026262867222"
-      }
-    },
-    {
-      "tag": "cheum",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 50,
-      "isRising": true,
-      "aiConfidence": 50,
-      "category": "Argot internet / Brainrot",
-      "explanation": "Terme utilisé pour décrire quelque chose de génial ou de incroyable.",
-      "exampleVideo": {
-        "author": "@dkbio_eng",
-        "videoId": "7074882949585407234",
-        "videoUrl": "https://www.tiktok.com/@dkbio_eng/video/7074882949585407234",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7074882949585407234"
-      }
-    },
-    {
-      "tag": "sah",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 45,
-      "isRising": true,
-      "aiConfidence": 45,
-      "category": "Argot internet / Brainrot",
-      "explanation": "Terme utilisé pour décrire quelque chose de cool ou de tendance.",
-      "exampleVideo": {
-        "author": "@tareqeid3",
-        "videoId": "7528503888706555149",
-        "videoUrl": "https://www.tiktok.com/@tareqeid3/video/7528503888706555149",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7528503888706555149"
-      }
-    },
-    {
-      "tag": "bg",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "N/A",
-      "postsFmt": "N/A",
-      "trendScore": 40,
-      "isRising": true,
-      "aiConfidence": 40,
-      "category": "Argot internet / Brainrot",
-      "explanation": "Terme utilisé pour décrire un ami proche ou un membre de la famille.",
-      "exampleVideo": {
-        "author": "@lalainebattye",
-        "videoId": "7601082864997829919",
-        "videoUrl": "https://www.tiktok.com/@lalainebattye/video/7601082864997829919",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7601082864997829919"
+        "author": "@wemiopakunle",
+        "videoId": "7348787993768938794",
+        "videoUrl": "https://www.tiktok.com/@wemiopakunle/video/7348787993768938794",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7348787993768938794"
       }
     }
   ]
