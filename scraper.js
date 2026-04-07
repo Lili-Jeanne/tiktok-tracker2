@@ -153,11 +153,9 @@ async function sourceTrends() {
   return unique;
 }
 
-// ─── PHASE 2 : FILTRAGE GROQ ─────────────────────────────────
+// ─── PHASE 2 : FILTRAGE GROQ (désactivé pour test) ─────────────
 
-/**
- * Appel à l'API Groq avec retry
- */
+/*
 async function callGroq(prompt, temperature = 0.2) {
   let apiKey = process.env.GROQ_API_KEY;
   if (apiKey) apiKey = apiKey.replace(/^["']|["']$/g, '').trim();
@@ -195,7 +193,6 @@ async function callGroq(prompt, temperature = 0.2) {
       const text = data?.choices?.[0]?.message?.content ?? '';
       if (!text) throw new Error('Réponse Groq vide');
 
-      // Nettoie les éventuels blocs markdown ```json … ```
       return text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
 
     } catch (e) {
@@ -205,16 +202,14 @@ async function callGroq(prompt, temperature = 0.2) {
   }
   throw new Error('Groq indisponible après 3 tentatives');
 }
+*/
 
-/**
- * Envoie les snippets bruts à Groq qui extrait les vraies tendances
- */
+/*
 async function filterTrendsWithGroq(snippets) {
   const today = new Date().toLocaleDateString('fr-FR', {
     day: 'numeric', month: 'long', year: 'numeric'
   });
 
-  // Formate les snippets comme contexte numéroté
   const context = snippets
     .map((s, i) => `[${i + 1}] ${s.title}\n${s.content}`)
     .join('\n\n');
@@ -290,6 +285,7 @@ Réponds UNIQUEMENT avec un tableau JSON valide de 10 à 15 éléments, sans tex
     })
     .filter(t => t.tag.length >= 2);
 }
+*/
 
 // ─── PHASE 3 : VIDÉO EXEMPLE TIKTOK ─────────────────────────
 
