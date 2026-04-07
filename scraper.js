@@ -1,17 +1,18 @@
 // ============================================================
 // scraper.js — TikTok Tracker pour les Parents
-// Pipeline : Tavily Sourcing → Groq Filtering → TikTok Vidéo → Export
+// Pipeline : Tavily Sourcing → [Groq Filtering] → TikTok Vidéo → Export
+// ⚠️  MODE TEST : Groq désactivé — export brut des snippets Tavily
 // ============================================================
 require('dotenv').config();
-const { chromium } = require('playwright-extra');
-const stealth = require('puppeteer-extra-plugin-stealth')();
+// const { chromium } = require('playwright-extra');  // désactivé en mode test
+// const stealth = require('puppeteer-extra-plugin-stealth')();  // désactivé en mode test
 const fs = require('fs');
 
-chromium.use(stealth);
+// chromium.use(stealth);  // désactivé en mode test
 
 // ─── CONFIG ──────────────────────────────────────────────────
-const MAX_FINAL_TRENDS = 20;   // Trends max dans le JSON final
-const TAVILY_MAX_RESULTS = 5;  // Résultats par requête Tavily
+const MAX_FINAL_TRENDS = 20;
+const TAVILY_MAX_RESULTS = 5;
 
 // ─── REQUÊTES DE SOURCING ────────────────────────────────────
 // Construites dynamiquement avec le mois/année courants pour forcer la récence
@@ -53,9 +54,6 @@ function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
 }
 
-/**
- * Détermine la catégorie d'un hashtag pour l'affichage parent
- */
 function getCategory(tag) {
   const t = tag.toLowerCase();
   const has = (...kw) => kw.some(k => t.includes(k));
@@ -85,9 +83,6 @@ function getCategory(tag) {
 
 // ─── PHASE 1 : SOURCING TAVILY ───────────────────────────────
 
-/**
- * Lance une requête sur l'API Tavily et retourne les snippets
- */
 async function tavilySearch(query) {
   let apiKey = process.env.TAVILY_API_KEY;
   if (apiKey) apiKey = apiKey.replace(/^["']|["']$/g, '').trim();
@@ -115,7 +110,6 @@ async function tavilySearch(query) {
     const data = await res.json();
     return (data.results || []).map(r => ({
       title: r.title || '',
-      // Tronqué à 400 chars pour économiser les tokens Groq
       content: (r.content || '').slice(0, 400),
       url: r.url || '',
     }));
@@ -125,9 +119,6 @@ async function tavilySearch(query) {
   }
 }
 
-/**
- * Lance toutes les requêtes de sourcing et retourne les snippets dédupliqués
- */
 async function sourceTrends() {
   const queries = buildQueries();
   console.log(`   📡 ${queries.length} requêtes Tavily (${new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })})...\n`);
@@ -138,10 +129,9 @@ async function sourceTrends() {
     const results = await tavilySearch(query);
     console.log(`${results.length} résultat(s)`);
     allSnippets.push(...results);
-    await sleep(350); // Pause légère pour éviter le rate limiting
+    await sleep(350);
   }
 
-  // Déduplication par URL
   const seen = new Set();
   const unique = allSnippets.filter(s => {
     if (!s.url || seen.has(s.url)) return false;
@@ -153,7 +143,8 @@ async function sourceTrends() {
   return unique;
 }
 
-// ─── PHASE 2 : FILTRAGE GROQ (désactivé pour test) ─────────────
+// ─── PHASE 2 : FILTRAGE GROQ ─────────────────────────────────
+// ⚠️  Désactivé en mode test — décommenter pour réactiver
 
 /*
 async function callGroq(prompt, temperature = 0.2) {
@@ -192,7 +183,6 @@ async function callGroq(prompt, temperature = 0.2) {
       const data = await res.json();
       const text = data?.choices?.[0]?.message?.content ?? '';
       if (!text) throw new Error('Réponse Groq vide');
-
       return text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
 
     } catch (e) {
@@ -202,9 +192,7 @@ async function callGroq(prompt, temperature = 0.2) {
   }
   throw new Error('Groq indisponible après 3 tentatives');
 }
-*/
 
-/*
 async function filterTrendsWithGroq(snippets) {
   const today = new Date().toLocaleDateString('fr-FR', {
     day: 'numeric', month: 'long', year: 'numeric'
@@ -288,7 +276,9 @@ Réponds UNIQUEMENT avec un tableau JSON valide de 10 à 15 éléments, sans tex
 */
 
 // ─── PHASE 3 : VIDÉO EXEMPLE TIKTOK ─────────────────────────
+// ⚠️  Désactivé en mode test
 
+/*
 async function getExampleVideo(page, hashtag) {
   try {
     await page.goto(
@@ -321,20 +311,68 @@ async function getExampleVideo(page, hashtag) {
     return null;
   }
 }
+*/
 
-// ─── MAIN ────────────────────────────────────────────────────
+// ─── PHASE 3 : EXTRACTION BASIQUE DES HASHTAGS (MODE TEST) ──
+// Utilisée uniquement quand Groq est désactivé
+// Cherche les #hashtags dans les snippets Tavily et les convertit
+// en objets trend compatibles avec le dashboard
+
+function extractHashtagsFromSnippets(snippets) {
+  const STOPWORDS = new Set([
+    'the', 'and', 'for', 'you', 'are', 'was', 'has', 'not', 'this', 'that',
+    'with', 'from', 'they', 'will', 'have', 'more', 'what', 'been', 'their',
+    'tiktok', 'viral', 'trending', 'fyp', 'foryou', 'france', 'pourtoi',
+    'new', 'gen', 'trend', 'video', 'post', 'top', 'use', 'using',
+  ]);
+
+  const tagCounts = {};
+
+  for (const s of snippets) {
+    const text = `${s.title} ${s.content}`;
+    // Cherche les #hashtags explicites
+    const hashtagMatches = text.match(/#([a-zA-Z][a-zA-Z0-9]{2,})/g) || [];
+    // Cherche aussi les mots-clés entre guillemets ou en majuscules
+    const quotedMatches = text.match(/["']([a-zA-Z][a-zA-Z0-9]{2,})["']/g) || [];
+
+    const candidates = [
+      ...hashtagMatches.map(h => h.slice(1)),
+      ...quotedMatches.map(q => q.slice(1, -1)),
+    ];
+
+    for (const raw of candidates) {
+      const tag = raw
+        .toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]/g, '');
+      if (tag.length >= 3 && !STOPWORDS.has(tag)) {
+        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+      }
+    }
+  }
+
+  return Object.entries(tagCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, MAX_FINAL_TRENDS)
+    .map(([tag, count]) => ({
+      tag,
+      views: null,
+      posts: null,
+      viewsFmt: 'N/A',
+      postsFmt: 'N/A',
+      trendScore: Math.min(50 + count * 5, 95),
+      isRising: true,
+      aiConfidence: null,
+      category: getCategory(tag),
+      explanation: null,   // null = le dashboard affiche "—" à la place
+      exampleVideo: null,  // null = pas de vidéo en mode test
+    }));
+}
+
+// ─── MAIN (MODE TEST) ─────────────────────────────────────────
 
 async function run() {
-  console.log('\n🚀 TikTok Tracker — Démarrage du pipeline\n' + '='.repeat(50));
-
-  const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
-  const page = await browser.newPage();
-
-  await page.setExtraHTTPHeaders({
-    'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  });
-  await page.setViewportSize({ width: 1280, height: 900 });
+  console.log('\n🚀 TikTok Tracker — MODE TEST (Groq désactivé)\n' + '='.repeat(50));
 
   try {
 
@@ -347,63 +385,41 @@ async function run() {
       process.exit(1);
     }
 
-    // ── ÉTAPE 2 : FILTRAGE GROQ ────────────────────────────
-    console.log(`\n🤖 ÉTAPE 2 — Filtrage IA (Groq / LLaMA 3.3) sur ${snippets.length} snippets...`);
-    let finalTrends;
-    try {
-      finalTrends = await filterTrendsWithGroq(snippets);
-      console.log(`   ✅ Groq a extrait ${finalTrends.length} tendances depuis le web.`);
-    } catch (e) {
-      console.error(`   ❌ Échec filtrage Groq : ${e.message}`);
-      process.exit(1);
-    }
+    // ── ÉTAPE 2 : AFFICHAGE DES SNIPPETS ──────────────────
+    console.log(`\n📋 ÉTAPE 2 — ${snippets.length} snippets Tavily collectés :\n`);
+    console.log('='.repeat(60));
 
-    if (finalTrends.length === 0) {
-      console.error('❌ Aucune tendance extraite. Arrêt.');
-      process.exit(1);
-    }
+    snippets.forEach((s, i) => {
+      console.log(`\n[${i + 1}] ${s.title}`);
+      console.log(`    🔗 ${s.url}`);
+      console.log(`    📄 ${s.content.slice(0, 250)}...`);
+    });
 
-    // Limitation au max configuré
-    if (finalTrends.length > MAX_FINAL_TRENDS) {
-      finalTrends = finalTrends.slice(0, MAX_FINAL_TRENDS);
-    }
+    console.log('\n' + '='.repeat(60));
 
-    // ── ÉTAPE 3 : VIDÉOS EXEMPLES ─────────────────────────
-    console.log(`\n🎬 ÉTAPE 3 — Recherche de vidéo exemple TikTok...`);
+    // ── ÉTAPE 3 : EXTRACTION BASIQUE (sans Groq) ──────────
+    console.log('\n🏷️  ÉTAPE 3 — Extraction des hashtags/mots-clés depuis les snippets...');
+    const trends = extractHashtagsFromSnippets(snippets);
+    console.log(`   → ${trends.length} tendances extraites (sans filtrage AI).`);
 
-    for (const trend of finalTrends) {
-      process.stdout.write(`   🎥 #${trend.tag} → `);
-      const video = await getExampleVideo(page, trend.tag);
-      if (video) {
-        trend.exampleVideo = video;
-        console.log(`✅ ${video.author}`);
-      } else {
-        trend.exampleVideo = null;
-        console.log('⚠️  aucune vidéo trouvée');
-      }
-    }
-
-    // ── EXPORT ────────────────────────────────────────────
+    // ── EXPORT JSON ————→ format compatible avec le dashboard
     const output = {
       lastUpdate: new Date().toISOString(),
+      mode: 'TEST — extraction basique sans Groq',
       totalCandidates: snippets.length,
-      totalAfterAIFilter: finalTrends.length,
-      sources: [
-        'Tavily Search API (sourcing web en temps réel)',
-        'Groq AI / LLaMA 3.3 70B (filtrage et structuration)',
-        'TikTok (vidéo exemple)',
-      ],
-      trends: finalTrends,
+      totalAfterAIFilter: trends.length,
+      sources: ['Tavily Search API (sourcing web en temps réel)'],
+      trends,
     };
 
     fs.writeFileSync('trends.json', JSON.stringify(output, null, 2), 'utf8');
-    console.log(`\n✅ trends.json exporté avec ${finalTrends.length} tendances.\n`);
+    console.log(`\n✅ trends.json exporté avec ${trends.length} tendances.`);
+    console.log('👆 Inspecte trends.json pour vérifier les résultats.');
+    console.log('   → Pour activer le filtrage AI, décommente le bloc Groq ci-dessus.\n');
 
   } catch (err) {
     console.error('\n❌ Erreur fatale :', err.message);
     process.exit(1);
-  } finally {
-    await browser.close();
   }
 }
 
