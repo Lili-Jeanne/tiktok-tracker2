@@ -1,280 +1,191 @@
 {
-  "lastUpdate": "2026-04-07T08:14:27.543Z",
-  "totalCandidates": 15,
-  "totalAfterAIFilter": 15,
+  "lastUpdate": "2026-04-07T08:25:47.443Z",
+  "totalCandidates": 38,
+  "totalAfterAIFilter": 10,
   "sources": [
-    "Groq AI (génération tout-en-un)",
+    "Tavily Search API (sourcing web en temps réel)",
+    "Groq AI / LLaMA 3.3 70B (filtrage et structuration)",
     "TikTok (vidéo exemple)"
   ],
   "trends": [
     {
-      "tag": "slatt",
+      "tag": "pnj",
       "views": null,
       "posts": null,
-      "viewsFmt": "200M+",
+      "viewsFmt": "N/A",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 60,
       "isRising": true,
-      "aiConfidence": 80,
+      "aiConfidence": 60,
       "category": "Argot internet / Brainrot",
-      "explanation": "Terme utilisé pour exprimer une forme de respect ou d'admiration envers quelqu'un, souvent dans le contexte de la musique ou du sport.",
+      "explanation": "Abréviation de 'personnage non joueur', utilisé pour décrire quelqu'un qui se comporte de manière étrange ou inhabituelle.",
       "exampleVideo": {
-        "author": "@bredmoose",
-        "videoId": "6747060921689967877",
-        "videoUrl": "https://www.tiktok.com/@bredmoose/video/6747060921689967877",
-        "embedUrl": "https://www.tiktok.com/embed/v2/6747060921689967877"
+        "author": "@huongho_pnj",
+        "videoId": "7447863853943180552",
+        "videoUrl": "https://www.tiktok.com/@huongho_pnj/video/7447863853943180552",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7447863853943180552"
       }
     },
     {
-      "tag": "gamer",
+      "tag": "cringe",
       "views": null,
       "posts": null,
-      "viewsFmt": "1Md+",
-      "postsFmt": "N/A",
-      "trendScore": 90,
-      "isRising": true,
-      "aiConfidence": 90,
-      "category": "Gaming",
-      "explanation": "Terme utilisé pour désigner les joueurs de jeux vidéo, souvent avec une connotation positive ou ironique.",
-      "exampleVideo": {
-        "author": "@jordielocks_",
-        "videoId": "7603468517517659406",
-        "videoUrl": "https://www.tiktok.com/@jordielocks_/video/7603468517517659406",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7603468517517659406"
-      }
-    },
-    {
-      "tag": "renegade",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "500M+",
-      "postsFmt": "N/A",
-      "trendScore": 85,
-      "isRising": true,
-      "aiConfidence": 85,
-      "category": "Danse / Emote",
-      "explanation": "Nom d'une danse populaire sur TikTok, souvent exécutée sur des musiques rap ou hip-hop.",
-      "exampleVideo": {
-        "author": "@2019oldtiktoks",
-        "videoId": "7355143871627529515",
-        "videoUrl": "https://www.tiktok.com/@2019oldtiktoks/video/7355143871627529515",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7355143871627529515"
-      }
-    },
-    {
-      "tag": "lycee",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "100M+",
+      "viewsFmt": "N/A",
       "postsFmt": "N/A",
       "trendScore": 70,
       "isRising": true,
       "aiConfidence": 70,
-      "category": "Vie scolaire",
-      "explanation": "Terme utilisé pour désigner le lycée, souvent dans le contexte de la vie scolaire ou des blagues sur l'école.",
+      "category": "Argot internet / Brainrot",
+      "explanation": "Terme utilisé pour décrire quelque chose de gênant ou de embarrassant.",
       "exampleVideo": {
-        "author": "@nickypinsker",
-        "videoId": "7430951355755351339",
-        "videoUrl": "https://www.tiktok.com/@nickypinsker/video/7430951355755351339",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7430951355755351339"
+        "author": "@rankedreality3",
+        "videoId": "7625728597113769238",
+        "videoUrl": "https://www.tiktok.com/@rankedreality3/video/7625728597113769238",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7625728597113769238"
       }
     },
     {
-      "tag": "meme",
+      "tag": "roblox",
       "views": null,
       "posts": null,
-      "viewsFmt": "2Md+",
-      "postsFmt": "N/A",
-      "trendScore": 95,
-      "isRising": true,
-      "aiConfidence": 95,
-      "category": "Contenu viral",
-      "explanation": "Terme utilisé pour désigner un contenu humoristique ou ironique, souvent sous forme d'image ou de vidéo.",
-      "exampleVideo": {
-        "author": "@therobertmemeguy",
-        "videoId": "7623750105455234318",
-        "videoUrl": "https://www.tiktok.com/@therobertmemeguy/video/7623750105455234318",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7623750105455234318"
-      }
-    },
-    {
-      "tag": "dixneuf",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "50M+",
+      "viewsFmt": "N/A",
       "postsFmt": "N/A",
       "trendScore": 80,
       "isRising": true,
       "aiConfidence": 80,
-      "category": "Contenu viral",
-      "explanation": "Référence à la série télévisée française 'En famille' et au personnage de 'Dix-Neuf', souvent utilisé pour qualifier quelqu'un de drôle ou de sympathique.",
+      "category": "Gaming",
+      "explanation": "Jeux en ligne très populaires parmi les adolescents, permettant de créer et de jouer à des jeux créés par d'autres utilisateurs.",
       "exampleVideo": {
-        "author": "@shadowsense",
-        "videoId": "7057218095936671023",
-        "videoUrl": "https://www.tiktok.com/@shadowsense/video/7057218095936671023",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7057218095936671023"
+        "author": "@giventothestarss",
+        "videoId": "7625669047232908558",
+        "videoUrl": "https://www.tiktok.com/@giventothestarss/video/7625669047232908558",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7625669047232908558"
       }
     },
     {
-      "tag": "kpop",
+      "tag": "jujutsukaisen",
       "views": null,
       "posts": null,
-      "viewsFmt": "1Md+",
+      "viewsFmt": "N/A",
       "postsFmt": "N/A",
-      "trendScore": 85,
+      "trendScore": 75,
       "isRising": true,
-      "aiConfidence": 85,
-      "category": "Musique",
-      "explanation": "Terme utilisé pour désigner la musique pop coréenne, souvent associée à des danses ou des chorégraphies.",
-      "exampleVideo": {
-        "author": "@thenoosh22",
-        "videoId": "7072560792477961515",
-        "videoUrl": "https://www.tiktok.com/@thenoosh22/video/7072560792477961515",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7072560792477961515"
-      }
-    },
-    {
-      "tag": "naruto",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "500M+",
-      "postsFmt": "N/A",
-      "trendScore": 90,
-      "isRising": true,
-      "aiConfidence": 90,
+      "aiConfidence": 75,
       "category": "Anime / Manga",
-      "explanation": "Nom d'une série d'animation japonaise très populaire, souvent référencée dans les blagues ou les mèmes.",
+      "explanation": "Série d'anime et de manga très populaire parmi les adolescents, qui suit l'histoire d'un jeune garçon qui découvre un monde de sorcellerie.",
       "exampleVideo": {
-        "author": "@happy_maan2",
-        "videoId": "7625407313440034070",
-        "videoUrl": "https://www.tiktok.com/@happy_maan2/video/7625407313440034070",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7625407313440034070"
+        "author": "@luz..mybeloved",
+        "videoId": "7625207068944813334",
+        "videoUrl": "https://www.tiktok.com/@luz..mybeloved/video/7625207068944813334",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7625207068944813334"
       }
     },
     {
-      "tag": "vibe",
+      "tag": "disiz",
       "views": null,
       "posts": null,
-      "viewsFmt": "200M+",
+      "viewsFmt": "N/A",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 65,
       "isRising": true,
-      "aiConfidence": 80,
-      "category": "Tendance ados",
-      "explanation": "Terme utilisé pour décrire une atmosphère ou une ambiance, souvent positive ou relaxante.",
+      "aiConfidence": 65,
+      "category": "Musique",
+      "explanation": "Chanteur de rap français très populaire sur TikTok, connu pour ses chansons virales.",
       "exampleVideo": {
-        "author": "@audi0zforyou",
-        "videoId": "7621916869229825311",
-        "videoUrl": "https://www.tiktok.com/@audi0zforyou/video/7621916869229825311",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7621916869229825311"
+        "author": "@angele_vl",
+        "videoId": "7565613176675519777",
+        "videoUrl": "https://www.tiktok.com/@angele_vl/video/7565613176675519777",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7565613176675519777"
       }
     },
     {
-      "tag": "lowkey",
+      "tag": "ninho",
       "views": null,
       "posts": null,
-      "viewsFmt": "100M+",
+      "viewsFmt": "N/A",
       "postsFmt": "N/A",
-      "trendScore": 85,
+      "trendScore": 60,
       "isRising": true,
-      "aiConfidence": 85,
+      "aiConfidence": 60,
+      "category": "Musique",
+      "explanation": "Chanteur de rap français très populaire sur TikTok, connu pour ses chansons virales.",
+      "exampleVideo": {
+        "author": "@nrvfss",
+        "videoId": "7625335004431781142",
+        "videoUrl": "https://www.tiktok.com/@nrvfss/video/7625335004431781142",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7625335004431781142"
+      }
+    },
+    {
+      "tag": "dinguerie",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "N/A",
+      "postsFmt": "N/A",
+      "trendScore": 55,
+      "isRising": true,
+      "aiConfidence": 55,
       "category": "Argot internet / Brainrot",
-      "explanation": "Terme utilisé pour exprimer une opinion ou un sentiment de manière discrète ou ironique.",
+      "explanation": "Terme utilisé pour décrire quelque chose de cool ou de tendance.",
       "exampleVideo": {
-        "author": "@camillahere9",
-        "videoId": "7613776798299475208",
-        "videoUrl": "https://www.tiktok.com/@camillahere9/video/7613776798299475208",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7613776798299475208"
+        "author": "@coulisse.dj",
+        "videoId": "7625620026262867222",
+        "videoUrl": "https://www.tiktok.com/@coulisse.dj/video/7625620026262867222",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7625620026262867222"
       }
     },
     {
-      "tag": "highkey",
+      "tag": "cheum",
       "views": null,
       "posts": null,
-      "viewsFmt": "50M+",
+      "viewsFmt": "N/A",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 50,
       "isRising": true,
-      "aiConfidence": 80,
+      "aiConfidence": 50,
       "category": "Argot internet / Brainrot",
-      "explanation": "Terme utilisé pour exprimer une opinion ou un sentiment de manière ouverte ou sincère.",
+      "explanation": "Terme utilisé pour décrire quelque chose de génial ou de incroyable.",
       "exampleVideo": {
-        "author": "@brxwnqu4n",
-        "videoId": "7601797720533208327",
-        "videoUrl": "https://www.tiktok.com/@brxwnqu4n/video/7601797720533208327",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7601797720533208327"
+        "author": "@dkbio_eng",
+        "videoId": "7074882949585407234",
+        "videoUrl": "https://www.tiktok.com/@dkbio_eng/video/7074882949585407234",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7074882949585407234"
       }
     },
     {
-      "tag": "noob",
+      "tag": "sah",
       "views": null,
       "posts": null,
-      "viewsFmt": "1Md+",
+      "viewsFmt": "N/A",
       "postsFmt": "N/A",
-      "trendScore": 90,
+      "trendScore": 45,
       "isRising": true,
-      "aiConfidence": 90,
-      "category": "Gaming",
-      "explanation": "Terme utilisé pour désigner un débutant ou un joueur de jeux vidéo peu expérimenté.",
+      "aiConfidence": 45,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Terme utilisé pour décrire quelque chose de cool ou de tendance.",
       "exampleVideo": {
-        "author": "@ethanwayne00",
-        "videoId": "6704433919346871558",
-        "videoUrl": "https://www.tiktok.com/@ethanwayne00/video/6704433919346871558",
-        "embedUrl": "https://www.tiktok.com/embed/v2/6704433919346871558"
+        "author": "@tareqeid3",
+        "videoId": "7528503888706555149",
+        "videoUrl": "https://www.tiktok.com/@tareqeid3/video/7528503888706555149",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7528503888706555149"
       }
     },
     {
-      "tag": "pog",
+      "tag": "bg",
       "views": null,
       "posts": null,
-      "viewsFmt": "200M+",
+      "viewsFmt": "N/A",
       "postsFmt": "N/A",
-      "trendScore": 85,
+      "trendScore": 40,
       "isRising": true,
-      "aiConfidence": 85,
-      "category": "Gaming",
-      "explanation": "Terme utilisé pour exprimer la surprise ou l'excitation, souvent dans le contexte de la musique ou des jeux vidéo.",
+      "aiConfidence": 40,
+      "category": "Argot internet / Brainrot",
+      "explanation": "Terme utilisé pour décrire un ami proche ou un membre de la famille.",
       "exampleVideo": {
-        "author": "@oceanna_",
-        "videoId": "7444525610388475167",
-        "videoUrl": "https://www.tiktok.com/@oceanna_/video/7444525610388475167",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7444525610388475167"
-      }
-    },
-    {
-      "tag": "yeet",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "100M+",
-      "postsFmt": "N/A",
-      "trendScore": 80,
-      "isRising": true,
-      "aiConfidence": 80,
-      "category": "Danse / Emote",
-      "explanation": "Terme utilisé pour décrire un mouvement ou une action violente ou exagérée, souvent dans le contexte de la danse ou des jeux vidéo.",
-      "exampleVideo": {
-        "author": "@uceyjucey",
-        "videoId": "7452909375632674094",
-        "videoUrl": "https://www.tiktok.com/@uceyjucey/video/7452909375632674094",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7452909375632674094"
-      }
-    },
-    {
-      "tag": "simp",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "50M+",
-      "postsFmt": "N/A",
-      "trendScore": 85,
-      "isRising": true,
-      "aiConfidence": 85,
-      "category": "Tendance ados",
-      "explanation": "Terme utilisé pour décrire quelqu'un qui est considéré comme un admirateur ou un fan trop zélé, souvent dans le contexte de la musique ou des célébrités.",
-      "exampleVideo": {
-        "author": "@mindhavior",
-        "videoId": "7568626779204750623",
-        "videoUrl": "https://www.tiktok.com/@mindhavior/video/7568626779204750623",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7568626779204750623"
+        "author": "@lalainebattye",
+        "videoId": "7601082864997829919",
+        "videoUrl": "https://www.tiktok.com/@lalainebattye/video/7601082864997829919",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7601082864997829919"
       }
     }
   ]
