@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-04-06T18:45:48.592Z",
+  "lastUpdate": "2026-04-07T01:25:08.771Z",
   "totalCandidates": 15,
   "totalAfterAIFilter": 15,
   "sources": [
@@ -17,12 +17,12 @@
       "isRising": true,
       "aiConfidence": 90,
       "category": "Argot internet / Brainrot",
-      "explanation": "Expression utilisée pour complimenter une personne (souvent une fille) avec une silhouette marquée, notamment au niveau des fesses. Popularisée par des vidéos humoristiques où des adolescents réagissent à des silhouettes exagérées.",
+      "explanation": "Expression utilisée pour complimenter une personne (souvent une fille) avec une silhouette marquée, notamment au niveau des fesses. Popularisée par des vidéos humoristiques où les ados réagissent à des silhouettes exagérées.",
       "exampleVideo": {
-        "author": "@koolybankslive",
-        "videoId": "7547117843020582158",
-        "videoUrl": "https://www.tiktok.com/@koolybankslive/video/7547117843020582158",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7547117843020582158"
+        "author": "@become.undeniable",
+        "videoId": "7430571145851882798",
+        "videoUrl": "https://www.tiktok.com/@become.undeniable/video/7430571145851882798",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7430571145851882798"
       }
     },
     {
@@ -35,12 +35,12 @@
       "isRising": true,
       "aiConfidence": 85,
       "category": "Argot internet / Brainrot",
-      "explanation": "Mème désignant un lieu ou une situation chaotique, inspiré par des vidéos montrant des comportements étranges ou des paysages délabrés dans l'État américain de l'Ohio. Utilisé pour qualifier quelque chose de bizarre ou de désorganisé.",
+      "explanation": "Mème désignant un lieu ou une situation chaotique, inspiré par des vidéos montrant des scènes absurdes ou désordonnées. Les collégiens l’utilisent pour décrire quelque chose de bizarre ou de mal organisé, souvent avec humour.",
       "exampleVideo": {
-        "author": "@404aska",
-        "videoId": "7623226567954631967",
-        "videoUrl": "https://www.tiktok.com/@404aska/video/7623226567954631967",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7623226567954631967"
+        "author": "@josh.smith7575",
+        "videoId": "7623961300548308238",
+        "videoUrl": "https://www.tiktok.com/@josh.smith7575/video/7623961300548308238",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7623961300548308238"
       }
     },
     {
@@ -49,11 +49,11 @@
       "posts": null,
       "viewsFmt": "150M+",
       "postsFmt": "N/A",
-      "trendScore": 80,
+      "trendScore": 88,
       "isRising": true,
-      "aiConfidence": 80,
-      "category": "Contenu viral",
-      "explanation": "Terme désignant un style vestimentaire très stylé ou une tenue particulièrement réussie. Les collégiens l'utilisent pour complimenter quelqu'un qui a un look impressionnant.",
+      "aiConfidence": 88,
+      "category": "Tendance ados",
+      "explanation": "Terme désignant un style vestimentaire très travaillé et stylé. Les ados l’utilisent pour complimenter quelqu’un qui a un look impressionnant ou pour se vanter de leurs propres tenues.",
       "exampleVideo": {
         "author": "@3nmxuel",
         "videoId": "7623906520677322014",
@@ -65,130 +65,22 @@
       "tag": "bussin",
       "views": null,
       "posts": null,
-      "viewsFmt": "100M+",
-      "postsFmt": "N/A",
-      "trendScore": 75,
-      "isRising": true,
-      "aiConfidence": 75,
-      "category": "Argot internet",
-      "explanation": "Mot utilisé pour décrire quelque chose d'excellent, souvent lié à la nourriture ou à une expérience très satisfaisante. Exemple : « Ce burger est bussin ! ».",
-      "exampleVideo": {
-        "author": "@reallyreallycoolstuff",
-        "videoId": "7618241085017427231",
-        "videoUrl": "https://www.tiktok.com/@reallyreallycoolstuff/video/7618241085017427231",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7618241085017427231"
-      }
-    },
-    {
-      "tag": "sigma",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "500M+",
-      "postsFmt": "N/A",
-      "trendScore": 95,
-      "isRising": true,
-      "aiConfidence": 95,
-      "category": "Argot internet",
-      "explanation": "Terme issu de la théorie des « alphas » et « sigmas » sur internet, désignant une personne indépendante, charismatique et qui n'a pas besoin de validation sociale. Souvent utilisé de manière ironique ou pour se moquer des comportements prétentieux.",
-      "exampleVideo": {
-        "author": "@argenby",
-        "videoId": "7173631007885724929",
-        "videoUrl": "https://www.tiktok.com/@argenby/video/7173631007885724929",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7173631007885724929"
-      }
-    },
-    {
-      "tag": "rizz",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "400M+",
-      "postsFmt": "N/A",
-      "trendScore": 90,
-      "isRising": true,
-      "aiConfidence": 90,
-      "category": "Argot internet",
-      "explanation": "Abréviation de « charisma », désignant la capacité à séduire ou à charmer quelqu'un, souvent utilisé pour parler de ses propres talents de drague ou de ceux des autres.",
-      "exampleVideo": {
-        "author": "@praiseyclips",
-        "videoId": "7373696708640886062",
-        "videoUrl": "https://www.tiktok.com/@praiseyclips/video/7373696708640886062",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7373696708640886062"
-      }
-    },
-    {
-      "tag": "delulu",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "250M+",
-      "postsFmt": "N/A",
-      "trendScore": 85,
-      "isRising": true,
-      "aiConfidence": 85,
-      "category": "Argot internet",
-      "explanation": "Abréviation de « delusional », utilisé pour qualifier une personne qui se fait des illusions ou qui croit en des scénarios improbables, souvent de manière humoristique. Exemple : « Il croit qu'elle l'aime, il est trop delulu. »",
-      "exampleVideo": {
-        "author": "@maximbadyofficial",
-        "videoId": "7492253954831584554",
-        "videoUrl": "https://www.tiktok.com/@maximbadyofficial/video/7492253954831584554",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7492253954831584554"
-      }
-    },
-    {
-      "tag": "luh",
-      "views": null,
-      "posts": null,
       "viewsFmt": "120M+",
       "postsFmt": "N/A",
       "trendScore": 80,
       "isRising": true,
       "aiConfidence": 80,
-      "category": "Danse / Emote",
-      "explanation": "Expression utilisée pour exprimer de l'admiration ou de l'approbation, souvent accompagnée d'un mouvement de tête. Popularisée par des vidéos de danse ou de réactions.",
-      "exampleVideo": {
-        "author": "@desertumai",
-        "videoId": "7517622798160825618",
-        "videoUrl": "https://www.tiktok.com/@desertumai/video/7517622798160825618",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7517622798160825618"
-      }
-    },
-    {
-      "tag": "fanumtax",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "300M+",
-      "postsFmt": "N/A",
-      "trendScore": 90,
-      "isRising": true,
-      "aiConfidence": 90,
-      "category": "Contenu viral",
-      "explanation": "Mème inspiré par le streamer Fanum, où l'on « vole » la nourriture de quelqu'un d'autre en disant « Fanum tax ». Utilisé pour justifier le fait de prendre un morceau de nourriture dans l'assiette d'un ami.",
-      "exampleVideo": {
-        "author": "@mandarineclips",
-        "videoId": "7259713316388441371",
-        "videoUrl": "https://www.tiktok.com/@mandarineclips/video/7259713316388441371",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7259713316388441371"
-      }
-    },
-    {
-      "tag": "glizzy",
-      "views": null,
-      "posts": null,
-      "viewsFmt": "80M+",
-      "postsFmt": "N/A",
-      "trendScore": 70,
-      "isRising": true,
-      "aiConfidence": 70,
       "category": "Argot internet",
-      "explanation": "Argot désignant un hot-dog, popularisé par des vidéos humoristiques où les collégiens font semblant de manger des hot-dogs de manière exagérée. Peut aussi être utilisé de manière métaphorique pour parler d'autres choses.",
+      "explanation": "Mot utilisé pour dire que quelque chose est excellent, souvent appliqué à de la nourriture ou à une performance (sportive, musicale, etc.). Exemple : « Ce burger est bussin ! ».",
       "exampleVideo": {
-        "author": "@beast.cam.videos",
-        "videoId": "7272787906106838314",
-        "videoUrl": "https://www.tiktok.com/@beast.cam.videos/video/7272787906106838314",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7272787906106838314"
+        "author": "@kaipostsclips",
+        "videoId": "7549999699881643282",
+        "videoUrl": "https://www.tiktok.com/@kaipostsclips/video/7549999699881643282",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7549999699881643282"
       }
     },
     {
-      "tag": "nofront",
+      "tag": "sigmafemale",
       "views": null,
       "posts": null,
       "viewsFmt": "90M+",
@@ -197,7 +89,25 @@
       "isRising": true,
       "aiConfidence": 75,
       "category": "Argot internet",
-      "explanation": "Expression signifiant « sans peur » ou « sans filtre », utilisée pour qualifier quelqu'un qui ose dire ou faire quelque chose de direct, souvent de manière provocante ou drôle.",
+      "explanation": "Variante féminine du terme « sigma », désignant une fille indépendante, charismatique et qui ne suit pas les normes sociales. Souvent utilisé pour se moquer gentiment ou se mettre en valeur.",
+      "exampleVideo": {
+        "author": "@victoria.martinho6",
+        "videoId": "7333662767334886661",
+        "videoUrl": "https://www.tiktok.com/@victoria.martinho6/video/7333662767334886661",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7333662767334886661"
+      }
+    },
+    {
+      "tag": "nofront",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "80M+",
+      "postsFmt": "N/A",
+      "trendScore": 78,
+      "isRising": true,
+      "aiConfidence": 78,
+      "category": "Argot internet",
+      "explanation": "Expression signifiant « sans filtre » ou « sans honte ». Les ados l’utilisent pour décrire quelqu’un qui ose dire ou faire des choses sans se soucier du jugement des autres.",
       "exampleVideo": {
         "author": "@thatskujo",
         "videoId": "7543411084464573751",
@@ -206,75 +116,165 @@
       }
     },
     {
-      "tag": "babygronk",
+      "tag": "rizzler",
       "views": null,
       "posts": null,
-      "viewsFmt": "200M+",
+      "viewsFmt": "100M+",
+      "postsFmt": "N/A",
+      "trendScore": 82,
+      "isRising": true,
+      "aiConfidence": 82,
+      "category": "Argot internet",
+      "explanation": "Dérivé de « rizz » (charisme), ce terme désigne une personne qui a un talent naturel pour séduire ou convaincre. Souvent utilisé pour complimenter un ami ou soi-même.",
+      "exampleVideo": {
+        "author": "@itztherizzler",
+        "videoId": "7380829956965780778",
+        "videoUrl": "https://www.tiktok.com/@itztherizzler/video/7380829956965780778",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7380829956965780778"
+      }
+    },
+    {
+      "tag": "clapback",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "70M+",
+      "postsFmt": "N/A",
+      "trendScore": 70,
+      "isRising": true,
+      "aiConfidence": 70,
+      "category": "Vie scolaire",
+      "explanation": "Réponse cinglante et spirituelle à une critique ou une moquerie. Les collégiens l’utilisent pour partager des répliques intelligentes ou drôles dans des situations de conflit (réel ou virtuel).",
+      "exampleVideo": {
+        "author": "@jiaquay",
+        "videoId": "7549763472955854093",
+        "videoUrl": "https://www.tiktok.com/@jiaquay/video/7549763472955854093",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7549763472955854093"
+      }
+    },
+    {
+      "tag": "delulu",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "180M+",
       "postsFmt": "N/A",
       "trendScore": 85,
       "isRising": true,
       "aiConfidence": 85,
-      "category": "Brainrot",
-      "explanation": "Personnage issu d'une animation virale représentant un bébé musclé et agressif. Utilisé pour qualifier quelqu'un de petit mais impressionnant, ou pour des vidéos humoristiques mettant en scène ce personnage.",
+      "category": "Argot internet",
+      "explanation": "Abréviation de « delusional » (délirant), utilisé pour décrire quelqu’un qui a des idées ou des attentes irréalistes, souvent en amour ou dans ses projets. Exemple : « Il croit qu’elle va l’aimer, il est trop delulu. ».",
       "exampleVideo": {
-        "author": "@babygronkgoated",
-        "videoId": "7594573165725093133",
-        "videoUrl": "https://www.tiktok.com/@babygronkgoated/video/7594573165725093133",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7594573165725093133"
+        "author": "@maximbadyofficial",
+        "videoId": "7492253954831584554",
+        "videoUrl": "https://www.tiktok.com/@maximbadyofficial/video/7492253954831584554",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7492253954831584554"
       }
     },
     {
-      "tag": "pov",
+      "tag": "fanumtax",
       "views": null,
       "posts": null,
-      "viewsFmt": "1Md+",
+      "viewsFmt": "250M+",
       "postsFmt": "N/A",
-      "trendScore": 95,
+      "trendScore": 92,
       "isRising": true,
-      "aiConfidence": 95,
+      "aiConfidence": 92,
       "category": "Contenu viral",
-      "explanation": "Abréviation de « Point Of View », utilisée pour des vidéos où le spectateur est mis dans la peau d'un personnage. Très populaire pour des scénarios humoristiques ou dramatiques liés à la vie scolaire ou aux relations amoureuses.",
+      "explanation": "Mème inspiré par le streamer Fanum, où les ados « volent » la nourriture de leurs amis en disant « C’est la Fanum Tax ! ». Utilisé pour justifier un vol humoristique de nourriture ou d’objets.",
       "exampleVideo": {
-        "author": "@1indaqin",
-        "videoId": "7098493357055561006",
-        "videoUrl": "https://www.tiktok.com/@1indaqin/video/7098493357055561006",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7098493357055561006"
+        "author": "@fanumsecret",
+        "videoId": "7345616553062288682",
+        "videoUrl": "https://www.tiktok.com/@fanumsecret/video/7345616553062288682",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7345616553062288682"
       }
     },
     {
-      "tag": "sus",
+      "tag": "lobotomy",
       "views": null,
       "posts": null,
-      "viewsFmt": "150M+",
+      "viewsFmt": "60M+",
+      "postsFmt": "N/A",
+      "trendScore": 78,
+      "isRising": true,
+      "aiConfidence": 78,
+      "category": "Gaming",
+      "explanation": "Référence à un jeu vidéo (Lethal Company) où les joueurs doivent effectuer une « lobotomie » sur des ennemis. Les collégiens l’utilisent pour décrire une action absurde ou violente, souvent en riant.",
+      "exampleVideo": {
+        "author": "@doctormyro",
+        "videoId": "7312110280379600171",
+        "videoUrl": "https://www.tiktok.com/@doctormyro/video/7312110280379600171",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7312110280379600171"
+      }
+    },
+    {
+      "tag": "babygronk",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "110M+",
       "postsFmt": "N/A",
       "trendScore": 80,
       "isRising": true,
       "aiConfidence": 80,
-      "category": "Gaming",
-      "explanation": "Abréviation de « suspect », popularisée par le jeu « Among Us ». Utilisée pour qualifier quelque chose ou quelqu'un de bizarre ou de douteux. Exemple : « Ton comportement est trop sus. »",
+      "category": "Brainrot",
+      "explanation": "Personnage issu d’une animation virale (dérivée de Skibidi Toilet), représentant un bébé musclé et agressif. Les ados l’utilisent pour qualifier quelqu’un de petit mais impressionnant ou intimidant.",
       "exampleVideo": {
-        "author": "@sus_videos.1",
-        "videoId": "7262544812690148641",
-        "videoUrl": "https://www.tiktok.com/@sus_videos.1/video/7262544812690148641",
-        "embedUrl": "https://www.tiktok.com/embed/v2/7262544812690148641"
+        "author": "@user4224773791811",
+        "videoId": "7625555365454777631",
+        "videoUrl": "https://www.tiktok.com/@user4224773791811/video/7625555365454777631",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7625555365454777631"
       }
     },
     {
-      "tag": "slay",
+      "tag": "sigmaedit",
       "views": null,
       "posts": null,
-      "viewsFmt": "400M+",
+      "viewsFmt": "50M+",
       "postsFmt": "N/A",
-      "trendScore": 90,
+      "trendScore": 75,
       "isRising": true,
-      "aiConfidence": 90,
+      "aiConfidence": 75,
       "category": "Contenu viral",
-      "explanation": "Terme utilisé pour complimenter quelqu'un qui fait quelque chose de manière exceptionnelle, que ce soit en danse, en style vestimentaire ou dans une performance. Équivalent de « trop bien » ou « tu déchires ».",
+      "explanation": "Montage vidéo où une personne est transformée en « sigma » (solitaire et dominant) grâce à des effets spéciaux. Les collégiens s’amusent à en créer ou à en partager pour se moquer ou s’identifier.",
       "exampleVideo": {
-        "author": "@cosmopolitan",
-        "videoId": "6561050956992091136",
-        "videoUrl": "https://www.tiktok.com/@cosmopolitan/video/6561050956992091136",
-        "embedUrl": "https://www.tiktok.com/embed/v2/6561050956992091136"
+        "author": "@raidenlucian",
+        "videoId": "7611569454190808334",
+        "videoUrl": "https://www.tiktok.com/@raidenlucian/video/7611569454190808334",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7611569454190808334"
+      }
+    },
+    {
+      "tag": "touchgrass",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "40M+",
+      "postsFmt": "N/A",
+      "trendScore": 72,
+      "isRising": true,
+      "aiConfidence": 72,
+      "category": "Argot internet",
+      "explanation": "Expression ironique pour dire à quelqu’un de « sortir de chez lui » ou de « décrocher des écrans ». Utilisée pour se moquer des personnes trop connectées ou pour se motiver à faire autre chose.",
+      "exampleVideo": {
+        "author": "@ryry73846",
+        "videoId": "7625733160432684302",
+        "videoUrl": "https://www.tiktok.com/@ryry73846/video/7625733160432684302",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7625733160432684302"
+      }
+    },
+    {
+      "tag": "glizzy",
+      "views": null,
+      "posts": null,
+      "viewsFmt": "90M+",
+      "postsFmt": "N/A",
+      "trendScore": 80,
+      "isRising": true,
+      "aiConfidence": 80,
+      "category": "Argot internet",
+      "explanation": "Argot pour désigner un hot-dog, popularisé par des vidéos humoristiques où les ados mangent des saucisses de manière exagérée. Peut aussi être utilisé pour parler de quelque chose de simple ou de basique.",
+      "exampleVideo": {
+        "author": "@beast.cam.videos",
+        "videoId": "7272787906106838314",
+        "videoUrl": "https://www.tiktok.com/@beast.cam.videos/video/7272787906106838314",
+        "embedUrl": "https://www.tiktok.com/embed/v2/7272787906106838314"
       }
     }
   ]
