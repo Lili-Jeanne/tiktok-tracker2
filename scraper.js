@@ -89,17 +89,17 @@ function getCategory(tag) {
   return 'Tendance ados';
 }
 
-// ─── MISTRAL : appel générique avec retry ─────────────────────
+// ─── GROQ : appel générique avec retry ──────────────────────────
 
-async function callMistral(prompt, temperature = 0.3) {
-  let apiKey = process.env.MISTRAL_API_KEY;
+async function callGroq(prompt, temperature = 0.3) {
+  let apiKey = process.env.GROQ_API_KEY;
   if (apiKey) apiKey = apiKey.replace(/^["']|["']$/g, '').trim();
-  if (!apiKey) throw new Error('MISTRAL_API_KEY manquante');
+  if (!apiKey) throw new Error('GROQ_API_KEY manquante');
 
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const res = await fetch(
-        'https://api.mistral.ai/v1/chat/completions',
+        'https://api.groq.com/openai/v1/chat/completions',
         {
           method: 'POST',
           headers: {
@@ -107,7 +107,7 @@ async function callMistral(prompt, temperature = 0.3) {
             'Authorization': `Bearer ${apiKey}`
           },
           body: JSON.stringify({
-            model: 'mistral-large-latest',
+            model: 'llama-3.3-70b-versatile',
             messages: [{ role: 'user', content: prompt }],
             temperature: temperature
           }),
@@ -119,7 +119,8 @@ async function callMistral(prompt, temperature = 0.3) {
         let errMsg = `HTTP ${res.status}`;
         try {
           const errJson = JSON.parse(errText);
-          if (errJson.message) errMsg += ` - ${errJson.message}`;
+          if (errJson.error?.message) errMsg += ` - ${errJson.error.message}`;
+          else if (errJson.message) errMsg += ` - ${errJson.message}`;
         } catch (_) {
           errMsg += ` - ${errText.slice(0, 100)}`;
         }
@@ -129,20 +130,20 @@ async function callMistral(prompt, temperature = 0.3) {
       const data = await res.json();
 
       const text = data?.choices?.[0]?.message?.content ?? '';
-      if (!text) throw new Error('Réponse Mistral vide');
+      if (!text) throw new Error('Réponse Groq vide');
 
       // Nettoie les éventuels blocs markdown ```json … ```
       return text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
 
     } catch (e) {
-      console.warn(`   ⚠️  Mistral tentative ${attempt}/3 : ${e.message}`);
+      console.warn(`   ⚠️  Groq tentative ${attempt}/3 : ${e.message}`);
       if (attempt < 3) await sleep(1500 * attempt);
     }
   }
-  throw new Error('Mistral indisponible après 3 tentatives');
+  throw new Error('Groq indisponible après 3 tentatives');
 }
 
-// ─── ÉTAPE 1 : Génération des tendances par Mistral (JSON) ────
+// ─── ÉTAPE 1 : Génération des tendances par Groq (JSON) ────────
 
 async function generateTrends() {
   const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -192,7 +193,7 @@ Réponds UNIQUEMENT avec un tableau JSON valide de 15 éléments, sans texte ava
 ]`;
 
   try {
-    const raw = await callMistral(prompt, 0.3);
+    const raw = await callGroq(prompt, 0.3);
 
     const match = raw.match(/\[[\s\S]*\]/);
     if (!match) throw new Error('Pas de tableau JSON dans la réponse');
@@ -221,7 +222,7 @@ Réponds UNIQUEMENT avec un tableau JSON valide de 15 éléments, sans texte ava
       })
       .filter(t => t.tag.length >= 2);
 
-    console.log(`   ✅ Mistral a généré ${trends.length} tendances.`);
+    console.log(`   ✅ Groq a généré ${trends.length} tendances.`);
     return trends;
 
   } catch (e) {
@@ -291,7 +292,7 @@ async function run() {
   try {
 
     // ── 1. GÉNÉRATION DES TENDANCES PAR L'IA (JSON) ───────────
-    console.log('\n🤖 ÉTAPE 1 — Génération des tendances par Mistral AI...');
+    console.log('\n🤖 ÉTAPE 1 — Génération des tendances par Groq AI...');
     let finalTrends = await generateTrends();
 
     if (finalTrends.length === 0) {
@@ -325,7 +326,7 @@ async function run() {
       totalCandidates: finalTrends.length,
       totalAfterAIFilter: finalTrends.length,
       sources: [
-        'Mistral AI (génération tout-en-un)',
+        'Groq AI (génération tout-en-un)',
         'TikTok (vidéo exemple)',
       ],
       trends: finalTrends,
