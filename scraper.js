@@ -14,17 +14,38 @@ const MAX_FINAL_TRENDS = 20;   // Trends max dans le JSON final
 const TAVILY_MAX_RESULTS = 5;  // Résultats par requête Tavily
 
 // ─── REQUÊTES DE SOURCING ────────────────────────────────────
-// 8 requêtes × 5 résultats = ~40 snippets envoyés à Groq
-const TAVILY_QUERIES = [
-  'tiktok trends Gen Z France 2026',
-  'new viral slang teenagers France 2026',
-  'most popular roblox games this week 2026',
-  'viral tiktok sounds trending this week 2026',
-  'know your meme trending internet culture 2026',
-  'nouveau argot ados collégiens france 2026',
-  'trending anime manga tiktok 2026',
-  'new music viral tiktok france rap 2026',
-];
+// Construites dynamiquement avec le mois/année courants pour forcer la récence
+
+function buildQueries() {
+  const now = new Date();
+  const monthEN = now.toLocaleDateString('en-US', { month: 'long' }); // ex: "April"
+  const monthFR = now.toLocaleDateString('fr-FR', { month: 'long' }); // ex: "avril"
+  const year = now.getFullYear();
+
+  return [
+    // ─ Tendances TikTok générales (datées)
+    `new tiktok trends teenagers ${monthEN} ${year} just went viral`,
+    `viral tiktok hashtags Gen Z rising ${monthEN} ${year}`,
+
+    // ─ Argot / slang émergent
+    `new gen z slang words ${monthEN} ${year} meaning teenagers`,
+    `nouveau argot ados collégiens france ${monthFR} ${year} tiktok`,
+
+    // ─ Sources spécialisées trend-tracking
+    `site:knowyourmeme.com new trending memes ${year}`,
+    `reddit "what does" new slang teenagers tiktok ${year}`,
+
+    // ─ Contenu viral spécifique
+    `trending tiktok sounds ${monthEN} ${year} new viral audio`,
+    `new tiktok dance challenge emote ${monthEN} ${year}`,
+
+    // ─ Gaming / jeux en vogue
+    `most popular games teenagers tiktok ${monthEN} ${year}`,
+
+    // ─ Culture française spécifique
+    `tendances tiktok france ados ${monthFR} ${year} nouveau viral`,
+  ];
+}
 
 // ─── UTILITAIRES ─────────────────────────────────────────────
 
@@ -108,10 +129,11 @@ async function tavilySearch(query) {
  * Lance toutes les requêtes de sourcing et retourne les snippets dédupliqués
  */
 async function sourceTrends() {
-  console.log(`   📡 ${TAVILY_QUERIES.length} requêtes Tavily en cours...\n`);
+  const queries = buildQueries();
+  console.log(`   📡 ${queries.length} requêtes Tavily (${new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })})...\n`);
   const allSnippets = [];
 
-  for (const query of TAVILY_QUERIES) {
+  for (const query of queries) {
     process.stdout.write(`   🔍 "${query}" → `);
     const results = await tavilySearch(query);
     console.log(`${results.length} résultat(s)`);
@@ -197,33 +219,42 @@ async function filterTrendsWithGroq(snippets) {
     .map((s, i) => `[${i + 1}] ${s.title}\n${s.content}`)
     .join('\n\n');
 
-  const prompt = `Tu es un analyste culturel spécialisé dans les tendances TikTok chez les collégiens français (11-15 ans). Nous sommes le ${today}.
+  const prompt = `Tu es un analyste culturel expert en tendances TikTok chez les collégiens français (11-15 ans). Nous sommes le ${today}.
 
-Tu reçois ci-dessous ${snippets.length} extraits bruts issus du web (articles, listes de tendances, forums). Ton rôle est d'analyser ces extraits et d'en extraire les vraies tendances TikTok actuelles pertinentes pour des collégiens français.
+Tu reçois ci-dessous ${snippets.length} extraits bruts issus du web (articles, forums, listes de tendances). Ton rôle : identifier les tendances qui ont ÉMERGÉ ou EXPLOSÉ récemment (dans les 1 à 4 derniers mois), et qui n'étaient PAS populaires il y a 4 mois.
 
 === EXTRAITS WEB ===
 ${context}
 === FIN DES EXTRAITS ===
 
-RÈGLES D'EXTRACTION :
-✅ Extraire UNIQUEMENT les tendances réellement mentionnées dans les extraits ci-dessus
-✅ La tendance doit concerner les 11-15 ans / collégiens / ados
-✅ Le hashtag = UN SEUL MOT, minuscules, sans espace, sans # et sans accents
-✅ L'explication doit être rédigée pour des PARENTS : simple, neutre, sans jargon
-✅ La catégorie doit être exactement l'une de : "Argot internet / Brainrot", "Gaming", "Danse / Emote", "Vie scolaire", "Contenu viral", "Musique", "Anime / Manga", "Tendance ados"
-✅ "fiabilite" = score de 0 à 100 selon la fréquence et la pertinence dans les extraits
-✅ "vues" = estimation TikTok si mentionnée dans les extraits, sinon "N/A"
+CRITÈRES DE SÉLECTION — LIS ATTENTIVEMENT :
 
-❌ Ne PAS inventer de tendances absentes des extraits
-❌ Exclure les hashtags génériques (fyp, viral, tiktok, trending, france, pourtoi)
-❌ Exclure les tendances réservées aux adultes (18+)
+✅ INCLURE seulement si la tendance EST NOUVELLE : née ou devenue virale dans les 1 à 4 derniers mois
+✅ La tendance doit être mentionnée dans les extraits ci-dessus (ne pas inventer)
+✅ La tendance doit être utilisée par des collégiens français (11-15 ans)
+✅ Le hashtag = UN SEUL MOT, minuscules, sans espace, sans # et sans accents
+✅ L'explication est destinée à des PARENTS : claire, simple, sans jargon
+✅ La catégorie doit être exactement l'une de : "Argot internet / Brainrot", "Gaming", "Danse / Emote", "Vie scolaire", "Contenu viral", "Musique", "Anime / Manga", "Tendance ados"
+✅ "fiabilite" = score 0-100 selon la récence ET la fréquence de mention
+✅ "vues" = si mentionné dans les extraits, sinon "N/A"
+
+❌ EXCLURE les tendances établies depuis plus de 6 mois (même si encore populaires)
+❌ EXCLURE : fyp, viral, tiktok, trending, france, pourtoi (trop génériques)
+❌ EXCLURE les tendances réservées aux adultes (18+)
+❌ EXCLURE ce qui n'est pas mentionné dans les extraits
 ❌ Le hashtag ne doit pas contenir d'espaces, tirets, apostrophes ou caractères spéciaux
+
+EXEMPLES du type de tendances attendues (à titre illustratif — ne pas copier si non présentes dans les extraits) :
+• "skibidi" → argot/animation absurde devenue virale chez les ados
+• "forsure" → expression d'approbation exagérée utilisée ironiquement
+• "looksmax" → obsession d'améliorer son apparence physique
+• "gyatt" → exclamation de surprise devant quelqu'un d'attirant
 
 Réponds UNIQUEMENT avec un tableau JSON valide de 10 à 15 éléments, sans texte avant ni après, sans bloc markdown :
 [
   {
     "hashtag": "exemple",
-    "explication": "Explication claire et courte pour un parent qui ne connaît pas TikTok.",
+    "explication": "Ce que c'est en clair pour un parent : origine, usage, pourquoi les ados l'utilisent.",
     "categorie": "Argot internet / Brainrot",
     "fiabilite": 85,
     "vues": "50M+"
