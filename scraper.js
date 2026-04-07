@@ -1,62 +1,35 @@
 // ============================================================
 // scraper.js — TikTok Tracker pour les Parents
-// Pipeline : Seeds IA → Scraping hashtags → Filtre IA → Google
-// Trends → Vidéo exemple → Export trends.json
+// Pipeline : Tavily Sourcing → Groq Filtering → TikTok Vidéo → Export
 // ============================================================
 require('dotenv').config();
 const { chromium } = require('playwright-extra');
 const stealth = require('puppeteer-extra-plugin-stealth')();
-const googleTrends = require('google-trends-api');
 const fs = require('fs');
 
 chromium.use(stealth);
 
 // ─── CONFIG ──────────────────────────────────────────────────
 const MAX_FINAL_TRENDS = 20;   // Trends max dans le JSON final
-const MAX_POOL_FOR_AI = 50;   // Candidats max envoyés à l'IA
-const GT_BATCH_SIZE = 4;    // Requêtes Google Trends en //
-const GT_BATCH_DELAY = 900;  // ms entre chaque batch GT
+const TAVILY_MAX_RESULTS = 5;  // Résultats par requête Tavily
 
-// ─── SEEDS DE SECOURS (si Gemini est KO) ─────────────────────
-const FALLBACK_SEEDS = [
-  'skibidi', 'sigma', 'rizz', 'npc', 'aura', 'mewing', 'pookie',
-  'fortnite', 'roblox', 'freefire', 'brawlstars', 'minecraft',
-  'phonk', 'drift', 'pov', 'ohio', 'brainrot', 'looksmax',
-  'gyatt', 'genshin', 'valorant', 'delulu',
+// ─── REQUÊTES DE SOURCING ────────────────────────────────────
+// 8 requêtes × 5 résultats = ~40 snippets envoyés à Groq
+const TAVILY_QUERIES = [
+  'tiktok trends Gen Z France 2026',
+  'new viral slang teenagers France 2026',
+  'most popular roblox games this week 2026',
+  'viral tiktok sounds trending this week 2026',
+  'know your meme trending internet culture 2026',
+  'nouveau argot ados collégiens france 2026',
+  'trending anime manga tiktok 2026',
+  'new music viral tiktok france rap 2026',
 ];
 
 // ─── UTILITAIRES ─────────────────────────────────────────────
 
 function sleep(ms) {
   return new Promise(r => setTimeout(r, ms));
-}
-
-/**
- * Parse les chaînes de vues TikTok : "20.5 Trillion", "2B", "500K", etc.
- */
-function parseCount(str) {
-  if (!str) return 0;
-  const s = str.trim().replace(/,/g, '');
-  const num = parseFloat(s);
-  if (isNaN(num)) return 0;
-  const low = s.toLowerCase();
-  if (low.includes('trillion')) return Math.round(num * 1e12);
-  if (low.includes('billion') || low.endsWith('b')) return Math.round(num * 1e9);
-  if (low.includes('million') || low.endsWith('m')) return Math.round(num * 1e6);
-  if (low.includes('thousand') || low.endsWith('k')) return Math.round(num * 1e3);
-  return Math.round(num);
-}
-
-/**
- * Formate un nombre pour l'affichage (ex : 1 200 000 → "1.2 M")
- */
-function fmtNumber(n) {
-  if (!n || n === 0) return null;
-  if (n >= 1e12) return (n / 1e12).toFixed(1) + ' T';
-  if (n >= 1e9) return (n / 1e9).toFixed(1) + ' Md';
-  if (n >= 1e6) return (n / 1e6).toFixed(1) + ' M';
-  if (n >= 1e3) return (n / 1e3).toFixed(0) + ' K';
-  return String(n);
 }
 
 /**
@@ -89,30 +62,99 @@ function getCategory(tag) {
   return 'Tendance ados';
 }
 
-// ─── GROQ : appel générique avec retry ──────────────────────────
+// ─── PHASE 1 : SOURCING TAVILY ───────────────────────────────
 
-async function callGroq(prompt, temperature = 0.3) {
+/**
+ * Lance une requête sur l'API Tavily et retourne les snippets
+ */
+async function tavilySearch(query) {
+  let apiKey = process.env.TAVILY_API_KEY;
+  if (apiKey) apiKey = apiKey.replace(/^["']|["']$/g, '').trim();
+  if (!apiKey) throw new Error('TAVILY_API_KEY manquante');
+
+  try {
+    const res = await fetch('https://api.tavily.com/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        api_key: apiKey,
+        query,
+        search_depth: 'basic',
+        max_results: TAVILY_MAX_RESULTS,
+        include_answer: false,
+        include_raw_content: false,
+      }),
+    });
+
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`HTTP ${res.status} — ${err.slice(0, 120)}`);
+    }
+
+    const data = await res.json();
+    return (data.results || []).map(r => ({
+      title: r.title || '',
+      // Tronqué à 400 chars pour économiser les tokens Groq
+      content: (r.content || '').slice(0, 400),
+      url: r.url || '',
+    }));
+  } catch (e) {
+    console.warn(`   ⚠️  Tavily erreur pour "${query}" : ${e.message}`);
+    return [];
+  }
+}
+
+/**
+ * Lance toutes les requêtes de sourcing et retourne les snippets dédupliqués
+ */
+async function sourceTrends() {
+  console.log(`   📡 ${TAVILY_QUERIES.length} requêtes Tavily en cours...\n`);
+  const allSnippets = [];
+
+  for (const query of TAVILY_QUERIES) {
+    process.stdout.write(`   🔍 "${query}" → `);
+    const results = await tavilySearch(query);
+    console.log(`${results.length} résultat(s)`);
+    allSnippets.push(...results);
+    await sleep(350); // Pause légère pour éviter le rate limiting
+  }
+
+  // Déduplication par URL
+  const seen = new Set();
+  const unique = allSnippets.filter(s => {
+    if (!s.url || seen.has(s.url)) return false;
+    seen.add(s.url);
+    return true;
+  });
+
+  console.log(`\n   ✅ ${unique.length} snippets uniques collectés sur ${allSnippets.length} au total.`);
+  return unique;
+}
+
+// ─── PHASE 2 : FILTRAGE GROQ ─────────────────────────────────
+
+/**
+ * Appel à l'API Groq avec retry
+ */
+async function callGroq(prompt, temperature = 0.2) {
   let apiKey = process.env.GROQ_API_KEY;
   if (apiKey) apiKey = apiKey.replace(/^["']|["']$/g, '').trim();
   if (!apiKey) throw new Error('GROQ_API_KEY manquante');
 
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
-      const res = await fetch(
-        'https://api.groq.com/openai/v1/chat/completions',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
-          },
-          body: JSON.stringify({
-            model: 'llama-3.3-70b-versatile',
-            messages: [{ role: 'user', content: prompt }],
-            temperature: temperature
-          }),
-        }
-      );
+      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: 'llama-3.3-70b-versatile',
+          messages: [{ role: 'user', content: prompt }],
+          temperature,
+        }),
+      });
 
       if (!res.ok) {
         const errText = await res.text();
@@ -128,7 +170,6 @@ async function callGroq(prompt, temperature = 0.3) {
       }
 
       const data = await res.json();
-
       const text = data?.choices?.[0]?.message?.content ?? '';
       if (!text) throw new Error('Réponse Groq vide');
 
@@ -143,100 +184,83 @@ async function callGroq(prompt, temperature = 0.3) {
   throw new Error('Groq indisponible après 3 tentatives');
 }
 
-// ─── ÉTAPE 1 : Génération des tendances par Groq (JSON) ────────
+/**
+ * Envoie les snippets bruts à Groq qui extrait les vraies tendances
+ */
+async function filterTrendsWithGroq(snippets) {
+  const today = new Date().toLocaleDateString('fr-FR', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
 
-async function generateTrends() {
-  const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+  // Formate les snippets comme contexte numéroté
+  const context = snippets
+    .map((s, i) => `[${i + 1}] ${s.title}\n${s.content}`)
+    .join('\n\n');
 
-  const prompt = `Tu es un analyste spécialisé dans les micro-tendances TikTok chez les collégiens français (11-15 ans, classes de 6e à 3e). Nous sommes le ${today}.
+  const prompt = `Tu es un analyste culturel spécialisé dans les tendances TikTok chez les collégiens français (11-15 ans). Nous sommes le ${today}.
 
-CONTEXTE :
-Les micro-tendances que tu dois trouver sont des hashtags TikTok nés ou devenus viraux en France ces 1 à 4 derniers mois. Ce sont des mots-clés précis, reconnaissables immédiatement par un collégien français à la récréation. Ils viennent de sons TikTok, de mèmes francophones, de séries/jeux populaires chez les ados, ou d'expressions inventées sur internet.
+Tu reçois ci-dessous ${snippets.length} extraits bruts issus du web (articles, listes de tendances, forums). Ton rôle est d'analyser ces extraits et d'en extraire les vraies tendances TikTok actuelles pertinentes pour des collégiens français.
 
-EXEMPLES du type de hashtags attendus (à titre indicatif, ne pas les copier) :
-- "skibidi" (brainrot, animation absurde virale)
-- "sigma" (argot internet, homme solitaire dominateur)
-- "rizz" (charisme avec les filles/garçons, term virale)
-- "pookie" (surnom affectueux devenu running gag)
-- "looksmax" (obsession de s'améliorer physiquement)
-- "fanum" (tax = voler la nourriture de quelqu'un)
-- "mewing" (exercice de mâchoire popularisé par des vidéos)
-- "brainrot" (contenu absurde qui "pourrit le cerveau")
-- "glowtok" (transformation beauté/style)
-- "slay" (faire quelque chose parfaitement)
-Ne copies surtout pas ces exemples là sauf si tu les trouves en dehors de ces exemples.
+=== EXTRAITS WEB ===
+${context}
+=== FIN DES EXTRAITS ===
 
-RÈGLES STRICTES DE SÉLECTION :
-✅ La tendance doit être active sur TikTok FRANCE ces 1 à 4 derniers mois
-✅ Elle doit être utilisée/comprise par les collégiens français (11-15 ans) sans explication
-✅ Le hashtag doit être UN SEUL MOT, en minuscules, sans espace, sans # et sans accents
-✅ L'explication doit être rédigée pour des PARENTS qui ne connaissent pas TikTok : simple, neutre, sans jargon
+RÈGLES D'EXTRACTION :
+✅ Extraire UNIQUEMENT les tendances réellement mentionnées dans les extraits ci-dessus
+✅ La tendance doit concerner les 11-15 ans / collégiens / ados
+✅ Le hashtag = UN SEUL MOT, minuscules, sans espace, sans # et sans accents
+✅ L'explication doit être rédigée pour des PARENTS : simple, neutre, sans jargon
 ✅ La catégorie doit être exactement l'une de : "Argot internet / Brainrot", "Gaming", "Danse / Emote", "Vie scolaire", "Contenu viral", "Musique", "Anime / Manga", "Tendance ados"
-✅ "fiabilite" = score de 0 à 100 indiquant à quel point cette trend est ACTIVE EN CE MOMENT en France
-✅ "vues" = estimation du nombre total de vues TikTok associées, format "50M+" ou "2Md+"
+✅ "fiabilite" = score de 0 à 100 selon la fréquence et la pertinence dans les extraits
+✅ "vues" = estimation TikTok si mentionnée dans les extraits, sinon "N/A"
 
-❌ Exclure les hashtags génériques (#fyp, #viral, #pourtoi, #tiktok, #trending, #france)
-❌ Exclure les tendances de plus de 6 mois ou déjà passées de mode
-❌ Exclure les trends strictement anglophones non adoptées en France
+❌ Ne PAS inventer de tendances absentes des extraits
+❌ Exclure les hashtags génériques (fyp, viral, tiktok, trending, france, pourtoi)
 ❌ Exclure les tendances réservées aux adultes (18+)
-❌ Le hashtag ne doit pas contenir d'espaces, de tirets, d'apostrophes ou de caractères spéciaux
+❌ Le hashtag ne doit pas contenir d'espaces, tirets, apostrophes ou caractères spéciaux
 
-Réponds UNIQUEMENT avec un tableau JSON valide de 15 éléments, sans texte avant ni après, sans bloc markdown :
+Réponds UNIQUEMENT avec un tableau JSON valide de 10 à 15 éléments, sans texte avant ni après, sans bloc markdown :
 [
   {
-    "hashtag": "skibidi",
-    "explication": "Personnage absurde issu d'une animation virale sur internet, repris dans d'innombrables mèmes. Les collégiens l'utilisent pour qualifier quelque chose de bizarre ou de drôle.",
+    "hashtag": "exemple",
+    "explication": "Explication claire et courte pour un parent qui ne connaît pas TikTok.",
     "categorie": "Argot internet / Brainrot",
-    "fiabilite": 95,
-    "vues": "500M+"
+    "fiabilite": 85,
+    "vues": "50M+"
   }
 ]`;
 
-  try {
-    const raw = await callGroq(prompt, 0.3);
+  const raw = await callGroq(prompt, 0.2);
 
-    const match = raw.match(/\[[\s\S]*\]/);
-    if (!match) throw new Error('Pas de tableau JSON dans la réponse');
+  const match = raw.match(/\[[\s\S]*\]/);
+  if (!match) throw new Error('Pas de tableau JSON dans la réponse Groq');
 
-    const parsed = JSON.parse(match[0]);
-    if (!Array.isArray(parsed) || parsed.length === 0) throw new Error('Tableau vide');
+  const parsed = JSON.parse(match[0]);
+  if (!Array.isArray(parsed) || parsed.length === 0) throw new Error('Tableau Groq vide');
 
-    const trends = parsed
-      .filter(item => typeof item.hashtag === 'string' && item.hashtag.trim().length >= 2)
-      .map(item => {
-        const tag = item.hashtag.toLowerCase()
-          .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-          .replace(/[^a-z0-9]/g, '');
-        return {
-          tag,
-          views: null,
-          posts: null,
-          viewsFmt: item.vues || 'N/A',
-          postsFmt: 'N/A',
-          trendScore: typeof item.fiabilite === 'number' ? item.fiabilite : 80,
-          isRising: true,
-          aiConfidence: typeof item.fiabilite === 'number' ? item.fiabilite : 80,
-          category: item.categorie || getCategory(tag),
-          explanation: item.explication || null,
-        };
-      })
-      .filter(t => t.tag.length >= 2);
-
-    console.log(`   ✅ Groq a généré ${trends.length} tendances.`);
-    return trends;
-
-  } catch (e) {
-    console.error(`   ❌ Échec génération IA : ${e.message}`);
-    return [];
-  }
+  return parsed
+    .filter(item => typeof item.hashtag === 'string' && item.hashtag.trim().length >= 2)
+    .map(item => {
+      const tag = item.hashtag.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]/g, '');
+      return {
+        tag,
+        views: null,
+        posts: null,
+        viewsFmt: item.vues || 'N/A',
+        postsFmt: 'N/A',
+        trendScore: typeof item.fiabilite === 'number' ? item.fiabilite : 80,
+        isRising: true,
+        aiConfidence: typeof item.fiabilite === 'number' ? item.fiabilite : 80,
+        category: item.categorie || getCategory(tag),
+        explanation: item.explication || null,
+      };
+    })
+    .filter(t => t.tag.length >= 2);
 }
 
-// ────────────────────────────────────────────────────────────
-
-
-
-
-// ─── ÉTAPE 4 : Vidéo exemple sur TikTok ─────────────────────
+// ─── PHASE 3 : VIDÉO EXEMPLE TIKTOK ─────────────────────────
 
 async function getExampleVideo(page, hashtag) {
   try {
@@ -244,16 +268,13 @@ async function getExampleVideo(page, hashtag) {
       `https://www.tiktok.com/tag/${encodeURIComponent(hashtag)}`,
       { waitUntil: 'networkidle', timeout: 30000 }
     );
-    // Attente supplémentaire pour laisser le JS charger les vidéos
     await sleep(5000);
 
     const videoData = await page.evaluate(() => {
       const links = Array.from(document.querySelectorAll('a[href*="/video/"]'));
-      // Filtrer les liens avec un vrai ID de vidéo (18-19 chiffres)
       const videoLinks = links.filter(l => /\/@[^/]+\/video\/\d{15,}/.test(l.href || ''));
       if (videoLinks.length === 0) return null;
 
-      // Prendre aléatoirement parmi les 3 premiers pour varier
       const idx = Math.floor(Math.random() * Math.min(3, videoLinks.length));
       const link = videoLinks[idx];
       const match = (link.href || '').match(/\/@([^/]+)\/video\/(\d+)/);
@@ -274,7 +295,6 @@ async function getExampleVideo(page, hashtag) {
   }
 }
 
-
 // ─── MAIN ────────────────────────────────────────────────────
 
 async function run() {
@@ -291,22 +311,38 @@ async function run() {
 
   try {
 
-    // ── 1. GÉNÉRATION DES TENDANCES PAR L'IA (JSON) ───────────
-    console.log('\n🤖 ÉTAPE 1 — Génération des tendances par Groq AI...');
-    let finalTrends = await generateTrends();
+    // ── ÉTAPE 1 : SOURCING TAVILY ──────────────────────────
+    console.log('\n📡 ÉTAPE 1 — Sourcing web via Tavily Search API...');
+    const snippets = await sourceTrends();
 
-    if (finalTrends.length === 0) {
-      console.log('⚠️ Aucune tendance n\'a été récupérée. Arrêt.');
+    if (snippets.length === 0) {
+      console.error('❌ Aucun snippet collecté depuis Tavily. Vérifier TAVILY_API_KEY.');
       process.exit(1);
     }
 
-    // Limitation aux 20 meilleurs
+    // ── ÉTAPE 2 : FILTRAGE GROQ ────────────────────────────
+    console.log(`\n🤖 ÉTAPE 2 — Filtrage IA (Groq / LLaMA 3.3) sur ${snippets.length} snippets...`);
+    let finalTrends;
+    try {
+      finalTrends = await filterTrendsWithGroq(snippets);
+      console.log(`   ✅ Groq a extrait ${finalTrends.length} tendances depuis le web.`);
+    } catch (e) {
+      console.error(`   ❌ Échec filtrage Groq : ${e.message}`);
+      process.exit(1);
+    }
+
+    if (finalTrends.length === 0) {
+      console.error('❌ Aucune tendance extraite. Arrêt.');
+      process.exit(1);
+    }
+
+    // Limitation au max configuré
     if (finalTrends.length > MAX_FINAL_TRENDS) {
       finalTrends = finalTrends.slice(0, MAX_FINAL_TRENDS);
     }
 
-    // ── 2. VIDÉOS EXEMPLES ────────────────────────────────────
-    console.log(`\n🎬 ÉTAPE 2 — Vidéo exemple TikTok pour chaque trend...`);
+    // ── ÉTAPE 3 : VIDÉOS EXEMPLES ─────────────────────────
+    console.log(`\n🎬 ÉTAPE 3 — Recherche de vidéo exemple TikTok...`);
 
     for (const trend of finalTrends) {
       process.stdout.write(`   🎥 #${trend.tag} → `);
@@ -316,17 +352,18 @@ async function run() {
         console.log(`✅ ${video.author}`);
       } else {
         trend.exampleVideo = null;
-        console.log('⚠️  aucune vidéo');
+        console.log('⚠️  aucune vidéo trouvée');
       }
     }
 
-    // ── EXPORT ───────────────────────────────────────────────
+    // ── EXPORT ────────────────────────────────────────────
     const output = {
       lastUpdate: new Date().toISOString(),
-      totalCandidates: finalTrends.length,
+      totalCandidates: snippets.length,
       totalAfterAIFilter: finalTrends.length,
       sources: [
-        'Groq AI (génération tout-en-un)',
+        'Tavily Search API (sourcing web en temps réel)',
+        'Groq AI / LLaMA 3.3 70B (filtrage et structuration)',
         'TikTok (vidéo exemple)',
       ],
       trends: finalTrends,

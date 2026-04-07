@@ -2,7 +2,8 @@ name: Update TikTok Trends
 
 on:
   schedule:
-    - cron: '0 */6 * * *'   # Toutes les 6 heures
+    # 4 fois par mois : le 1er, 8, 15 et 22 à 8h00 UTC
+    - cron: '0 8 1,8,15,22 * *'
   workflow_dispatch:          # Lancement manuel depuis l'onglet Actions
 
 jobs:
@@ -31,6 +32,7 @@ jobs:
       - name: Lancement du scraper
         run: node scraper.js
         env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
 
       - name: Commit et push de trends.json
